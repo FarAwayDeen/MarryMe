@@ -1,0 +1,298 @@
+﻿
+@{
+    ViewBag.Title = "ProfileWizard";
+    if (Session["Role"] != null && (Session["Role"]).ToString() == "Registrar")
+    {
+        Response.Redirect("~/MarriageRegistration/RegistrarProfile");
+    }
+}
+@*<link href="~/Content/Site.css" rel="stylesheet" />*@
+@*<link href="~/Content/fontawesome.css" rel="stylesheet" />*@
+@*<link href="~/Content/fontawesome.css" rel="stylesheet" />*@
+@*<script src="~/assets/vendor/jquery/jquery.min.js"></script>*@
+<link href="~/Content/profile-wizard.css" rel="stylesheet" />
+<!-- MultiStep Form -->
+<div class="container-fluid" id="grad1">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 mt-3 col-sm-3C">
+            @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+        </div>
+        <div class="co-md-8 col-sm-9 p-0 mt-1 mb-2">
+            <div class="card px-0 pb-0 mt-3 mb-1">
+                <div class="container">
+                    <h5><strong>Complete Your Profile</strong></h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mx-0">
+                        <div id="msform">
+                            <!-- progressbar -->
+                            @*<ul id="progressbar">
+                                    <li class="active icofont-file-alt" id=""><strong>Personal Information</strong></li>
+                                    <li id="" class="icofont-location-pin"><strong>Location Information</strong></li>
+                                    <li id="" class="icofont-graduate"><strong>Education And Profession</strong></li>
+                                    <li id="" class="icofont-users-alt-3"><strong>Family Information</strong></li>
+                                    <li id="" class="icofont-star"><strong>Religious Information</strong></li>
+                                    <li id="" class="icofont-ui-user"><strong>Personal Detail</strong></li>
+                                    <li id="" class="icofont-pencil-alt-2"><strong>About me</strong></li>
+                                </ul>*@
+                            <!-- fieldsets -->
+                            @*Personal Information start here*@
+                            <fieldset>
+                                @*@Html.Partial("~/Views/Partials/_PersonalInformation.cshtml")*@
+                            </fieldset>
+                            @*Personal Information End here*@
+                            @* Locatoin information start here *@
+                            <fieldset>
+                                @*@Html.Partial("~/Views/Partials/_LocationInformation.cshtml")*@
+                            </fieldset>
+                            @* Locatoin information end here *@
+                            @* Education start here *@
+                            <fieldset>
+                                @*@Html.Partial("~/Views/Partials/_EducationAndProfession.cshtml")*@
+                            </fieldset>
+                            @* Education end here *@
+                            @* Family information start here *@
+                            <fieldset>
+                                @*@Html.Partial("~/Views/Partials/_FamilyInformation.cshtml")*@
+                            </fieldset>
+                            @* Family information end here *@
+                            @* Religious informatoin start here *@
+                            <fieldset>
+                                @*@Html.Partial("~/Views/Partials/_ReligiousInformation.cshtml")*@
+                            </fieldset>
+                            @* Religious informatoin end here *@
+                            @* Add your Personal detail start here *@
+                            <fieldset>
+                                @*@Html.Partial("~/Views/Partials/_PersonalDetail.cshtml")*@
+                            </fieldset>
+                            @* Add your Personal detail end here *@
+                            @*About Me start here*@
+                            <fieldset>
+                                @*@Html.Partial("~/Views/Partials/_About.cshtml")*@
+                            </fieldset>
+                            @*About me end here*@
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
+                                            <img src="~/assets/img/event-private.jpg" class="fit-image" />
+                                        </div>
+                                    </div> <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5>You Have Successfully Completed Your Profile</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            @*<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                                <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+                                <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
+                            <!------ Include the above in your HEAD tag ---------->
+
+                            <div class="stepwizard">
+                                <div class="stepwizard-row setup-panel">
+                                    <div class="stepwizard-step">
+                                        <a href="#step-1" type="button" class="btn btn-primary btn-circle">
+                                            <i class="icofont-file-alt"></i>
+                                        </a>
+                                        <p>Personal Information</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a href="#step-2" type="button" class="btn btn-default btn-circle">
+                                            <i class="icofont-location-pin"></i>
+                                        </a>
+                                        <p>Location Information</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a href="#step-3" type="button" class="btn btn-default btn-circle">
+                                            <i class="icofont-graduate"></i>
+                                        </a>
+                                        <p>Education And Profession</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a href="#step-4" type="button" class="btn btn-default btn-circle">
+                                            <i class="icofont-users-alt-3"></i>
+                                        </a>
+                                        <p>Family Information</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a href="#step-5" type="button" class="btn btn-default btn-circle">
+                                            <i class="icofont-star"></i>
+                                        </a>
+                                        <p>Religious Information</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a href="#step-6" type="button" class="btn btn-default btn-circle">
+                                            <i class="icofont-ui-user"></i>
+                                        </a>
+                                        <p>Personal Detail</p>
+                                    </div>
+                                    <div class="stepwizard-step">
+                                        <a href="#step-7" type="button" class="btn btn-default btn-circle">
+                                            <i class="icofont-pencil-alt-2"></i>
+                                        </a>
+                                        <p>About me</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div class="setup-content" id="step-1">
+                                    @Html.Partial("~/Views/Partials/_PersonalInformation.cshtml")
+                                </div>
+                                <div class="setup-content" id="step-2">
+                                    @Html.Partial("~/Views/Partials/_LocationInformation.cshtml")
+                                </div>
+                                <div class="setup-content" id="step-3">
+                                    @Html.Partial("~/Views/Partials/_EducationAndProfession.cshtml")
+                                </div>
+                                <div class="setup-content" id="step-4">
+                                    @Html.Partial("~/Views/Partials/_FamilyInformation.cshtml")
+                                </div>
+                                <div class="setup-content" id="step-5">
+                                    @Html.Partial("~/Views/Partials/_ReligiousInformation.cshtml")
+                                </div>
+                                <div class="setup-content" id="step-6">
+                                    @Html.Partial("~/Views/Partials/_PersonalDetail.cshtml")
+                                </div>
+                                <div class="setup-content" id="step-7">
+                                    @Html.Partial("~/Views/Partials/_About.cshtml")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+
+        //$(".next").click(function () {
+
+        //    current_fs = $(this).parent();
+        //    next_fs = $(this).parent().parent().parent().next();
+
+        //    //Add Class Active
+        //    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+        //    //show the next fieldset
+        //    next_fs.show();
+        //    //hide the current fieldset with style
+        //    current_fs.animate({ opacity: 0 }, {
+        //        step: function (now) {
+        //            // for making fielset appear animation
+        //            opacity = 1 - now;
+
+        //            current_fs.css({
+        //                'display': 'none',
+        //                'position': 'relative'
+        //            });
+        //            next_fs.css({ 'opacity': opacity });
+        //        },
+        //        duration: 600
+        //    });
+        //});
+
+        //$(".previous").click(function () {
+
+        //    current_fs = $(this).parent().parent().parent();
+        //    previous_fs = $(this).parent().parent().parent().prev();
+
+        //    //Remove class active
+        //    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+        //    //show the previous fieldset
+        //    previous_fs.show();
+
+        //    //hide the current fieldset with style
+        //    current_fs.animate({ opacity: 0 }, {
+        //        step: function (now) {
+        //            // for making fielset appear animation
+        //            opacity = 1 - now;
+
+        //            current_fs.css({
+        //                'display': 'none',
+        //                'position': 'relative'
+        //            });
+        //            previous_fs.css({ 'opacity': opacity });
+        //        },
+        //        duration: 600
+        //    });
+        //});
+
+        $('.radio-group .radio').click(function () {
+            $(this).parent().find('.radio').removeClass('selected');
+            $(this).addClass('selected');
+        });
+
+        $(".submit").click(function () {
+            return false;
+        })
+
+
+        var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn');
+        allPreBtn = $('.preBtn');
+
+        allWells.hide();
+
+        navListItems.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                $item = $(this);
+
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('btn-primary').addClass('btn-default');
+                $item.addClass('btn-primary');
+                allWells.hide();
+                $target.show();
+                $target.find('input:eq(0)').focus();
+            }
+        });
+
+        allNextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                //    curInputs = curStep.find("input[type='text'],input[type='url']"),
+                isValid = true;
+            //$(".form-group").removeClass("has-error");
+            //for(var i=0; i<curInputs.length; i++){
+            //    if (!curInputs[i].validity.valid){
+            //        isValid = false;
+            //        $(curInputs[i]).closest(".form-group").addClass("has-error");
+            //    }
+            //}
+
+            if (isValid)
+                nextStepWizard.removeAttr('disabled').trigger('click');
+        });
+
+        allPreBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                preStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a"),
+                //    curInputs = curStep.find("input[type='text'],input[type='url']"),
+                isValid = true;
+            if (isValid)
+                preStepWizard.removeAttr('disabled').trigger('click');
+        });
+
+        $('div.setup-panel div a.btn-primary').trigger('click');
+
+    });
+
+</script>
+

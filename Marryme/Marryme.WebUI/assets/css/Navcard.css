@@ -1,0 +1,24 @@
+﻿.sidenav {
+    background: #28a745;
+    /*background: #2196F3; blue shade*/
+    padding: 8px 0;
+}
+
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        color: #fff;
+        display: block;
+        transition: 0.5s;
+    }
+
+        .sidenav a:hover {
+            color: #000000;
+            background: #EEF7F4;
+        }
+
+.active {
+    color: #000000 !important;
+    background: #fff;
+}

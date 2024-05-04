@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "Wife Detail";
+}
+<link href="~/Content/fontawesome.css" rel="stylesheet" />
+<script src="~/Angular/Member/ExsitingWifeDetail.js?v=@DateTime.Now.Ticks"></script>
+
+<div class="container-fluid">
+    <div class="col-sm-12 col-md-12" ng-controller="ExsitingWifeDetailController">
+        <div class="row">
+            <div class="col-sm-3 mt-1 col-sm-3C" style=" margin: -15px -15px;">
+                @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+            </div>
+            <div class=" col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Current Wifes Detail</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="wifeDetailForm" ng-submit="WifeForm.$valid ? SaveWifeDetail():''" name="WifeForm">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>Exsiting Wife</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <select class="form-control" ng-model="WifeDetail.ExsitingWife"  ng-change="getDetailsByWife()">
+                                                <option value="" class="text-center">Please Select</option>
+                                                <option value="{{wife.Id}}" class="text-center" ng-repeat="wife in ExsitingWife">{{wife.Type}}</option>
+                                                @*<option value="1st" class="text-center">1st Wife</option>
+                                                    <option value="2nd" class="text-center">2nd Wife</option>
+                                                    <option value="3rd" class="text-center">3rd Wife</option>*@
+                                            </select> 
+                                            <span id="wifeNo" class="text-danger border-danger" style="display:none">Please Select Exsiting Wife</span>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <h6>Does this Wife agree with your marriage?</h6>
+                                        </div>
+                                        <div class="col-sm-6 col-md-2">
+                                            <select class="form-control" ng-model="WifeDetail.HaveWife">
+                                                <option value="" class="text-center">Please Select</option>
+                                                <option value="{{t.Id}}" class="text-center" ng-repeat="t in TrueFalse">{{t.Type}}</option>
+                                                @*<option value="Yes" class="text-center">Yes</option>
+                                                    <option value="No" class="text-center">No</option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>Wife's Living Status</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <select class="form-control" ng-model="WifeDetail.LivingStatus">
+                                                <option value="" class="text-center">Please Select</option>
+                                                <option value="{{status.Type}}" class="text-center" ng-repeat="status in ExsitingWifeLivingStatusList">{{status.Name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>Wife's Religion</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <select class="form-control" ng-model="WifeDetail.Religion">
+                                                <option value="" class="text-center">Please Select</option>
+                                                <option value="{{Religion.ReligionName}}" class="text-center" ng-repeat="Religion in Religions">{{Religion.ReligionName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>Year of Marriage</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <select class="form-control text-center" ng-model="WifeDetail.MarriageYear" required data-parsley-error-message="">
+                                                <option value="">Year</option>
+                                                <option value="{{Year.Id}}" class="text-center" ng-repeat="Year in Years">{{Year.Id}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>Wife's Age</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <input type="text" name="name" value="" class="form-control" ng-model="WifeDetail.Age" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>Wife's Education</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            @*<input type="text" name="name" value="" class="form-control" ng-model="WifeDetail.Education" />*@
+                                            <select class="form-control" required ng-model="WifeDetail.EducationLevelId" data-parsley-error-message="">
+                                                <option value="">Please Select</option>
+                                                @*<option ng-repeat="level in EducationList" ngValue="{{level.ID}}" style="color:#888;">{{level.Name}}</option>*@
+                                                <option ng-repeat="option in EducationList" value="{{option.ID}}">{{option.Name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>Wife's Job</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <input type="text" name="name" value="" class="form-control" ng-model="WifeDetail.Job" />
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>Wife's Location</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <input type="text" name="name" value="" class="form-control" ng-model="WifeDetail.Location" />
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <label>No. of Kids</label>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3">
+                                            <input type="text" name="WifeKids" placeholder="Enter Nummbers Only" value="" id="Wifekids" class="form-control" ng-model="WifeDetail.Kids" ng-keyup="kidsstrength($event)" required maxlength="2" />
+                                            <span ng-show="WifeForm.WifeKids.$error.pattern" class="text-danger">Number only!</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="card" id="KidsCard" style="display:none">
+                                                <div class="card-title text-center mt-1">
+                                                    <h5>Kids Detail</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 text-center">
+
+                                                        <table class="table" id="childTable" click="">
+                                                            <tr>
+                                                                <th>Age</th>
+                                                                <th>Gender</th>
+                                                                <th>Location</th>
+                                                                <th>Marital Status</th>
+                                                            </tr>
+                                                            <tr ng-repeat="kids in WifeKidsDetailList track by $index">
+                                                                <td>
+                                                                    <input type="number" name="name" class="form-control numbersonly" ng-model="WifeKidsDetailList[$index].Age" required />
+                                                                </td>
+                                                                <td>
+                                                                    <select class="form-control" ng-model="WifeKidsDetailList[$index].Gender" required>
+                                                                        <option value="" class="text-center">---Please Select---</option>
+                                                                        <option value="Male" class="text-center">Male</option>
+                                                                        <option value="Female" class="text-center">Female</option>
+                                                                    </select>
+                                                                    @*<input type="text" name="name" value="" class="form-control" ng-model="WifeKidsDetailList[$index].Gender" />*@
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="name" class="form-control" ng-model="WifeKidsDetailList[$index].Location" />
+                                                                </td>
+                                                                <td>
+                                                                    <select class="form-control" ng-model="WifeKidsDetailList[$index].Status" required>
+                                                                        <option value="" class="text-center">---Please Select---</option>
+                                                                        <option value="Married" class="text-center">Married</option>
+                                                                        <option value="UnMarried" class="text-center">UnMarried</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 mt-2 text-center">
+                                            <input id="btnWifeDetail" type="submit" class="action-button btn-success" value="Save" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-sm-12">
+                        <div class="row mt-2">
+                            <div class="col-sm-6 text-left">
+                                <a href="/Member/ProfileRequirement" type="button" class="btn btn-success ">Previous</a>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <a href="/Member/AcceptanceCriteria" type="button" class="btn btn-success ">Next</a>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+@*<script>
+        $('#childTable tr').each(function () { var customerId = $(this).find(".customerIDCell").html(); });
+    </script>*@
+<script>
+    $(document).ready(() => {
+        $(function () {
+            $("input[name='WifeKids']").on('keyup', function (e) {
+                /*if (e.keyCode == 8) alert('backspace trapped');*/
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+
+                if (parseInt($(this).val()) >= 12) {
+                    //console.log($(this).val())
+                    $(this).val('');
+                    $("#KidsCard").hide();
+                }
+                else if ($(this).val == null || $(this).val == '') {
+                    $("#KidsCard").hide();
+                    // console.log($(this).val())
+                }
+            });
+            $('table').on('click', "input", function () {
+                console.log("sd")
+                // $(this).fadeOut(500);
+            });
+
+            function numberonly(e) {
+                $('.numbersonly').on('keyup', function (e) {
+                    /*if (e.keyCode == 8) alert('backspace trapped');*/
+                    $(this).val($(this).val().replace(/[^0-9]/g, ''));
+
+                });
+            }
+        });
+
+</script>

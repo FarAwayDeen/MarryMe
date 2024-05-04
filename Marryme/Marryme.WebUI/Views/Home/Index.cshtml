@@ -1,0 +1,451 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@*<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link href="~/Content/fontawesome.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+    .dropdown:hover > .dropdown-menu {
+        display: block;
+    }
+    /* Arrow btn */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 50%;
+        font-size: 22px;
+        padding: 15px 20px;
+    }
+    #chatbtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left:30px;
+        background-color:blue;
+        visibility:visible;
+        z-index: 99;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 50%;
+        font-size: 22px;
+        padding: 15px 20px;
+    }
+
+
+        #myBtn:hover {
+            background-color: darkseagreen;
+        }
+</style>
+<!-- header -->
+<div class="bgimg img-fluid">
+    <section class="d-flex align-items-center">
+        <div class="container-fluid headerset">
+            @if (ViewBag.EmailConfimation == true)
+            {
+                <div class="alert alert-success" style="position: relative; z-index: 1;" role="alert">
+                    success: Your account has been confirmed and activated.
+                </div>
+            }
+            @if (ViewBag.EmailConfimation == false)
+            {
+                <div class="alert alert-danger" style="position: relative; z-index: 1;" role="alert">
+                    Error: Please Check your Email for Confirmation.
+                </div>
+            }
+            <div class="container position-relative text-center text-lg-left" style="z-index:1;" data-aos="zoom-in" data-aos-delay="100">
+                <div class="row">
+                    @*<div class="col-md-6 offset-3 align-items-center justify-content-center" style="position: absolute; z-index: 1;" data-aos="zoom-in" data-aos-delay="200">
+
+                            @if (ViewBag.EmailConfimation != null)
+                            {
+                                <style>
+                                    .register-login {
+                                        background: #fff !important;
+                                        padding: 45px !important;
+                                    }
+                                </style>
+                                @Html.Partial("~/Views/Partials/_Login.cshtml")
+                            }
+
+
+                        </div>*@
+
+                    <div class="col-md-12">
+
+                        <div data-aos="flip-left">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 text-white">
+                                    <h1>Purpose</h1>
+                                    <ul>
+                                        <li>
+                                            <h5>
+                                                This website is to provide a halal channel for those men who want to marry 1,2,3, or, 4 women the halal way as prescribed in Islam. It also provides a halal channel for those ladies who are willing to become the 1st, 2nd,3rd, 0r 4th wife of a man the halal way.
+                                            </h5>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                Today there are more women in the world than men, and many women remain unmarried due to financial problems, disability, age, cast, race, color, body type, or many women become widowed, and many women get divorced. For most of these women, it then becomes impossible to get married to a decent man. This website provides these women a channel to find decent and respectful men who are willing to marry a second, third, or 4th wife.
+                                            </h5>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 text-white">
+                                    <ul class="pt-5">
+                                        <li>
+                                            <h5>
+                                                At the same time, many men resort to the haram way of finding pleasure with women and commit zina and sins. This website provides men a halal channel for men to find 2nd, 3rd, or 4th wife the Islamic way and give these women respect, protection, and safety.
+                                            </h5>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                This website will not be allowed to be used for unlawful, haram, or sinful relationships. The purpose is solely to provide a halal channel for multiple marriages for a man to marry as many as 4 women as allowed in Quran and Islam.
+                                            </h5>
+                                        </li>
+                                        <li>
+                                            <h5>
+                                                We are hopeful that this website will help in minimizing zina, rape, prostitution, and sex trafficking of women. As both men and women will be able to do halal nikkah and marriages as per their choices.
+                                            </h5>
+                                        </li>
+                                    </ul>
+                                    <a href="/Account/Registeration/" type="button" class="btn btn-outline-light float-right">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                @*<div class="col-md-6 offset-1 align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+                        @if (ViewBag.EmailConfimation != null)
+                        {
+                            <style>
+                                .register-login {
+                                    background: #fff !important;
+                                    padding: 45px !important;
+                                }
+                            </style>
+                            @Html.Partial("~/Views/Partials/_Login.cshtml")
+                        }
+
+
+                    </div>*@
+
+                <div class="row profile-card">
+                    <div class="container">
+                        @*@Html.Partial("~/Views/Partials/_PersonalProfileCard.cshtml")*@
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</div>
+<!-- header end -->
+<!-- about -->
+<div class="container" id="home">
+    <div class="row min-vh-100 rowsetting">
+        <div class="col-md-6 text-center text-md-left align-self-center content" data-aos="fade-left">
+            <h2 class="text-success" style="font-size: xx-large; font-weight: bolder; padding: 10px 20px;">Benefits</h2>
+            <p>A website for men to provide protection, respect, equilty, justice honor, degnity, financial support, societal respect, recognization, safe home to live, and fulfill the sunnah of Prophet Mohammad (S.A.W) to marry more than one woman.</p>
+            <p><i class="far fa-check-circle text-success"></i>&nbsp;  This website will help in minimizing zina, rape, prostitution, and sex trafficking of women.</p>
+            <p><i class="far fa-check-circle text-success"></i>&nbsp; Both men and women will be able to do halal nikkah and marriages as per their choices.</p>
+            @*<p><i class="far fa-check-circle text-success"></i>&nbsp; Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda maistiro dolore eu fugiat nulla pariatur.</p>
+                <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate</p>*@
+        </div>
+        <div class="col-md-6 image m-auto" data-aos="fade-right">
+            @*<a href="~/Content/Img/images1.jfif">~/Content/Img/images1.jfif</a>*@
+            <img src="~/Content/Img/images1.jfif" alt="kRWY72TKB0Y-unsplash" width="530" height="370">
+        </div>
+    </div>
+</div>
+<!-- counter -->
+@*<div class="container-fluid" style="margin: 0px 0px 100px;">
+        <div class="row bg-light">
+            <div class="col-lg-3 col-md-6 col-sm-6 text-center" style="padding: 40px;">
+                <h1 id="number1" class="number text-success">0</h1>
+                <p class="text-dark">Students</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 text-center" style="padding: 40px;">
+                <h1 id="number2" class="number text-success">0</h1>
+                <p class="text-dark">Courses</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 text-center" style="padding: 40px;">
+                <h1 id="number3" class="number text-success">0</h1>
+                <p class="text-dark">Events</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 text-center" style="padding: 40px;">
+                <h1 id="number4" class="number text-success">0</h1>
+                <p class="text-dark">Trainers</p>
+            </div>
+        </div>
+    </div>*@
+<!-- about end -->
+<!-- cards -->
+<section id="match" class="menu section-bg" style="background:#fff;">
+    <div class="container">
+        <p class="text-secondary">Matches <span class="d-inline-block mx-auto" style="width: 100px; height: 1px; background: lightgreen;"></span></p>
+
+        @Html.Partial("~/Views/Partials/_BestMatchList.cshtml")
+    </div>
+</section>
+<!-- cards end -->
+<!-- courses -->
+<div class="container">
+    <p class="text-secondary">Stories <span class="d-inline-block mx-auto" style="width: 100px; height: 1px; background: lightgreen;"></span></p>
+    <h2>Successful Stories</h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 py-3" data-aos="zoom-in">
+            <div class="card">
+                <img src="~/Content/Img/img2.jpg" class="card-img-top">
+                <div class="card-body text-center text-secondary">
+                    <h4 class="card-title text-dark">Ahmad Ashraf</h4>
+                    <p class="card-title">Web Development</p>
+                    <p class="card-text">Magni qui quod et exercitationem. Odio veritatis perspiciatis quaerat aut.</p>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 py-3" data-aos="zoom-in">
+            <div class="card">
+                <img src="~/Content/Img/img2.jpg" class="card-img-top">
+                <div class="card-body text-center text-secondary">
+                    <h4 class="card-title text-dark">Ahmad Ashraf</h4>
+                    <p class="card-title">Web Development</p>
+                    <p class="card-text">Magni qui quod et exercitationem. Odio veritatis perspiciatis quaerat aut.</p>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 py-3" data-aos="zoom-in">
+            <div class="card">
+                <img src="~/Content/Img/img2.jpg" class="card-img-top">
+                <div class="card-body text-center text-secondary">
+                    <h4 class="card-title text-dark">Ahmad Ashraf</h4>
+                    <p class="card-title">Web Development</p>
+                    <p class="card-text">Magni qui quod et exercitationem. Odio veritatis perspiciatis quaerat aut.</p>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- courses end -->
+    <!-- trainers -->
+    <div class="row" style="margin: 40px 0px;">
+        <div class="col-lg-4 col-md-6 col-sm-6 py-3" data-aos="zoom-in">
+            <div class="card">
+                <img src="~/Content/Img/img2.jpg" class="card-img-top">
+                <div class="card-body text-center text-secondary">
+                    <h4 class="card-title text-dark">Ahmad Ashraf</h4>
+                    <p class="card-title">Web Development</p>
+                    <p class="card-text">Magni qui quod et exercitationem. Odio veritatis perspiciatis quaerat aut.</p>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 py-3" data-aos="zoom-in">
+            <div class="card">
+                <img src="~/Content/Img/img2.jpg" class="card-img-top">
+                <div class="card-body text-center text-secondary">
+                    <h4 class="card-title text-dark">Ahmad Ashraf</h4>
+                    <p class="card-title">Web Development</p>
+                    <p class="card-text">Magni qui quod et exercitationem. Odio veritatis perspiciatis quaerat aut.</p>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 py-3" data-aos="zoom-in">
+            <div class="card">
+                <img src="~/Content/Img/img2.jpg" class="card-img-top">
+                <div class="card-body text-center text-secondary">
+                    <h4 class="card-title text-dark">Ahmad Ashraf</h4>
+                    <p class="card-title">Web Development</p>
+                    <p class="card-text">Magni qui quod et exercitationem. Odio veritatis perspiciatis quaerat aut.</p>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- trainers end -->
+<!-- footer -->
+<footer class="bg-light">
+    <div style="background: lightgrey;">
+        <div class="container">
+            <div class="row" style="padding:15px 0px">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <p>&copy; Copyright <b>Mentor</b>. All Rights Reserved</p>
+                    <p>Designed by <a href="#" class="text-success">BootstrapMade</a></p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12" style="text-align: right;">
+                    <i class="fab fa-twitter bg-success text-white" style="width: 40px; height: 40px; border-radius: 100%; margin-top: 20px; padding: 10px 10px; font-size: 20px;"></i>
+                    <i class="fab fa-facebook bg-success text-white" style="width: 40px; height: 40px; border-radius: 100%; margin-top: 20px; padding: 10px 10px; font-size: 20px;"></i>
+                    <i class="fab fa-instagram bg-success text-white" style="width: 40px; height: 40px; border-radius: 100%; margin-top: 20px; padding: 10px 10px; font-size: 20px;"></i>
+                    <i class="fab fa-skype bg-success text-white" style="width: 40px; height: 40px; border-radius: 100%; margin-top: 20px; padding: 10px 10px; font-size: 20px;"></i>
+                    <i class="fab fa-linkedin bg-success text-white" style="width: 40px; height: 40px; border-radius: 100%; margin-top: 20px; padding: 10px 10px; font-size: 20px;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+<!-- Arrow btn -->
+@*<button onclick="topFunction()" class="bg-success" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>*@
+@*@if (Session["MemberId"] != null && !Request.Url.AbsolutePath.ToLower().Contains("/memberchat/livechat"))
+{
+
+    <a href="@Url.Action("LiveChat","MemberChat")" id="chatbtn">
+        <span id="chatCounter" style="color:black">0</span>
+        <i class="fas fa-arrow-up" style="color:black;"></i>
+    </a>
+
+    <script>
+        Get('/MemberChat/UnReadCounterByMemberId').then(function (result) {
+            //    console.log(result);
+            $('#chatCounter').html(result.Data);
+        });
+    </script>
+}*@
+<!-- Navbar script -->
+<script>
+    function green() {
+        document.getElementById('Green').style.color = "green";
+    }
+    function green1() {
+        document.getElementById('Green1').style.color = "Green";
+    }
+    function green2() {
+        document.getElementById('Green2').style.color = "green";
+    }
+    function green3() {
+        document.getElementById('Green3').style.color = "green";
+    }
+    function green4() {
+        document.getElementById('Green4').style.color = "green";
+    }
+    function green5() {
+        document.getElementById('Green5').style.color = "green";
+    }
+    function green6() {
+        document.getElementById('Green6').style.color = "green";
+    }
+    function green7() {
+        document.getElementById('Green7').style.color = "green";
+    }
+</script>
+<!-- counter script -->
+@*<script>Dolor Sitema
+        var counter = setInterval(Students, 50)
+        var counter1 = setInterval(Courses, 50)
+        var counter2 = setInterval(Events, 50)
+        var counter3 = setInterval(Trainers, 50)
+        let count1 = 1;
+        let count2 = 1;
+        let count3 = 1;
+        let count4 = 1;
+        function Students() {
+            count1++;
+            document.querySelector("#number1").innerHTML = count1;
+            //stop at given condition
+            if (count1 == 500) {
+                clearInterval(counter)
+            }
+        }
+        function Courses() {
+            count2++;
+            document.querySelector("#number2").innerHTML = count2;
+            //stop at given condition
+            if (count2 == 700) {
+                clearInterval(counter1)
+            }
+        }
+        function Events() {
+            count3++;
+            document.querySelector("#number3").innerHTML = count3;
+            //stop at given condition
+            if (count3 == 900) {
+                clearInterval(counter2)
+            }
+        }
+        function Trainers() {
+            count4++;
+            document.querySelector("#number4").innerHTML = count4;
+            //stop at given condition
+            if (count4 == 1000) {
+                clearInterval(counter3)
+            }
+        }
+    </script>*@
+<!-- counter script end -->
+<!-- Animation script -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    $(document).ready(function () {
+        // show the alert
+        setTimeout(function () {
+            $(".alert").alert('close');
+        }, 2000);
+    });
+</script>
+<script>
+    AOS.init({
+        offset: 400,
+        duration: 1000
+    });
+</script>
+<!-- Arrow script -->
+<script>
+    //Get the button:
+    mybutton = document.getElementById("myBtn");
+    // When the user scrolls down 400px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+    function scrollFunction() {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>

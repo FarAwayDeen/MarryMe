@@ -1,0 +1,95 @@
+﻿
+<script src="~/Angular/Profile/EducationAndProfSetup.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="EducationAndProfSetupController">
+    <form id="frmEducationInfo" data-parsley-validate novalidate ng-submit="Save()">
+        <div>
+            <h2 class="fs-title"><i class="icofont-graduate" id="iconbox"></i> Education & Profession</h2>
+            <hr />
+
+            <div class="row">
+                <div class="col-sm-2 form-group">
+                    <label>Heighest Education </label>
+                </div>
+                <div class="col-sm-4 form-group">
+                    @*<input class="form-control" ng-model="EducationInfo.HighestEducation" maxlength="30" type="text" />*@
+                    <select class="form-control" required ng-model="EducationInfo.EductionLevels">
+                        <option value="">--- Please Select ---</option>
+                        <option value="{{level.ID}}" style="color:#888;" ng-repeat="level in EducationList">{{level.Name}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-2">
+                    <label>Employed In </label>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <select class="form-control" required ng-model="EducationInfo.Employment">
+                        <option value="">--- Please Select ---</option>
+                        <option value="{{Employee.ID}}" style="color:#888;" ng-repeat="Employee in EmployeedInList">{{Employee.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 form-group">
+                    <label>Annual Income </label>
+                </div>
+                <div class="col-sm-7 form-group">
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <select class="form-control" ng-model="EducationInfo.IncomeCurrency">
+                                <option>--- Select ---</option>
+                                <option value="{{Simbal.Name}}" ng-repeat="Simbal in CurrencySimbals">{{Simbal.Name}}</option>
+
+                            </select>
+                        </div>
+                        <div class="col-sm-9" style="display:flex">
+                            <div class="col-sm-6 form-group" style="display:flex">
+                                <label class="pr-3">From </label>
+                                <input class="form-control allow-number" ng-model="EducationInfo.AnnualIncomeFrom" maxlength="10" type="text" required />
+                            </div>
+                            <div class="col-sm-6 form-group" style="display:flex">
+                                <label class="pr-3">To </label>
+                                <input class="form-control allow-number" ng-model="EducationInfo.AnnualIncomeTo" maxlength="10" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row">
+                    <div class="col-sm-2">
+                        <label>Employed In </label>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <ul class="radio-list">
+                <li ng-repeat="Employee in EmployeedInList">
+                    <label ng-class="{'radio-active':$parent.EducationInfo.EmployeedIn==Employee.Name}">
+                        {{Employee.Name}}
+                        <input type="radio" ng-model="$parent.EducationInfo.EmployeedIn" value="{{Employee.Name}}" />
+                    </label>
+                </li>
+            </ul>
+
+                            <select class="form-control" required ng-model="parent.EducationInfo.EmployeedIn" data-parsley-error-message="">
+                                <option value="">--- Please Select ---</option>
+                                <option value="{{Employee.Name}}" style="color:#888;" ng-repeat="Employee in EmployeedInList">{{Employee.Name}}</option>
+                            </select>
+
+                    </div>
+                </div>*@
+        </div>
+        @*<input type="button" name="previous" class="previous action-button-previous" value="Previous" />*@
+        @*<input type="button" name="make_payment" class="next action-button" value="Next Step" />*@
+        <hr />
+        <div class="col-sm-12 text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button preBtn float-left" value="Previous" />
+                </div>
+                <div class="col-md-4">
+                    <input id="btnEducationInfo" type="submit" name="next" class="btnSave action-button nextBtn" value="Save" />
+                </div>
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button nextBtn float-right" value="next" />
+                </div>
+            </div>
+        </div>       
+    </form>
+</div>

@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Reciever";
+}
+
+
+@*<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>*@
+<link href="~/Content/LiveCall.css?v=2" rel="stylesheet" />
+<script src="~/Scripts/Livecall.js?v=2"></script>
+<div class="container-fluid  m-0">
+    <div class="row mt-5">
+        <div class="col-sm-12">
+            <button class="btn btn-danger btn-end float-right" onclick="EndCall()" id="EndRoom"><i class="fa fa-phone-slash font"></i> End Call</button>
+        </div>
+    </div>
+
+    <p id="notification" hidden></p>
+
+
+    <div class="meet-area ">
+        <input type="hidden" id="receiver-id" name="name" value="" />
+        <div id="endmsg" style=" display: none; width: 100%; height: 300px; background-color: black;">
+
+        </div>
+        <div class="row">
+
+            <!-- Local Video Element-->
+            <div class="col-sm-6">
+                <div class="caller">Caller</div>
+                <video id="local-video"></video>
+            </div>
+            <!-- Remote Video Element-->
+            <div class="col-sm-6">
+                <div class="Receiver">Receiver</div>
+                <video id="remote-video"></video>
+
+            </div>
+        </div>
+    </div>
+    @*<div class="meet-controls-bar">
+            <button class="btn btn-success" onclick="startScreenShare()">Screen Share</button>
+            <button class="btn btn-outline-danger btn-style3 float-right" onclick="joinRoom()" id="Div2"><i class="fa fa-phone-slash font"></i> End Call</button>
+
+        </div>*@
+    @*<button onclick="openForm()" class="open-button"> <i class="fa fa-comment"></i></button>*@
+
+    <div class="chat-popup" id="myForm">
+        <div class="form-container">
+            <div class="content" id="content-body" style="height: 320px">
+                <div class="messages">
+                    <ul id="message">
+                    </ul>
+                </div>
+            </div>
+
+            <label for="msg"><b>Message</b></label>
+            <input type="text" class="form-control" id="sendMessageBox" placeholder="Write your message..." />
+
+            <button type="submit" id="sendButton" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="msgTransModal" tabindex="-1" role="dialog" aria-labelledby="msgTransModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="msgTransModalLabel">Video Call Massege</h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>*@
+                </div>
+                <div class="modal-body">
+                    <h3>Are you Sure you want to close the Call.</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button id="msgTransButton" type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thank You</h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>*@
+                </div>
+                @*<div class="modal-body">
+                        ...
+                    </div>*@
+                <div class="modal-footer">
+                    <button type="button" id="Closebtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".chatbtn").hide();
+    });
+
+</script>
+
+

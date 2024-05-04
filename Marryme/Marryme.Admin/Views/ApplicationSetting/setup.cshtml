@@ -1,0 +1,172 @@
+﻿
+
+@{
+    ViewBag.Title = "Application Settings Setup";
+    ViewBag.SubTitle = "Save and Update Application Settings";
+    ViewBag.TitleIcon = "<i class='fa fa-newspaper-o'></i>";
+}
+
+<script src="~/Angular/ApplicationSetting/ApplicationSettingSetup.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="ApplicationSettingSetupController">
+    <form id="frmApplicationSetting" data-parsley-validate novalidate class="form-horizontal" ng-submit="Save()">
+        <div id="ApplicationSetting">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="col-md-4 control-label"> Applicaton Name </label>
+                                            <div class="col-md-8">
+                                                <input name="txtApplicatonName" ng-model="ApplicationSetting.ApplicationName" required placeholder="Applicaton Name" class="form-control" data-parsley-error-message="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-md-4 control-label"> Company Name </label>
+                                            <div class="col-md-8">
+                                                <input name="txtCompanyName" ng-model="ApplicationSetting.CompanyName" required placeholder="Company Name" class="form-control" data-parsley-error-message="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="col-md-4 control-label"> NTN </label>
+                                            <div class="col-md-8">
+                                                <input name="txtNTN" ng-model="ApplicationSetting.NTN" placeholder="NTN" required class="form-control" data-parsley-error-message="">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="col-md-4 control-label"> Email </label>
+                                            <div class="col-md-8">
+                                                <input name="txtEmail" ng-model="ApplicationSetting.Email" required placeholder="Email" class="form-control" data-parsley-error-message="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="col-md-4 control-label"> Phone No. </label>
+                                            <div class="col-md-8">
+                                                <input name="txt Phone No." ng-model="ApplicationSetting.Phone" required placeholder="Phone No." class="form-control" data-parsley-error-message="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-md-4 control-label"> Logo </label>
+                                            <div class="col-md-8">
+                                                <input type="file" id="logo" name="logo" class="form-control">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label class="col-md-4 control-label"> Facebook Link </label>
+                                                    <div class="col-md-8">
+                                                        <input name="txtFacebookLink" ng-model="ApplicationSetting.FaceBookLink" placeholder="Facebook Link" class="form-control" data-parsley-error-message="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label class="col-md-4 control-label"> Google Link </label>
+                                                    <div class="col-md-8">
+                                                        <input name="txtGoogleLink" ng-model="ApplicationSetting.GoogleLink" placeholder="Google Link" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label class="col-md-4 control-label"> Twitter Link </label>
+                                                    <div class="col-md-8">
+                                                        <input name="txtTwitterLink" ng-model="ApplicationSetting.TwitterLink" placeholder=" Twitter Link" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <label class="col-md-4 control-label"> Skype Link </label>
+                                                    <div class="col-md-8">
+                                                        <input name="txtSkypeLink" ng-model="ApplicationSetting.SkypeLink" placeholder="Skype Link" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="col-md-12">
+                                                <div class="col-md-10">
+                                                    <img id="imgPreview" class="avatar pull-right" ng-src="{{ApplicationSetting.Logo}}" onerror="CheckImage(this)" height="160" width="160" style="border:1px solid" @*onerror="CheckImage(this)"*@ />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="col-md-2 control-label"> Address </label>
+                                            <div class="col-md-10">
+                                                <textarea name="txtAddress" ng-model="ApplicationSetting.Address" required placeholder="Address" class="form-control" data-parsley-error-message=""></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="col-md-2 control-label"> Mailing Address </label>
+                                            <div class="col-md-10">
+                                                <textarea name="txtMailingAddress" ng-model="ApplicationSetting.MailingAddress" required placeholder="Mailing Address" class="form-control" data-parsley-error-message=""></textarea>
+                                            </div>
+                                        </div>
+                                        @*<div class="col-md-6">
+                                                <label class="col-md-4 control-label"> IsActive </label>
+                                                <div class="col-md-8">
+                                                    <input class="switch" ng-model="ApplicationSetting.IsActive" id="chkIsActive" type="checkbox" data-onstyle="success" data-on="Yes" data-off="No" data-toggle="toggle">
+                                                </div>
+                                            </div>*@
+                                    </div>
+                                </div>
+
+                                <hr />
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                @*<a class="btn btn-default back" href="/PaymentOptions/GetPaymentOptions">
+                                                        <i class="fa fa-arrow-circle-left"></i><span>Back to List</span>
+                                                    </a>*@
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button id="btnApplicationSetting" type="submit" class="btn btn-success pull-right">
+                                                    <span>
+                                                        <i class="fa fa-check-circle"></i> Save
+                                                    </span>
+                                                    <span style="display:none">
+                                                        <i class="fa fa-spinner fa-spin"></i>
+                                                        Processing...
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

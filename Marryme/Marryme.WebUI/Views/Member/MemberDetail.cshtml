@@ -1,0 +1,295 @@
+﻿
+@{
+    ViewBag.Title = "MemberDetail";
+}
+<script src="~/Angular/Member/MemberDetail.js?v=@DateTime.Now.Ticks"></script>
+@*<link href="~/Content/UserDetail.css" rel="stylesheet" />*@
+<div class="bg-white" ng-controller="MemberDetailController">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" style="font-size:14px">
+                <p>
+                    @*Membership type:&nbsp;<span>3 Star</span>*@
+                    <h4>{{MemberDetail.Name}} (EF00{{MemberDetail.Id}})</h4>
+                    profile created by | <strong>{{MemberDetail.ProfileCreatedBy}}</strong>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @*<div class="col-sm-3 col-12">
+                    <div class="row">
+                        <div class="col-7">
+                            <a href="#">
+                                <img src="~/Images/2.jpg" class="rounded" style="height:200px;width:200px" />
+                            </a>
+                        </div>
+                        <div class="col-6 text-center">
+                            <a href="#" class="btn btn-sm" id="registerbtn">Click to like</a>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="col-sm-12">
+                <div class="card form-group">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="card-text">
+                                    <p><strong>Name:&nbsp;</strong>{{MemberDetail.Name}}</p>
+                                    <p><strong>DOB:&nbsp;</strong>{{MemberDetail.DOB| jsonDate | date: MM-dd-yyyy}}</p>
+                                    @*<p ng-if="FetchFieldPermissionList.DOB"><strong>DOB:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    <p><strong>Religion:&nbsp;</strong>{{MemberDetail.Religion ||"N/A"}}</p>
+                                    <p><strong>Sect:&nbsp;</strong>{{MemberDetail.Sect ||"N/A"}}</p>
+                                    @*<p ng-if="FetchFieldPermissionList.Religion"><strong>Religion:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    <p><strong>Marital Status:&nbsp;</strong>{{MemberDetail.MaritalStatus ||"N/A"}}</p>
+                                    <p><strong>Number of Marriage:&nbsp;</strong>{{MemberDetail.NoOfMarriage ||"N/A"}}</p>
+                                    @*<p ng-if="FetchFieldPermissionList.MaritalStatus"><strong>Marital Status:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    <p><strong>Country:&nbsp;</strong>{{MemberDetail.Country||"N/A"}}</p>
+                                    @*<p ng-if="FetchFieldPermissionList.CountryLivingIn"><strong>Country:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    <p><strong>Cast:&nbsp;</strong>{{MemberDetail.Subcast||"N/A"}}</p>
+                                    @*<p ng-if="FetchFieldPermissionList.Subcast"><strong>Cast:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    @*<p ng-if="!FetchFieldPermissionList.DOB"><strong>LifeStyle:&nbsp;</strong>Will tel you later</p>*@
+                                    @*<p ng-if="FetchFieldPermissionList.DOB"><strong>Culture:&nbsp;</strong>Punjabi</p>*@
+                                    <p><strong>Educatoin:&nbsp;</strong>{{MemberDetail.HighestEducation ||"N/A"}}</p>
+                                    @*<p ng-if="FetchFieldPermissionList.HighestEducation"><strong>Educatoin:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    <p><strong>Occupation:&nbsp;</strong>{{MemberDetail.Occupation ||"N/A"}}</p>
+                                    @*<p ng-if="FetchFieldPermissionList.Occupation"><strong>Occupation:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    <p><strong>Contact:&nbsp;</strong>@*<a href="javascript:;" ng-if="!showPhone" ng-click="ViewPhoneNo()">View</a>*@
+                                    @*<span>{{MemberDetail.MobileNo ||"N/A"}}</span>*@
+                                    <span>Mask number</span>
+                                    </p>
+                                    @*<p ng-if="FetchFieldPermissionList.MobileNo"><strong>Contact:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    @*<p ng-if="!FetchFieldPermissionList.Language"><strong>Language:&nbsp;</strong>{{MemberDetail.Language||"N/A"}}</p>*@
+                                    <p><strong>Language:&nbsp;</strong>{{MemberDetail.Language||"N/A"}}</p>
+                                    @*<p ng-if="FetchFieldPermissionList.Language"><strong>Language:&nbsp;</strong>{{FieldPermissionMessage}}</p>*@
+                                    @*<div class="alignbutton">
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-dark disabled">connect instantly</a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-danger">SEND EMAIL</a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-primary">LEAVE MESSAGE</a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-danger">CALL</a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a href="#" class="btn btn-sm btn-info disabled">SEND SMS</a>
+                                            </div>
+                                        </div>*@
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-8">
+                                    <a href="#">
+                                        <img ng-src="{{MemberDetail.ProfilePicPath}}" class="rounded" style="width:180px;margin-top:-10px;margin-left:-36px" onerror="CheckImage(this)" />
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    @*<a href="#" class="btn btn-sm" id="registerbtn" style="width:115px;margin-top:1px">Click to like</a>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!--Accordion wrapper-->
+                    @*<div class="accordion md-accordion" id="accordionEx" role="tablist">*@
+
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header bg-white" role="tab" id="headingOne1">
+                            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                               aria-controls="collapseOne1">
+                                <h5 class="mb-0">
+                                    ABOUT MY SELF <i class="icofont-hand-drawn-down float-right bx-rotate-180"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+
+                        <div class="card-body">
+                            <P>
+                                {{(MemberDetail.AboutMe||"N/A")}}
+                            </P>
+                        </div>
+
+                    </div><br />
+                    <!-- Accordion card -->
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header bg-white" role="tab" id="headingTwo2">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                               aria-expanded="true" aria-controls="collapseTwo2">
+                                <h5 class="mb-0">
+                                    LIFE STYLE & APPEARANCE<i class="icofont-hand-drawn-down float-right rotate-icofont"></i>
+                                </h5>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="profile_icons">
+                                <div class="row">
+                                    @*<div class="col-sm-3">
+                                            <img src="~/Images/MemberDetail/no_veg_food.jpg" /><p>{{FetchFieldPermissionList.EatingHabit?FieldPermissionMessage:MemberDetail.EatingHabit}}</p>
+                                        </div>*@
+                                    @*<div class="col-sm-3">
+                                            <img src="~/Images/MemberDetail/dont_drink.jpg" /><p>{{MemberDetail.DrinkingHabit ||"N/A"}}</p>
+                                        </div>*@
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/no_smoking.jpg" /><p>{{MemberDetail.SmokingHabit ||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/complexion-bulid.jpg" /><p>{{MemberDetail.Complexion ||"N/A"}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><br />
+                    <!-- Accordion card -->
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header bg-white" role="tab" id="headingThree3">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                               aria-expanded="false" aria-controls="collapseThree3">
+                                <h5 class="mb-0">
+                                    BACKGROUND <i class="icofont-hand-drawn-down float-right"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="profile_icons">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/religion.jpg" /><p>{{MemberDetail.Religion ||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/religion (1).jpg" /><p>{{MemberDetail.Language ||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/live_location.jpg" /><p>{{MemberDetail.State ||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/Grew_up.jpg" /><p>{{MemberDetail.Country ||"N/A"}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><br />
+                    <!-- Accordion card -->
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header bg-white" role="tab" id="headingfour4">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapsefour4"
+                               aria-expanded="false" aria-controls="collapsefour4">
+                                <h5 class="mb-0">
+                                    EDUCATION & CAREER <i class="icofont-hand-drawn-down float-right"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="profile_icons">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/master_degree.jpg" /><p>{{MemberDetail.HighestEducation||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/team_member.jpg" /><p>{{MemberDetail.Occupation||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/earn.jpg" /><p>{{MemberDetail.AnualIncome||"N/A"}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br />
+                    <!-- Accordion card -->
+                    <!-- Accordion card -->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header bg-white" role="tab" id="headingfive5">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapsefive5"
+                               aria-expanded="false" aria-controls="collapsefive5">
+                                <h5 class="mb-0">
+                                    MORE DETAILS <i class="icofont-hand-drawn-down float-right"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+
+                        <div class="container">
+                            <div class="row" style="margin-top:10px">
+                                <div class="col-sm-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <P>Family Status:{{MemberDetail.FamilyStatus||"N/A"}}</P>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <P>Father Alive:{{MemberDetail.IsFatherAlive||"N/A"}}</P>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <P>Mother Alive:{{MemberDetail.IsMotherAlive||"N/A"}}</P>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <P>No.of Brothers:{{MemberDetail.NoOfBrothers||"N/A"}}</P>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="margin-top:10px">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <P>No.of Sisters:{{MemberDetail.NoOfSisters||"N/A"}}</P>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br />
+                    <!-- Accordion card -->
+                    @*</div>*@
+                    <!-- Accordion wrapper -->
+                </div>
+            </div>
+            <!--<div class="col-sm-4 card">
+                <h4 class="newly-heading">Newly Registered Members </h4>-->
+            @*@Html.Partial("~/Views/Partials/_NewlyRegisteredMemberList.cshtml")*@
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="container my-4">
+        <div class="row">
+
+            <div class="col-sm-8">
+
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</div>

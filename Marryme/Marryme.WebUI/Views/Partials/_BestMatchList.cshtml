@@ -1,0 +1,158 @@
+﻿@*<script src="~/Angular/BestMatches/BestMatchesList.js?v=@DateTime.Now.Ticks"></script>*@
+<script src="~/Angular/BestMatches/BestMatchesList.js"></script>
+<link href="~/Content/MemberCard.css" />
+<div ng-controller="BestMatchesController">
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <h2>Member List</h2>
+        </div>
+        <div class="col-sm-8 col-md-8 pull-left">
+            <div id="tab">
+                <button data-target="#Male" class="btn btn-lg pl-5 pr-5 btn-focus active" data-toggle="tab" id="buttonbasic">Male</button>
+                <button data-target="#Female" class="btn btn-lg pl-5 pr-5 btnpro btn-focus" data-toggle="tab">Female</button>
+            </div>
+        </div>
+    </div>
+    <div class="tab-content">
+        <div id="Male" class="tab-pane fade active show">
+            <div class="tab-content active show">
+                <div class="card-deck text-center">
+                    <div class="col-lg-4 mt-4 {{bestMatch.Gender}}" ng-repeat="bestMatch in BestMatches">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="py-3" data-aos="zoom-in">
+                                    <div class="card" style="width:300px">
+                                        <div class="card-header text-center text-white bg-success">
+                                            <h3>{{bestMatch.Name +" "+bestMatch.NickName}}</h3>
+                                        </div>
+                                        @*<img src="~/Content/Img/img11.jpg" alt="—Pngtree—seo_3631356" class="card-img-top" height="160px" width="200px">*@
+                                        <div class="card-body">
+                                            @*<span class=" text-success float-left">
+                                                    <span href="" ng-if="!FetchFieldPermissionList.Name"> <h5>{{bestMatch.ShowName}}</h5></span>
+                                                    <span href="" ng-if="FetchFieldPermissionList.Name">
+                                                        <span style="font-size:small;color:grey;">{{FieldPermissionMessage}}</span>
+                                                    </span>
+                                                </span>*@
+                                            <div class="text-left">
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Gender:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.Gender}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Marital Status:</b> </label>
+                                                    <span class="justify-content-start   col-sm-6" style="font-weight: 600; display: inline-flex;"> {{bestMatch.MaritalStatus}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Age:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.Age}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Education:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.EductionLevels}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Religion:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.Religion}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Country:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.Country}}</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="text-left">
+                                                <a href="#" class="text-info"> View Detail</a>
+                                            </div>
+                                        </div>
+                                        <!--<div class="p-2" style="border-top: 1px solid lightgray;">
+                                            <a href="#" class="btn btn-success text-white"><span class="fa fa-list"></span> Detail</a>
+                                            &nbsp;-->
+                                        @*<p class="float-right text-secondary" style="padding-top: 13px; font-weight: 550; font-size: medium;"><i class="far fa-user">&nbsp;</i>50 <i class="far fa-heart">&nbsp;</i>65</p>*@
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Female" class="tab-pane fade">
+            <div class="tab-content">
+                <div class="card-deck text-center">
+                    <div class="col-lg-4 mt-4 {{bestMatch.Gender}}" ng-repeat="bestMatch in BestMatches" ng-if="bestMatch.Gender=='Female'">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="py-3" data-aos="zoom-in">
+                                    <div class="card" style="width:300px">
+                                        <div class="card-header text-center text-white bg-success">
+                                            <h3>{{bestMatch.ShowName}}</h3>
+                                        </div>
+                                        @*<img src="~/Content/Img/img11.jpg" alt="—Pngtree—seo_3631356" class="card-img-top" height="160px" width="200px">*@
+                                        <div class="card-body">
+                                            @*<span class=" text-success float-left" style="font-weight: 600; display: inline-flex;">
+                                                    <a href="" ng-if="!FetchFieldPermissionList.Name"> {{bestMatch.ShowName}}</a>
+                                                    <a href="" ng-if="FetchFieldPermissionList.Name"> <span style="font-size:small;color:grey;">{{FieldPermissionMessage}}</span></a>
+                                                </span>*@
+                                            <div class="text-left">
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Gender:</b> </label>
+                                                    <span class=" text-danger float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.Gender}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Marital Status:</b> </label>
+                                                    <span class="justify-content-start  col-sm-6" style="font-weight: 600; display: inline-flex;"> {{bestMatch.Status}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Age:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.Age}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Education:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.HighestEducation}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Religion:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.Religion}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <label class="col-sm-6"><b>Country:</b> </label>
+                                                    <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{bestMatch.Country}}</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="text-left">
+                                                <a href="#" class="text-info"> View Detail</a>
+                                            </div>
+                                            <!--<div class="p-2" style="border-top: 1px solid lightgray;">
+                                                &nbsp;-->
+                                            @*<p class="float-right text-secondary" style="padding-top: 13px; font-weight: 550; font-size: medium;"><i class="far fa-user">&nbsp;</i>50 <i class="far fa-heart">&nbsp;</i>65</p>*@
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+</div>
+
+
+<script>
+    $(window).ready(function () {
+        $('.btn-focus').addClass("btn-outline-primary").removeClass("active");
+        $('#buttonbasic').addClass("btn-primary").removeClass("btn-outline-primary");
+    });
+    $('.btn-focus').click(function () {
+        $('.btn-focus').removeClass("btn-primary").addClass("btn-outline-primary").removeClass("active");
+        $(this).removeClass("btn-outline-primary");
+        $(this).addClass("btn-primary");
+    });
+    function loginMessage() {
+        InfoMessage("Please login to view detail");
+    }
+</script>

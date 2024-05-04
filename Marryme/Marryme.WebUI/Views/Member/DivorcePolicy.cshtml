@@ -1,0 +1,281 @@
+﻿
+@{
+    ViewBag.Title = "Divorce Policy";
+}
+<script src="~/Angular/Member/DivorcePolicy.js"></script>
+<div class="container-fluid" ng-controller="DivorcePolicyController">
+    <div class="col-sm-12 col-md-12">
+        <div class="row">
+            <div class="col-sm-3C">
+                @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+            </div>
+            <div class="col-sm-9 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Divorce/Khula Policy</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="PolicyId" ng-submit="SavePolicy()">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 text-center">
+                                            <h5 class="text-primary">You must be truth ful &amp; honest about your commitments you make as part of this marriage.</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 offset-3">
+                                    <label>Please Select Your Case</label>
+                                    <select class="form-control" ng-change="option()" ng-model="Policy.dropdownOption">
+                                        <option value="">--Please Select--</option>
+                                        <option value="Divorce">Divorce</option>
+                                        <option value="Khula">Khula</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3" ng-show="Policy.dropdownOption=='Divorce'">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="card" id="Divorce">
+                                        <div class="card-header">
+                                            @if (Convert.ToString(Session["Gender"]) == "Male")
+                                            {
+                                                <h5>I will give to Wife after Divorce</h5>
+                                            }
+                                            else if (Convert.ToString(Session["Gender"]) == "Female")
+                                            {
+                                                <h5>I want get from Husband after Divorce</h5>
+                                            }
+                                            else
+                                            {
+                                                <h5>Divorce Options</h5>
+
+                                            }
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="col-sm-12 col-md-12  alert-info">
+                                                <h5>Three divorce policy:</h5>
+                                                <h6>I will not give Divorce just on words. It will happen when the man and woman involves families and other people in it to negotiate it first and then give them time to think about the divorce. </h6>
+                                                <label>Agree</label>
+                                                <input class="checkbox" type="checkbox" ng-model="Policy.ThreeDivorcePolicy" />
+                                            </div>
+                                            <div class="col-sm-12 col-md-12 mt-2">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12">
+                                                        <label class="">If you divorce the woman, you will be providing her the followings:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-8">
+                                                        <label>Amount (per month)</label>
+                                                        <input type="checkbox" value="true" id="first" ng-model="Policy.DivorceAmountcheckbox" />
+                                                        <div class="row" ng-show="Policy.DivorceAmountcheckbox">
+                                                            <div class="col-sm-3 form-group">
+                                                                <select class="form-control" ng-model="Policy.DIncomeCurrency">
+                                                                    <option>--Select--</option>
+                                                                    <option value="{{Simbal.Name}}" ng-repeat="Simbal in CurrencySimbals">{{Simbal.Name}}</option>
+
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-9" style="display:flex">
+                                                                <div class="col-sm-6 form-group" style="display:flex">
+                                                                    <label class="pr-3">From </label>
+                                                                    <input class="form-control allow-number"
+                                                                           maxlength="10" type="text"
+                                                                           ng-model="Policy.DivorceAmountFrom"
+                                                                           ng-required="Policy.DivorceAmountcheckbox" />
+                                                                </div>
+                                                                <div class="col-sm-6 form-group" style="display:flex">
+                                                                    <label class="pr-3">To </label>
+                                                                    <input class="form-control allow-number"
+                                                                           ng-model="Policy.DivorceAmountTo"
+                                                                           maxlength="10" type="text" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*<input type="text" id="firstinput" placeholder="Amount Detail" class="form-control" ng-model="Policy.DivorceAmountDetail" ng-show="Policy.DivorceAmountcheckbox" />*@
+                                                    <div class="col-sm-12 col-md-4">
+                                                        <label>House</label>
+                                                        <input type="checkbox" value="true" id="second" ng-model="Policy.DivorceHouseCheckBox" />
+                                                        <input type="text" id="secondinput" placeholder="House Detail" class="form-control"
+                                                               ng-model="Policy.DivorceHouseDetail"
+                                                               ng-show="Policy.DivorceHouseCheckBox"
+                                                               ng-required="Policy.DivorceHouseCheckBox" />
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <label>miscellaneous</label>
+                                                        <input type="checkbox" value="true" id="third"
+                                                               ng-model="Policy.DivorceMiscellaneousCheckbox" />
+                                                        <input type="text" id="thirdinput" placeholder="miscellaneous Detail" class="form-control"
+                                                               ng-model="Policy.DivorceMiscellaneousDetail"
+                                                               ng-show="Policy.DivorceMiscellaneousCheckbox"
+                                                               ng-required="Policy.DivorceMiscellaneousCheckbox" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3" ng-show="Policy.dropdownOption=='Khula'">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="card" id="Khula">
+                                        <div class="card-header">
+                                            @if (Convert.ToString(Session["Gender"]) == "Male")
+                                            {
+                                                <h5>I will give to Wife after Khula</h5>
+                                            }
+                                            else if (Convert.ToString(Session["Gender"]) == "Female")
+                                            {
+                                                <h5>I want to get from Husband after Khula</h5>
+                                            }
+                                            else
+                                            {
+                                                <h5>Khula Options</h5>
+
+                                            }
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="col-sm-12 col-md-12">
+                                                <label class="">If a woman takes khula, it will be depend on the reason of khula. Based on that her rights will be decided.</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-8">
+                                                    <label>Amount</label>
+                                                    <input type="checkbox" value="true" id="fourth"
+                                                           ng-model="Policy.KhulaAmountcheckbox" />
+                                                    <div class="row" ng-show="Policy.KhulaAmountcheckbox">
+                                                        <div class="col-sm-3 form-group">
+                                                            <select class="form-control" ng-model="Policy.KIncomeCurrency">
+                                                                <option>--Select--</option>
+                                                                <option value="{{Simbal.Name}}"
+                                                                        ng-repeat="Simbal in CurrencySimbals">
+                                                                    {{Simbal.Name}}
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-9" style="display:flex">
+                                                            <div class="col-sm-6 form-group" style="display:flex">
+                                                                <label class="pr-3">From </label>
+                                                                <input class="form-control allow-number"
+                                                                       ng-model="Policy.KhulaAmountFrom"
+                                                                       maxlength="10" type="text" required
+                                                                       ng-required="Policy.KhulaAmountcheckbox" />
+                                                            </div>
+                                                            <div class="col-sm-6 form-group" style="display:flex">
+                                                                <label class="pr-3">To </label>
+                                                                <input class="form-control allow-number"
+                                                                       ng-model="Policy.KhulaAmountTo"
+                                                                       maxlength="10" type="text" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*<input type="text" id="fourthinput" placeholder="Amount Detail" class="form-control" ng-model="Policy.KhulaAmountDetail" ng-show="Policy.KhulaAmountcheckbox" />*@
+                                                </div>
+                                                <div class="col-sm-12 col-md-4">
+                                                    <label>House</label>
+                                                    <input type="checkbox" value="true" id="fifth" ng-model="Policy.KhulaHouseCheckBox" />
+                                                    <input type="text" id="fifthinput" placeholder="House Detail"
+                                                           class="form-control"
+                                                           ng-model="Policy.KhulaHouseDetail"
+                                                           ng-show="Policy.KhulaHouseCheckBox"
+                                                           ng-required="Policy.KhulaHouseCheckBox" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label>miscellaneous</label>
+                                                    <input type="checkbox" value="true" id="sixth"
+                                                           ng-model="Policy.KhulaMiscellaneousCheckbox" />
+                                                    <input type="text" id="sixthinput" placeholder="miscellaneous Detail" class="form-control"
+                                                           ng-model="Policy.KhulaMiscellaneousDetail"
+                                                           ng-show="Policy.KhulaMiscellaneousCheckbox"
+                                                           ng-required="Policy.KhulaMiscellaneousCheckbox" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-12 text-center">
+                        <input id="btnPolicy" type="submit" class="action-button btn-success" value="Save" />
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        @*<div class="col-sm-12 pt-2">
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <a href="/Member/DocumentList" type="button" class="btn btn-success ">Previous</a>
+                    </div>
+
+                </div>
+            </div>*@
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        //$("input[type=text]").hide();
+        //$('#Divorce').hide();
+        //$('#Khula').hide();
+        //$('#btnPolicy').hide();
+        //$('#btnPolicy').prop('disabled', true);
+        //if ($('input[type="text"]').val() == '') {
+        //    $('#btnPolicy').prop('disabled', true);
+        //    console.log('ready disable called');
+        //} else {
+        //    $('#btnPolicy').removeProp('disabled', false);
+        //    console.log('ready enable called');
+        //}
+
+
+        //if ($("input[type=checkbox]").val()== 'true') {
+        //    $("input[type=checkbox]").prop('checked', true)
+        //    $("input[type=text]").show();
+        //}
+
+
+    });
+
+    //$("#checkbox1").is(':checked', function () {
+    //    $("#checkbox1").attr('value', 'true');
+    //});
+
+
+    $('input[type="text"]').keyup(function () {
+        if ($('input[type="text"]').val() == '') {
+            $('#btnPolicy').prop('disabled', true);
+            console.log('disable called');
+        } else {
+            $('#btnPolicy').prop('disabled', false);
+            console.log('enable called');
+        }
+    });
+
+    //$("input[type=checkbox]").on("click", function () {
+    //    var id = $(this).attr("id");
+    //    var inputid = id + 'input';
+    //    //console.log(inputid);
+    //    //console.log('value of: ' + $('#' + id).val());
+    //    if ($('#' + id).val() == 'true') {
+    //        $('#' + inputid).show();
+    //        $('#' + id).val('false');
+    //    } else {
+    //        $('#' + inputid).hide();
+    //        $('#' + id).val('true');
+    //    }
+    //})
+
+
+</script>

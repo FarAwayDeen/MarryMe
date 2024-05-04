@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "LiveChat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var member = (Marryme.BAL.ViewModels.ChatMemberProfileModel)ViewBag.Member;
+}
+<link href="~/assets/vendor/venobox/venobox.min.css" rel="stylesheet" />
+<script src="~/assets/vendor/venobox/venobox.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.4.1.js"></script>
+@*<script src="~/SignalR/hubs"></script>*@
+<script src="~/Scripts/hubs.js"></script>
+<script src="~/Angular/MemberChat/Chat.js"></script>
+<script src="~/Angular/MemberChat/MemberChat.js"></script>
+
+@*<script src="~/Angular/MemberChat/Chat.js"></script>
+    <script src="~/Angular/MemberChat/MembersChat.js?v=@DateTime.Now.Ticks"></script>*@
+<link href="~/Content/LiveChat.css" rel="stylesheet" />
+<div ng-controller="MemberChatController" id="ctrlLiveChat">
+    <div id="frame" class="container">
+        <div id="sidepanel">
+            <div id="profile">
+                <div class="wrap">
+                    <img id="profile-img" src="@member.ProfilePic" class="online" onerror="CheckImage(this)" alt="" />
+                    <p>@member.Name</p>
+                    <input type="hidden" id="currentMemberId" name="name" value="@ViewBag.MemberId" />
+                    @*<i class="bx bx-chevron-down expand-button" aria-hidden="true"></i>*@
+                    @*<div id="status-options">
+                            <ul>
+                                <li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
+                                <li id="status-away"><span class="status-circle"></span> <p>Away</p></li>
+                                <li id="status-busy"><span class="status-circle"></span> <p>Busy</p></li>
+                                <li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>
+                            </ul>
+                        </div>*@
+                    @*<div id="expanded">
+                            <label for="twitter"><i class="bx bxl-facebook" aria-hidden="true"></i></label>
+                            <input name="twitter" type="text" value="mikeross" />
+                            <label for="twitter"><i class="bx bxl-twitter" aria-hidden="true"></i></label>
+                            <input name="twitter" type="text" value="ross81" />
+                            <label for="twitter"><i class="bx bxl-instagram" aria-hidden="true"></i></label>
+                            <input name="twitter" type="text" value="mike.ross" />
+                        </div>*@
+                </div>
+            </div>
+            <div id="search">
+                <label for=""><i class="bx bx-search" aria-hidden="true"></i></label>
+                <input type="text" placeholder="Search members..." ng-keyup="SearchFriend()" ng-model="SearchKeyWord" />
+            </div>
+            <div id="contacts">
+                <ul>
+                    <li class="contact" ng-repeat="ChatMember in ChatMemberList" ng-click="GetMemberChat(ChatMember.Id)" ng-class="ChatMember.Id==SelectedMember.Id? 'active' : ''">
+                        <div class="wrap">
+                            <span class="contact-status {{ChatMember.UserStatus}}"></span>
+                            <img ng-src="{{ChatMember.ProfilePicPath}}" onerror="CheckImage(this)" alt="" />
+                            <div class="meta">
+                                <p class="name">{{ChatMember.Name}}</p>
+                                <p class="preview">{{ChatMember.Message}}</p>
+                            </div>
+                            <i ng-if="ChatMember.UnReadMessages">{{ChatMember.UnReadMessages}}</i>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div id="bottom-bar">
+                <button id="addcontact" ng-class="isFriendList==true? 'active' : ''" ng-click="FetchMembers(true)"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Friends List</span></button>
+                <button id="settings" ng-class="isFriendList==false? 'active' : ''" ng-click="FetchMembers(false)"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>All Members</span></button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="contact-profile">
+                <img src="{{SelectedMember.ProfilePicPath}}" id="selectedMemberImage" onerror="CheckImage(this)" />
+                <input type="hidden" id="selectedMember" value="{{SelectedMember.Id}}" />
+                <input type="hidden" id="SessionId" value="{{SelectedMember.SessionId}}" />
+                <p>{{SelectedMember.Name}}</p>
+                <div class="social-media" ng-if="SelectedMember.RequestStatus=='Accepted'">
+                    @*<i class="fa fa-facebook" aria-hidden="true"></i>
+            <i class="fa fa-twitter" aria-hidden="true"></i>*@
+                    <a href="/MemberCall/LiveStreaming?id={{CallId}}" target="_blank"><i class="fa fa-phone" aria-hidden="true" title="Start Call"></i></a>
+                </div>
+                <div class="social-media" ng-if="SelectedMember.IsFriend==1">
+                    @*<a href="" ng-if="SelectedMember.FriendRequestId==null" ng-click="SendChatFriendRequest()" class="btn btn-primary"><span class="bx bx-plus"></span> Add</a>*@
+
+                    <a href="" ng-if="SelectedMember.FriendRequestId==null || (SelectedMember.IsBlocked==false && (SelectedMember.ToId==@ViewBag.MemberId || SelectedMember.RequestStatus=='Accepted'))" ng-click="BlockFriend()" class="btn btn-primary"><span class="bx bx-block"></span> Block</a>
+
+                    <a href="" ng-if="SelectedMember.BlockedBy==@ViewBag.MemberId && SelectedMember.IsBlocked==true" ng-click="UnBlockOrAcceptFriend()" class="btn btn-primary"><span class="bx bx-block"></span> UnBlock</a>
+
+                    <a href="" ng-if="SelectedMember.BlockedBy!=@ViewBag.MemberId && SelectedMember.IsBlocked==true" class="btn blocked"><span class="bx bx-block"></span> You Blocked</a>
+
+                    <a href="" ng-if="SelectedMember.FromId==@ViewBag.MemberId && SelectedMember.RequestStatus=='Pending'" class="btn btn-success request-sent"><span class="bx bx-check"></span> Request Sent</a>
+
+                    <a href="" ng-if="SelectedMember.ToId==@ViewBag.MemberId && SelectedMember.IsBlocked==false && SelectedMember.RequestStatus=='Pending'" ng-click="UnBlockOrAcceptFriend()" class="btn btn-success request-sent"><span class="bx bx-check"></span>Accept Request</a>
+                </div>
+                <div class="social-media" ng-if="SelectedMember.IsFriend==0">
+                    <a href="" ng-click="SendChatFriendRequest()" class="btn btn-primary"><span class="bx bx-plus"></span> Add</a>
+
+                    <a href="" ng-click="BlockFriend()" class="btn btn-primary"><span class="bx bx-block"></span> Block</a>
+                </div>
+            </div>
+            <div class="messages">
+                <ul>
+                    <li class="" ng-class="conversation.FromID==SelectedMember.Id? 'replies' : 'sent'" ng-repeat="conversation in ChatMemberConversationList">
+                        <img ng-if="conversation.FromID==SelectedMember.Id" src="{{conversation.SelectedMemberImage}}" onerror="CheckImage(this)" alt="" />
+                        <img ng-if="conversation.FromID!=SelectedMember.Id" src="{{conversation.CurrentMemberImage}}" onerror="CheckImage(this)" alt="" />
+                        <p ng-bind-html="conversation.Message|trustAsHtml"></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="message-input">
+                <input type="text" hidden="hidden" id="imageFilePath" />
+                <div class="wrap" ng-if="SelectedMember.IsBlocked==null || SelectedMember.IsBlocked==false">
+                    <div class="progress" ng-show="(Progress > 0)&&(Progress < 100)">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{Progress}}%; color: white;" aria-valuenow="{{Progress}}" aria-valuemin="0" aria-valuemax="100">{{Progress}}%</div>
+                    </div>
+                    <input type="text" ng-if="canSendMessage" class="message" placeholder="Write your message..." />
+                    @*<input type="file" accept="image/*" hidden="hidden" id="fileAttachment" />*@
+                    <input type="file" ngf-pattern="'image/*'" ngf-select="upload($file)" ngf-multiple="false" hidden="hidden" id="fileAttachment" />
+
+                    <i class="fa fa-paperclip attachment" ng-if="canSendMessage" aria-hidden="true" onClick="$('#fileAttachment').trigger('click');"></i>
+                    <button class="submit" ng-if="canSendMessage" id="BtnSend" onClick="SendMessage()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <div class="wrap" ng-if="SelectedMember.IsBlocked==true">
+                    <input type="text" style="background:#fff;" placeholder="Blocked Members couldn't chat ..." disabled="disabled" />
+                    <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+                    <button class="" disabled><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <div class="wrap" ng-if="!canSendMessage">
+                    <p>{{canSendMessageError}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<script>
+    $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+</script>
+

@@ -1,0 +1,264 @@
+﻿<script src="~/Angular/FutureAgreement/FutureAgreement.js"></script>
+<style>
+    th {
+        background-color: #b1dfbb;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 10px;
+        vertical-align: middle;
+    }
+</style>
+<div class="container-fluid mt-5" ng-controller="FutureAgreementController">
+    @*----momdel start----*@
+    <div class="modal bd-example-modal-lg" id="DivorReasonModal" tabindex="-1" role="dialog" aria-labelledby="reporterModelLable" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header card-header">
+                    <h4 class="modal-title" id="DivorReasonModalLabel">Divorce Reason</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <form id="popform" ng-submit="DivorceReason()">
+                            <div class="card-body">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-check form-group">
+                                            <label>Write Divorce Reason</label>
+                                            <textarea ng-model="Divorce.Reason" class="form-control" maxlength="1000" placeholder="Max 1000 Charater"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-check form-group">
+                                            <label>Date of Divorce</label>
+                                            <input ng-model="Divorce.Date" type="date" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 text-right">
+                                        <input id="btnDivorceReason" type="submit" class="btn btn-success" value="Save" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closebtn" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*-----model end-----*@
+    <div class="row">
+        <div class="col-sm-3 col-sm-3C">
+            @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+        </div>
+        <div class="col-sm-9 ">
+            @*<div class="container-fluid mt-2">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 heading pt-1 pb-1 text-black-50">
+                            <h5>Women Options</h5>
+                        </div>
+                    </div>
+                </div>*@
+            <form id="FutureAgreement" ng-submit="SaveFacilitiesForMan()">
+                <div class="row mt-2">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>I agree to the following</h5>
+                            </div>
+                            <div class="card-body">
+                                @if (Convert.ToString(Session["Gender"]) == "Male")
+                                {
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table>
+                                                <tr>
+                                                    <th class="col-sm-3">Facilities</th>
+                                                    <th class="col-sm-2">Yes/No</th>
+                                                </tr>
+                                                <tr class="pb-3" ng-repeat="Facilitiesforman in Facilitieschecklist track by $index" ng-if="$even">
+                                                    <td class="col-sm-4">
+                                                        <label 
+                                                               for="{{'fMan_'+ $index}}"
+                                                               class="labelbeforcheck">
+                                                               {{Facilitiesforman.FacilityName}}
+                                                        </label>
+                                                    </td>
+                                                    <td class="col-sm-2">
+                                                        <input type="checkbox"
+                                                             ng-model="Facilitieschecklist[$index].Status"
+                                                             id="{{'fMan_'+ $index}}"
+                                                             ng-checked="{{Facilitieschecklist.Status}}">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6" style="border-left: 1px groove lightgray;">
+                                            <table>
+                                                <tr>
+                                                    <th class="col-sm-3">Facilities</th>
+                                                                                                                         <th class="col-sm-2">Yes/No</th>
+                                                </tr>
+                                                <tr class="pb-3" ng-repeat="Facilitiesforman in Facilitieschecklist track by $index" ng-if="$odd">
+                                                    <td class="col-sm-4">
+                                                        <label 
+                                                               for="{{'Man_'+ $index}}"
+                                                               class="labelbeforcheck">
+                                                            {{Facilitiesforman.FacilityName}}
+                                                        </label>
+                                                    </td>
+                                                    <td class="col-sm-2">
+                                                        <input class="checkFacility" type="checkbox" 
+                                                               ng-model="Facilitieschecklist[$index].Status"
+                                                               id="{{'Man_'+ $index}}"
+                                                               ng-checked="{{Facilitieschecklist.Status}}">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                                @if (Convert.ToString(Session["Gender"]) == "Female")
+                                {
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table>
+                                                <tr>
+                                                    <th class="col-sm-3" width="40%">Facilities (Wife No)</th>
+                                                    <th class="col-sm-2" ng-repeat="MarriageNo in MarriageNoList">{{MarriageNo.Id}}</th>
+                                                </tr>
+                                                <tr ng-repeat="FacilitiesforFeMale in Facilitieschecklist track by $index" ng-if="$even">
+                                                    <td class="col-sm-6">
+                                                        <label>
+                                                            {{FacilitiesforFeMale.FacilityName}}
+                                                        </label>
+                                                    </td>
+                                                    <td class="col-sm-1">
+                                                        <input type="checkbox" ng-model="Facilitieschecklist[$index].One" ng-checked="{{Facilitieschecklist.One}}">
+                                                    </td>
+                                                    <td class="col-sm-1">
+                                                        <input type="checkbox" ng-model="Facilitieschecklist[$index].Two" ng-checked="{{Facilitieschecklist.Two}}">
+                                                    </td>
+                                                    <td class="col-sm-1">
+                                                        <input type="checkbox" ng-model="Facilitieschecklist[$index].Three" ng-checked="{{Facilitieschecklist.Three}}">
+                                                    </td>
+                                                    <td class="col-sm-1">
+                                                        <input type="checkbox" ng-model="Facilitieschecklist[$index].Four" ng-checked="{{Facilitieschecklist.Four}}">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6" style="border-left: 1px groove lightgray;">
+                                            <table>
+                                                <tr>
+                                                    <th class="col-sm-3">Facilities (Wife No)</th>
+                                                    <th class="col-sm-2" ng-repeat="MarriageNo in MarriageNoList">{{MarriageNo.Id}}</th>
+                                                </tr>
+                                                <tr class="pb-3" ng-repeat="FacilitiesforFeMale in Facilitieschecklist track by $index" ng-if="$odd">
+                                                    <td class="col-sm-6" width="50%">
+                                                        <label>
+                                                            {{FacilitiesforFeMale.FacilityName}}
+                                                        </label>
+                                                    </td>
+                                                    <td class="col-sm-1">
+                                                        <input type="checkbox" ng-model="Facilitieschecklist[$index].One" ng-checked="{{Facilitieschecklist.One}}">
+                                                    </td>
+                                                    <td class="col-sm-1">
+                                                        <input type="checkbox" ng-model="Facilitieschecklist[$index].Two" ng-checked="{{Facilitieschecklist.Two}}">
+                                                    </td>
+                                                    <td class="col-sm-1">
+                                                        <input type="checkbox" ng-model="Facilitieschecklist[$index].Three" ng-checked="{{Facilitieschecklist.Three}}">
+                                                    </td>
+                                                    <td class="col-sm-1">
+                                                        <input type="checkbox" ng-model="Facilitieschecklist[$index].Four" ng-checked="{{Facilitieschecklist.Four}}">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-12 text-center">
+                        <input id="btnPartnerCategory" type="submit" class="action-button btnSave  btn-success" value="Save" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        //var multipleCancelButton = new Choices('.choices-multiple-remove-button', {
+        //    removeItemButton: true,
+        //    maxItemCount: 5,
+        //    searchResultLimit: 5,
+        //    renderChoiceLimit: 5
+        //});
+
+        $("#MonthlyExpense").on("click", function () {
+            console.log('clicked ');
+            if ($('#MonthlyExpense').prop('checked')) {
+                // something when checked
+                //console.log("called")
+                $('#ExpenseLab').show();
+            } else {
+                // something else when not
+                $('#ExpenseLab').hide();
+            }
+
+        })
+
+        $('#ExpenseLab').hide();
+
+        $("#ExpenseBox").focusout(function () {
+            if (!$.isNumeric($('#ExpenseBox').val())) {
+                $('#ExpenseBox').val('');
+                $('#numbermsg').show();
+            } else {
+                $('#numbermsg').hide();
+            }
+            //$(this).css("background-color", "#FFFFFF");
+        });
+        $('#numbermsg').hide();
+        //model show hide
+        $(".close").on("click", function () {
+            $("#DivorReasonModal").modal('hide');
+        });
+        // pop up call for Woman
+        jQuery('#DivorceWomen').on('change', function () {
+            var ddlVal = $("#DivorceWomen").val();
+            //console.log("Woman Reason Clicked");
+            Cehckvalue(ddlVal);
+        });
+        //pop up call for man
+        jQuery('#DivorceMan').on('change', function () {
+            //console.log("Man Reason Clicked");
+            var ddlVal = $("#DivorceMan").val();
+            Cehckvalue(ddlVal);
+        });
+        //Pop Model Call
+        function Cehckvalue(ddlVal) {
+            //console.log('ChechVal Func ' + ddlVal);
+            if (ddlVal == 'Yes') {
+                $("#DivorReasonModal").modal('show');
+                //$("#candDetail").html("");
+            };
+        };
+    });
+
+
+</script>
+

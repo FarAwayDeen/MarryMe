@@ -1,0 +1,32 @@
+﻿<link href="~/assets/css/Navcard.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="sidenav card card-header" id="sidenav">
+    <a href="@Url.Action("Index","Home")"><span class="fa fa-home mr-3"></span>Home</a> 
+        <a href="@Url.Action("ProfileWizard","Member")" routerLinkActive="active"><span class="fa fa-user mr-3"></span>My Profile</a>
+      
+    @*<a href="@Url.Action("DocumentList","Member")"><span class="fa fa-file mr-3"></span>Upload Documents List</a>*@
+    <a href="@Url.Action("ChangePassword","Member")"><span class="fa fa-lock mr-3"></span>Change Password</a>
+    <a href="@Url.Action("Logout","Account")"><span class="fa fa-sign-out mr-3"></span>Sign out</a>
+</div>
+
+<script>
+    $(document).ready(function () {
+        //var pageURL = $(location).attr("href");
+        //alert(pageURL);
+        //$("button").click(function(){
+        //});
+        var current = location.pathname;
+        //console.log(current);
+        //$('.sidenav a').each(function () {
+        //    var $this = $(this);
+        //    // if the current path is like this link, make it active
+        //    if ($this.attr('href').indexOf(current) !== -1) {
+        //        $this.addClass('active');
+        //    }
+        //})
+        //$(function () {
+
+        //})
+    });
+</script>

@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{021BDEE6-B6E6-4FDC-B5DE-3F8E5B32650E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marryme.DAL</RootNamespace>
+    <AssemblyName>Marryme.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcceptanceCriteria.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityLog.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProfile.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReporting_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSetting.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Attachement.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChatFriendRequest.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChatHistoryDeletedMember.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChatMessage.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChatSession.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactU.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CR_List.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CR_ListType.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Divorce.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DivorcePolicy.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocDropdownList.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentType.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EductionLevel.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailSMSTemplate.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorLog.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExisitingKidsDetail.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExisitingKidsDetailResult.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacilitiesResultFemale.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacilitiesResultMale.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Facility.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyInvolvement.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyInvolvementResult.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedBack.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchAcceptanceCriteria_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchAcceptanceQuestionList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchChatFriendList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchChatMemberConversation_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchChatMemberList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchCities_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchConfirmPaymentAdminList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchConfirmPaymentClientList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchContactUsNotification_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchContactUs_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchCountries_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchDivorcePolicy_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchDocuments_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchDucomentLisById_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchFacilitiesByMemberId_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchFacilities_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchFeedBackAdminList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchFeedBackNotification_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchFeedBack_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchInfoForPersonalProfileCard_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchLanguages_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMarriagePolicy_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMemberDetailById1_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMemberDetailById_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMemberDetail_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMemberFieldPermission_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMemberList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMemberSubscription_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMyMatches1_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchMyMatches_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchOrderSummary_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPackagePricingPlans_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPackagesDuration_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPackageSubscription_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPackages_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPackageType_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchParentCatagoryList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPartnerCategoriesByMemberId_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPaymentOptionddl_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPaymentOptions_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPremiumBestMatches_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchPremiumMember_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProfileLocationDetail_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProfilePersonalInfoDetail_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProfilePersonalInfoForRegistrar1_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProfilePersonalInfoForRegistrar_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProfilePersonalInfo_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProfileRequirementCheckListResult_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProfileRequirementList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProposalQuestionsByMemberId_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchProposalQuestions_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchStates_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchWifeDetailByMemberId_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchWifeKidsDetailByMemberId_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchWomanRightsByMemberId_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FetchWomanRights_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FieldsPermission.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllCRList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBestMatchingByCRList1_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetBestMatchingByCRList_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCRList_ByTypeID_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPackageRemainingWeeksByMemberId_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Language.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaritalStatu.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarriageDuration.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarriagePolicy.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarrymeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarrymeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarrymeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MarrymeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarrymeModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberAppearance.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberEducationDetail.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberFamilyDetail.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberLanguage.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberLifeStyle.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberLikeDislike.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberLocationDetail.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberLoginDetail.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPackageConfirmPayment.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPackagePayment.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPackageSubscription.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPackageSubscriptionDetail.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPreferrdLocation.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberRegistration.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberReligiousDetail.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MembersFetch_Result.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenCurrentState.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Metadata.cs" />
+    <Compile Include="Notification.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NumberOfMarriage.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Package.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackagePricingPlan.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageType.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PageContent.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerCatagoryMaritalStatu.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerCategory.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerCategoryResult.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerCatoryEducationLevel.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentOption.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileRequirement.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProposalQuestion.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProposalQuestionsResult.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Religion.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReligionSect.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UploadDocument.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WifeDetail.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WifeDetailResult.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WifeNumber.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WomenCurrentState.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WomenResponsibility.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WomenRight.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WomenRightsResult.cs">
+      <DependentUpon>MarrymeModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="MarrymeModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MarrymeModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="MarrymeModel.edmx.diagram">
+      <DependentUpon>MarrymeModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBaseBackups\01-Marryme-02-June-2022.sql" />
+    <Content Include="DataBaseBackups\02-Marryme-08-June-2022.sql" />
+    <Content Include="DataBaseBackups\03-Marryme-14-June-2022.sql" />
+    <Content Include="DataBaseBackups\04-Marryme-22-June-2022.sql" />
+    <Content Include="DataBaseBackups\05-Marryme-02-July-2022.sql" />
+    <Content Include="DataBaseBackups\06-Marryme-05-July-2022.sql" />
+    <Content Include="DataBaseBackups\07-Marryme-13-July-2022.sql" />
+    <Content Include="DataBaseBackups\08-Marryme-11-August-2022.sql" />
+    <Content Include="DataBaseBackups\09-Marryme-20-August-2022.sql" />
+    <Content Include="DataBaseBackups\10-Marryme-04-September-2022.sql" />
+    <Content Include="DataBaseBackups\11-Marryme-10-September-2022.sql" />
+    <Content Include="DataBaseBackups\12-Marryme-15-September-2022.sql" />
+    <Content Include="DataBaseBackups\13-Marryme-22-September-2022.sql" />
+    <Content Include="DataBaseBackups\14-Marryme-15-October-2022.sql" />
+    <Content Include="DataBaseBackups\15-Marryme-25-Feb-23.sql" />
+    <Content Include="DataBaseBackups\16-Marryme-26-Feb-23.sql" />
+    <Content Include="DataBaseBackups\17-Marryme-20-Feb-23.sql" />
+    <Content Include="MarrymeModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MarrymeModel.Context.cs</LastGenOutput>
+      <DependentUpon>MarrymeModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="MarrymeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MarrymeModel.edmx</DependentUpon>
+      <LastGenOutput>MarrymeModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

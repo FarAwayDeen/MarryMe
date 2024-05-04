@@ -1,0 +1,140 @@
+﻿<script src="~/Angular/Registrar/PersonalInfoSetup.js?v=@DateTime.Now.Ticks"></script>
+<style>
+    label.col-md-3, label.col-md-2 {
+        font-weight: bold;
+    }
+</style>
+<div ng-controller="RegistrarPersonalInfoController">
+    <form id="frmPersonalInfo" data-parsley-validate novalidate ng-submit="Save()">
+        <h2 class="fs-title"><i class="icofont-file-alt" id="iconbox"></i> Personal Information</h2>
+        <hr />
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <label class="col-md-3">Name </label>
+                        <div class="col-md-6 form-group">
+                            <input type="text" ng-model="PersonalInfo.Name" placeholder="Full Name" class="form-control" />
+                            @*<label>{{PersonalInfo.Name}}</label>*@
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">E-mail </label>
+                        <div class="col-md-8 form-group">
+                            <label>{{PersonalInfo.Email}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">Marital Status </label>
+                        <div class="col-md-3 form-group">
+                            <select class="form-control" required ng-model="PersonalInfo.MaritalStatus" data-parsley-error-message="">
+                                <option value="">--- Please Select ---</option>
+                                <option value="{{MaleStatus.ID}}" style="color:#888;" ng-repeat="MaleStatus in MaritalStatusForMale">{{MaleStatus.Name}}</option>
+                            </select>
+                            @*<select class="form-control" required ng-model="PersonalInfo.MaritalStatus" ng-if="PersonalInfo.Gender=='Female'" data-parsley-error-message="">
+                                    <option value="">--- Please Select ---</option>
+                                    <option value="{{FemalStatus.ID}}" style="color:#888;" ng-repeat="FemalStatus in MaritalStatusForFemale">{{FemalStatus.Name}}</option>
+                                </select>*@
+                        </div>
+                        <label class="col-md-2 float-right">Gender </label>
+                        <div class="col-md-4 form-group">
+                            <ul class="radio-list">
+                                <li ng-repeat="Gender in GenderList">
+                                    <label ng-class="{'radio-active':$parent.PersonalInfo.Gender==Gender.Name}">
+                                        {{Gender.Name}}
+                                        <input type="radio" ng-model="$parent.PersonalInfo.Gender" value="{{Gender.Name}}" />
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-sm-3 form-group">
+                            <label>Heighest Education </label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            @*<input class="form-control" ng-model="EducationInfo.HighestEducation" maxlength="30" type="text" />*@
+                            <select class="form-control" required ng-model="PersonalInfo.EductionLevels">
+                                <option value="">Please Select</option>
+                                <option value="{{level.ID}}" style="color:#888;" ng-repeat="level in EducationList">{{level.Name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <label>Employed In </label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <select class="form-control" required ng-model="PersonalInfo.Employment">
+                                <option value="">Please Select</option>
+                                <option value="{{Employee.ID}}" style="color:#888;" ng-repeat="Employee in EmployeedInList">{{Employee.Name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-sm-3">
+                            <label>Religion</label>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <select class="form-control" ng-model="PersonalInfo.ReligionId">
+                                <option>--- Select ---</option>
+                                <option value="{{Religion.ID}}" ng-repeat="Religion in Religions">{{Religion.Name}}</option>
+
+                            </select>
+                        </div>       @*ng-show="ReligiousInfo.Religion==43"*@
+                        <div class="col-sm-2" ng-show="PersonalInfo.ReligionId=='43'">
+                            <label>Sect</label>
+                        </div>
+                        <div class="col-sm-3 form-group" ng-show="PersonalInfo.ReligionId=='43'">
+                            <select class="form-control" ng-model="PersonalInfo.SectId">
+                                <option>--- Select ---</option>
+                                <option value="{{Sect.ID}}" ng-repeat="Sect in Sects">{{Sect.Name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body" style="text-align: center">                         
+                            <img id="imgPreview" ng-src="{{PersonalInfo.ProfilePicPath}}" onerror="CheckImage(this)" />
+                        </div>
+                        <div class="card-footer">
+                            <input id="profilePic" type="file" class="form-control-sm" />
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="col-sm-12 text-center">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <input id="btnPersonalinfo" type="submit" name="next" class="btnSave action-button nextBtn" value="Save" />
+                </div>
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button nextBtn float-right" value="Next" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready(() => {
+        $(function () {
+            $("input[name='onlynumbers']").on('input', function (e) {
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+
+                if (parseInt($(this).val()) >= 20) {
+                    console.log($(this).val())
+                    $(this).val('');
+                }
+                else {
+                    console.log($(this).val())
+                }
+            });
+        });
+
+
+    });
+
+</script>

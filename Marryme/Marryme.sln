@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marryme.WebUI", "Marryme.WebUI\Marryme.WebUI.csproj", "{0A959C8D-E527-4F5B-9312-540A6B7F9181}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marryme.DAL", "Marryme.DAL\Marryme.DAL.csproj", "{021BDEE6-B6E6-4FDC-B5DE-3F8E5B32650E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marryme.BAL", "Marryme.BAL\Marryme.BAL.csproj", "{A5A2793C-B8AB-4BED-8D32-5675DACA6248}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marryme.Admin", "Marryme.Admin\Marryme.Admin.csproj", "{D5476EC3-452F-40F7-AC92-7322929108DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A959C8D-E527-4F5B-9312-540A6B7F9181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A959C8D-E527-4F5B-9312-540A6B7F9181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A959C8D-E527-4F5B-9312-540A6B7F9181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A959C8D-E527-4F5B-9312-540A6B7F9181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{021BDEE6-B6E6-4FDC-B5DE-3F8E5B32650E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021BDEE6-B6E6-4FDC-B5DE-3F8E5B32650E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021BDEE6-B6E6-4FDC-B5DE-3F8E5B32650E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021BDEE6-B6E6-4FDC-B5DE-3F8E5B32650E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5A2793C-B8AB-4BED-8D32-5675DACA6248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5A2793C-B8AB-4BED-8D32-5675DACA6248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5A2793C-B8AB-4BED-8D32-5675DACA6248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5A2793C-B8AB-4BED-8D32-5675DACA6248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5476EC3-452F-40F7-AC92-7322929108DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5476EC3-452F-40F7-AC92-7322929108DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5476EC3-452F-40F7-AC92-7322929108DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5476EC3-452F-40F7-AC92-7322929108DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82824DE1-4404-4A9F-A2C7-0DAB1D8BEEB5}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hilton1122.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Marryme.Admin\\Marryme.Admin.csproj
+		SccProjectName1 = Marryme.Admin
+		SccLocalPath1 = Marryme.Admin
+		SccProjectUniqueName2 = Marryme.BAL\\Marryme.BAL.csproj
+		SccProjectName2 = Marryme.BAL
+		SccLocalPath2 = Marryme.BAL
+		SccProjectUniqueName3 = Marryme.DAL\\Marryme.DAL.csproj
+		SccProjectName3 = Marryme.DAL
+		SccLocalPath3 = Marryme.DAL
+		SccProjectUniqueName4 = Marryme.WebUI\\Marryme.WebUI.csproj
+		SccProjectName4 = Marryme.WebUI
+		SccLocalPath4 = Marryme.WebUI
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Free Members List";
+    ViewBag.SubTitle = "View Free Members";
+    ViewBag.TitleIcon = "<i class='fa fa-newspaper-o'></i>";
+}
+<script src="~/Angular/Members/Members.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="MembersController" id="DivMembers">
+    <div class="panel">
+        <div class="panel-body">
+            <form ng-submit="MembersFetch()">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <input class="form-control" ng-model="Members.Search" placeholder="Search ...">
+                    </div>
+                    <div class="col-sm-2">
+                        <select id="selectStatus" ng-model="Members.Active" class="form-control select" style="width: 100%;">
+                            <option value="">--- All ---</option>
+                            <option value="1">Active</option>
+                            <option value="0">InActive</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary col-xs-12"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default collapsed">
+        <div class="panel-body">
+            <ul class="btns_table clearfix">
+                <li>
+                </li>
+                <li>
+                </li>
+                <li class="manual-dropdown pull-right">
+                </li>
+            </ul>
+            <div class="table-responsive">
+                <table id="tblMembers" class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Looking</th>
+                            <th>Status</th>
+                            <th>SubCast</th>
+                            <th class="th_width_20">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

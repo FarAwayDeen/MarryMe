@@ -1,0 +1,196 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+.heading {
+    background-color: #28a745;
+    color: white;
+    padding-top: 5px;    
+    padding-top: 8px !important;
+    border-radius: 7px;
+}
+input[type="checkbox"] + label, .labelbeforcheck {
+    cursor: pointer;
+}
+input[type="checkbox"]:checked + label {
+    color: #1d53a3f2;
+}
+input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;   
+}
+body {
+    margin-top: 74px;
+}
+label {
+    font-weight: bold;
+}
+.chatbtn{
+    position:fixed;
+    bottom:30px;
+    right:50px;
+    z-index:9999;
+    
+}
+@media (min-width : 768px) {
+    .col-sm-3C {
+        max-width: 19%;
+        /*margin-left: 10px;
+    margin-top: 29px;*/
+    }
+}
+
+ul.radio-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+    ul.radio-list > li {
+        float: left;
+    }
+
+        ul.radio-list > li label {
+            display: block;
+            text-align: center;
+            padding: 0 16px 0 16px;
+            text-decoration: none;
+        }
+
+/*li label:hover {
+                background-color: #c1001b;
+                color: #fff;
+            }*/
+.radio-list {
+    margin: 10px;
+}
+#toggle-function {
+    cursor: pointer;
+    color: white
+}
+    #toggle-function:hover {
+        cursor: pointer;
+        color: black
+    }
+    .radio-list input[type="radio"] {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+    }
+
+    .radio-list label {
+        display: inline-block;
+        background-color: white;
+        padding: 2px 12px;
+        font-family: sans-serif, Arial;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        font-weight: normal;
+    }
+
+        .radio-list label:hover {
+            background-color: #dadada;
+            color: #000000;
+        }
+
+ul.radio-list > li > .radio-active {
+    background-color: #28a745;
+    color: white;
+}
+
+ul.radio-list > li {
+    margin-right: 12px;
+}
+.card-body li {
+    line-height: 38px;
+}
+
+.parsley-errors-list {
+    display: none !important;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+#home-header-text {
+    margin-top: -234px;
+}
+
+.dropdown-menu a {
+    color: #000 !important;
+}
+
+.btn-lg {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+    border-radius: 50px;
+}
+
+.btn-primary {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    border-radius: 50px;
+}
+
+    .btn-primary:hover {
+        background-color: #50ef50 !important;
+        border-color: #50ef50 !important;
+    }
+
+.btn-outline-primary:hover {
+    background-color: #72e572 !important;
+    border-color: #50ef50 !important;
+}
+
+.btn-outline-primary {
+    color: #72e572;
+    border-color: #50ef50;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 550px) {
+    .best-match-pic {
+        margin-top: -212px !important;
+        margin-right: -245px;
+    }
+}
+.action-button {
+    width: 100px;
+    background: #28a745;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    border-radius: 50px;
+    text-align: center !important;
+}

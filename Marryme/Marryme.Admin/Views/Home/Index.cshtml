@@ -1,0 +1,95 @@
+﻿@model Marryme.DAL.AdminReporting_Result
+
+
+@{
+    ViewBag.Title = "Dashboard";
+    ViewBag.SubTitle = "Dashboard Tiles";
+    ViewBag.TitleIcon = "<i class='fa fa-newspaper-o'></i>";
+}
+<div class="row row-panel">
+    <div class="col-md-6">
+        <ul class="list-unstyled list-insights">
+            <li>
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <i class="fa fa-users custom-bg-orange"></i>
+                    </div>
+                    <div class="media-body">
+                        <p>Total Free Members <b>@Model.FreeMembers</b></p>
+                        <a href="/Members/Index">View detail</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <i class="fa fa-line-chart custom-bg-blue"></i>
+                    </div>
+                    <div class="media-body">
+                        <p>Total Paid Members <b>@Model.PaidMembers</b></p>
+                        <a href="/Member/MemberList">View detail</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="widget widget-stat">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <i class="fa fa-shopping-bag icon-transparent-area custom-color-purple"></i>
+                        </div>
+                        <div class="media-body">
+                            <span class="title" style="color:black !important;">Total Payments</span>
+                            <span class="value">@(Model.TotalPayments??0)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="widget widget-stat">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <i class="fa fa-users icon-transparent-area custom-color-orange"></i>
+                        </div>
+                        <div class="media-body">
+                            <span class="title" style="color:black !important;">Pending Payments</span>
+                            <span class="value">@(Model.PendingPayments??0)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="widget widget-stat">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <i class="fa fa-reply icon-transparent-area custom-color-lightseagreen"></i>
+                        </div>
+                        <div class="media-body">
+                            <span class="title" style="color:black !important;">Packages</span>
+                            <span class="value">@Model.ActivePackages</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="widget widget-stat">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <i class="fa fa-plus icon-transparent-area custom-color-green"></i>
+                        </div>
+                        <div class="media-body">
+                            <span class="title" style="color:black !important;">FeedBacks</span>
+                            <span class="value">@Model.TotalFeedBack</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

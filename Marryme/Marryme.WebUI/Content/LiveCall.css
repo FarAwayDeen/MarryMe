@@ -1,0 +1,302 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-style {
+    color: black;
+    font-size: 20px;
+    background-color: rgb(250, 250, 250);
+}
+
+.btn-style2 {
+    color: black;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.btn-end {
+    color: #fff;
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+.name {
+    padding-top: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+.ro {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.fa-solid {
+    color: limegreen;
+    font-size: 30px;
+    margin-right: 10px !important;
+}
+
+.fa1 {
+    color: limegreen;
+    font-size: 30px;
+}
+
+/*.font {
+    color: rgb(224, 33, 33) !important;
+    font-size: 30px;
+}*/
+
+    .font:hover {
+        color: white !important;
+        font-size: 30px;
+    }
+
+.btn-outline-danger:hover .font {
+    color: white !important;
+    font-size: 30px;
+}
+
+.entry-modal {
+    border: 1px solid #444444;
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 5px;
+    color: #fff;
+    background-color: #444444;
+    text-align: center;
+}
+
+#notification {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    margin: 0;
+    top: 47.33px;
+    font-size: 18pt;
+    width: 100%;
+    background-color: orange;
+}
+
+
+.room-input {
+    border: none;
+    padding: 5px;
+}
+
+button {
+    margin: 3px;
+    padding: 5px;
+}
+
+#remote-video {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
+#local-video {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: whitesmoke;
+}
+
+.meet-controls-bar {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.Receiver, .caller {
+    font-size: 20px;
+    text-shadow: rgba(0, 0, 0, 0.15) 2.95px 2.95px 3.6px;
+    margin-top: 15px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #local-video {
+        width: 100%;
+        object-fit: fill;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        background-color: gray;
+    }
+
+    #remote-video {
+        width: 100%;
+        object-fit: fill;
+        background-color: black;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+}
+
+#Div2 {
+    display: none;
+}
+
+.logo-image {
+    margin-bottom: 10px;
+}
+
+
+/* Chat Icon*/
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+    background-color: #286090;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    /*width: 280px;*/
+    border-radius: 50%;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    width: 400px;
+}
+
+/* Add styles to the form container */
+.form-container {
+    /*max-width: 300px;*/
+    padding: 10px;
+    background-color: white;
+}
+
+    /* Full-width textarea */
+    .form-container textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+        resize: none;
+        min-height: 200px;
+    }
+
+        /* When the textarea gets focus, do something */
+        .form-container textarea:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+    /* Set a style for the submit/send button */
+    .form-container .btn {
+        background-color: #04AA6D;
+        color: white;
+        /*   padding: 16px 20px;
+        border: none;*/
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+        background-color: #c9302c;
+    }
+
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover, .open-button:hover {
+        opacity: 1;
+    }
+
+#content-body {
+    height: auto;
+    min-height: calc(100% - 93px);
+    max-height: calc(100% - 93px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+    #content-body .messages {
+        /*    height: auto;
+    min-height: calc(100% - 93px);
+    max-height: calc(100% - 93px);
+    overflow-y: scroll;
+    overflow-x: hidden;*/
+    }
+
+        #content-body .messages::-webkit-scrollbar {
+            width: 8px;
+            background: transparent;
+        }
+
+        #content-body .messages::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        #content-body .messages ul li {
+            display: inline-block;
+            clear: both;
+            float: left;
+            margin: 15px 15px 5px 15px;
+            width: calc(100% - 25px);
+            font-size: 0.9em;
+        }
+
+            #content-body .messages ul li:nth-last-child(1) {
+                margin-bottom: 20px;
+            }
+
+            #content-body .messages ul li.sent img {
+                margin: 6px 8px 0 0;
+            }
+
+            #content-body .messages ul li.sent p {
+                background: lightgray;
+                color: black;
+            }
+
+            #content-body .messages ul li.replies img {
+                float: right;
+                margin: 6px 0 0 8px;
+            }
+
+            #content-body .messages ul li.replies p {
+                background: #0088ff;
+                float: right;
+                color: white;
+            }
+
+            #content-body .messages ul li img {
+                width: 22px;
+                border-radius: 50%;
+                float: left;
+            }
+
+            #content-body .messages ul li p {
+                display: inline-block;
+                padding: 10px 15px;
+                border-radius: 20px;
+                max-width: 205px;
+                line-height: 130%;
+            }
+
+/*End chat Icon*/

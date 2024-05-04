@@ -1,0 +1,60 @@
+﻿.btn-lg {
+    margin-right: 10px !important;
+    margin-left: 0px !important;
+    border-radius: 50px;
+}
+
+.btn-primary {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+    .btn-primary:hover {
+        background-color: #6ee388 !important;
+        border-color: #6ee388 !important;
+    }
+
+.btn-outline-primary:hover {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+.btn-outline-primary {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+/*.member-body {*/
+    /*background-image: url('../../Images/MemberCard-02.png');*/
+    /*background-image: url('Img/img4.jpg');
+    background-repeat: round;
+    transition: all ease-in-out 0.4s;*/
+    /*border: 1px solid #cccccc;*/
+    /*height: 200px;
+}*/
+
+    /*.member-body:hover {
+        transition: all ease-in-out 0.4s;
+        transform: scale(1.1);
+        border: 1px #e0dede solid;
+    }*/
+
+.img {
+    margin: 6px 0px 0px -22px;
+}
+
+/*.best-match-pic {
+    border-radius: 50%;
+    margin-top: 12px;*/
+    /*margin-left:10px;*/
+/*}*/
+
+.usrdta {
+    text-align: left;
+}
+
+/*h5 {
+    padding-top: 13px;*/
+    /*color: #fff !important;*/
+/*}*/
+

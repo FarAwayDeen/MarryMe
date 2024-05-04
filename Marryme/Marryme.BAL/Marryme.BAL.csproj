@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5A2793C-B8AB-4BED-8D32-5675DACA6248}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Marryme.BAL</RootNamespace>
+    <AssemblyName>Marryme.BAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common.cs" />
+    <Compile Include="Enum.cs" />
+    <Compile Include="Extension.cs" />
+    <Compile Include="Generic.cs" />
+    <Compile Include="MarrymeAdminManager\AccountsManager.cs" />
+    <Compile Include="MarrymeAdminManager\ApplicationSettingManager.cs" />
+    <Compile Include="MarrymeAdminManager\ContactUsManager.cs" />
+    <Compile Include="MarrymeAdminManager\MembersManager.cs" />
+    <Compile Include="MarrymeClientManager\AboutmeManager.cs" />
+    <Compile Include="MarrymeClientManager\AcceptanceCriteriaManager.cs" />
+    <Compile Include="MarrymeClientManager\AccountManager.cs" />
+    <Compile Include="MarrymeClientManager\BestMatchesManager.cs" />
+    <Compile Include="MarrymeClientManager\DivorcePolicyManager.cs" />
+    <Compile Include="MarrymeClientManager\EducationManager.cs" />
+    <Compile Include="MarrymeClientManager\ExsitingWifeDetailManager.cs" />
+    <Compile Include="MarrymeClientManager\FamilyManager.cs" />
+    <Compile Include="MarrymeClientManager\FieldPermissionManager.cs" />
+    <Compile Include="MarrymeClientManager\FutureAgreementManager.cs" />
+    <Compile Include="MarrymeClientManager\MarriageRegistrationManager.cs" />
+    <Compile Include="MarrymeClientManager\SessionTimeoutAttribute.cs" />
+    <Compile Include="MarrymeClientManager\LocationManager.cs" />
+    <Compile Include="MarrymeClientManager\MarriagePolicyManager.cs" />
+    <Compile Include="MarrymeClientManager\MemberChatManager.cs" />
+    <Compile Include="MarrymeClientManager\MemberManger.cs" />
+    <Compile Include="MarrymeClientManager\PersonalDetailManager.cs" />
+    <Compile Include="MarrymeClientManager\PersonalProfileCardManager.cs" />
+    <Compile Include="MarrymeClientManager\ProfileRequirementManager.cs" />
+    <Compile Include="MarrymeClientManager\ReligiousManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AcceptanceCriteriaVM.cs" />
+    <Compile Include="ViewModels\AllCategory.cs" />
+    <Compile Include="ViewModels\categorymodel.cs" />
+    <Compile Include="ViewModels\ChatMemberProfileModel.cs" />
+    <Compile Include="ViewModels\DivorcePolicyVM.cs" />
+    <Compile Include="ViewModels\DropDownVM.cs" />
+    <Compile Include="ViewModels\ExsitingWifeDetailVM.cs" />
+    <Compile Include="ViewModels\FacilitiesForManVM.cs" />
+    <Compile Include="ViewModels\FacilitiesForWomanVM.cs" />
+    <Compile Include="ViewModels\FetchFacilities_resultVM.cs" />
+    <Compile Include="ViewModels\MarriagePolicyVM.cs" />
+    <Compile Include="ViewModels\MemberRegistrationVM.cs" />
+    <Compile Include="ViewModels\PartnerCatagoryStatusAndEducationVM.cs" />
+    <Compile Include="ViewModels\PartnerCatagoryVM.cs" />
+    <Compile Include="ViewModels\PartnerCategories.cs" />
+    <Compile Include="ViewModels\SearchFilterPrams.cs" />
+    <Compile Include="ViewModels\UploadDocumentsVM.cs" />
+    <Compile Include="ViewModels\WifeKidzDetailVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Marryme.DAL\Marryme.DAL.csproj">
+      <Project>{021bdee6-b6e6-4fdc-b5de-3f8e5b32650e}</Project>
+      <Name>Marryme.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

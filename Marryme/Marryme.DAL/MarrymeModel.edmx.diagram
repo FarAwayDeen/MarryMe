@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="09e1160ed29348bbb59b5e19dd86d373" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="MarrymeModel.AcceptanceCriteria" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ActivityLog" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MarrymeModel.AdminProfile" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ApplicationSetting" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.Attachement" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ChatFriendRequest" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ChatHistoryDeletedMember" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ChatMessage" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ChatSession" Width="1.5" PointX="8.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MarrymeModel.City" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ContactU" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MarrymeModel.Country" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MarrymeModel.CR_List" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="MarrymeModel.CR_ListType" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="MarrymeModel.Divorce" Width="1.5" PointX="6.75" PointY="10.75" />
+        <EntityTypeShape EntityType="MarrymeModel.DivorcePolicy" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MarrymeModel.DocDropdownList" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MarrymeModel.DocumentType" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.EductionLevel" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MarrymeModel.EmailSMSTemplate" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ErrorLog" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ExisitingKidsDetail" Width="1.5" PointX="10.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ExisitingKidsDetailResult" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MarrymeModel.Facility" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.FacilitiesResultFemale" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="MarrymeModel.FacilitiesResultMale" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MarrymeModel.FamilyInvolvement" Width="1.5" PointX="14.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MarrymeModel.FamilyInvolvementResult" Width="1.5" PointX="14.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MarrymeModel.FeedBack" Width="1.5" PointX="2.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.FieldsPermission" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.Language" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MaritalStatu" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MarriageDuration" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MarriagePolicy" Width="1.5" PointX="12.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberAppearance" Width="1.5" PointX="14.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberEducationDetail" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberFamilyDetail" Width="1.5" PointX="16.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberLanguage" Width="1.5" PointX="16.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberLifeStyle" Width="1.5" PointX="16.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberLikeDislike" Width="1.5" PointX="16.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberLocationDetail" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberLoginDetail" Width="1.5" PointX="18.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberPackageConfirmPayment" Width="1.5" PointX="4.75" PointY="18.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberPackagePayment" Width="1.5" PointX="6.75" PointY="18.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberPackageSubscription" Width="1.5" PointX="18.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberPackageSubscriptionDetail" Width="1.5" PointX="18.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberPreferrdLocation" Width="1.5" PointX="18.75" PointY="16.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberRegistration" Width="1.5" PointX="0.75" PointY="19.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MemberReligiousDetail" Width="1.5" PointX="8.75" PointY="19.75" />
+        <EntityTypeShape EntityType="MarrymeModel.MenCurrentState" Width="1.5" PointX="14.75" PointY="19.75" />
+        <EntityTypeShape EntityType="MarrymeModel.Notification" Width="1.5" PointX="16.75" PointY="19.75" />
+        <EntityTypeShape EntityType="MarrymeModel.NumberOfMarriage" Width="1.5" PointX="18.75" PointY="19.75" />
+        <EntityTypeShape EntityType="MarrymeModel.Package" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.PackagePricingPlan" Width="1.5" PointX="20.75" PointY="5.75" />
+        <EntityTypeShape EntityType="MarrymeModel.PackageType" Width="1.5" PointX="20.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MarrymeModel.PageContent" Width="1.5" PointX="10.75" PointY="20.75" />
+        <EntityTypeShape EntityType="MarrymeModel.PartnerCatagoryMaritalStatu" Width="1.5" PointX="20.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MarrymeModel.PartnerCategory" Width="1.5" PointX="20.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.PartnerCategoryResult" Width="1.5" PointX="20.75" PointY="19.75" />
+        <EntityTypeShape EntityType="MarrymeModel.PartnerCatoryEducationLevel" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarrymeModel.PaymentOption" Width="1.5" PointX="2.75" PointY="22.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ProfileRequirement" Width="1.5" PointX="22.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ProposalQuestion" Width="1.5" PointX="4.75" PointY="22.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ProposalQuestionsResult" Width="1.5" PointX="22.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MarrymeModel.Religion" Width="1.5" PointX="22.75" PointY="12.75" />
+        <EntityTypeShape EntityType="MarrymeModel.ReligionSect" Width="1.5" PointX="12.75" PointY="22.75" />
+        <EntityTypeShape EntityType="MarrymeModel.State" Width="1.5" PointX="14.75" PointY="22.75" />
+        <EntityTypeShape EntityType="MarrymeModel.UploadDocument" Width="1.5" PointX="22.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MarrymeModel.WifeDetail" Width="1.5" PointX="16.75" PointY="22.75" />
+        <EntityTypeShape EntityType="MarrymeModel.WifeDetailResult" Width="1.5" PointX="22.75" PointY="18.75" />
+        <EntityTypeShape EntityType="MarrymeModel.WifeNumber" Width="1.5" PointX="18.75" PointY="22.75" />
+        <EntityTypeShape EntityType="MarrymeModel.WomenCurrentState" Width="1.5" PointX="6.75" PointY="23.75" />
+        <EntityTypeShape EntityType="MarrymeModel.WomenResponsibility" Width="1.5" PointX="20.75" PointY="23.75" />
+        <EntityTypeShape EntityType="MarrymeModel.WomenRight" Width="1.5" PointX="22.75" PointY="23.75" />
+        <EntityTypeShape EntityType="MarrymeModel.WomenRightsResult" Width="1.5" PointX="24.75" PointY="0.75" />
+        <AssociationConnector Association="MarrymeModel.FK_CR_List_CR_ListType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,177 @@
+﻿
+<link href="~/Assets/css/dragdrop.css" rel="stylesheet" />
+
+<script src="~/Angular/Profile/PersonalDetailSetup.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="PersonalDetailSetupController">
+    <form id="frmPersonalDetail" data-parsley-validate novalidate ng-submit="Save()">
+        <div class="container-fluid">
+            <h2 class="fs-title"><i class="icofont-ui-user" id="iconbox"></i> Add Your Personal details</h2>
+            <div class="card-text">
+                <p>This is the final step in completing your profile.We recommended you add more details about you,your life style and family to get<br /> exactly matching profiles.</p>
+            </div>
+            <div class="row">
+                <hr />
+                <div class="col-sm-12 form-group">
+                    <h3 style="background-color:lightgray" class="form-control"><b>Appearance</b></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Weight (Kg)</label>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <input type="text" ng-model="PersonalDetail.Weight" class="form-control allow-number" />
+                </div>
+                <div class="col-sm-7">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Body Type</label>
+                </div>
+                <div class="col-sm-10 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="BodyType in BodyTypeList">
+                            <label ng-class="{'radio-active':$parent.PersonalDetail.BodyType==BodyType.ID}">
+                                {{BodyType.Name}}
+                                <input type="radio" ng-model="$parent.PersonalDetail.BodyType" value="{{BodyType.ID}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 form-group">
+                    <label>Complexion</label>
+                </div>
+                <div class="col-sm-10 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="Complexion in ComplexionList">
+                            <label ng-class="{'radio-active':$parent.PersonalDetail.Complexion==Complexion.ID}">
+                                {{Complexion.Name}}
+                                <input type="radio" ng-model="$parent.PersonalDetail.Complexion" value="{{Complexion.ID}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <h3 style="background-color:lightgray" class="form-control"><b>Profession</b></h3>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-sm-2">
+                    <label>Educatoin in Detail</label>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>*@
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Occupation in Detail</label>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <input type="text" ng-model="PersonalDetail.Occupation" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 form-group">
+                    <label>Language </label>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <select id="ddlLanguage" class="form-control" ng-model="PersonalDetail.LanguageTypeCode">
+                        <option value="">--- Select Language ---</option>
+                        <option value="{{Language.Id}}" ng-repeat="Language in Languages">{{Language.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <h3 style="background-color:lightgray" class="form-control"><b>Life Style</b></h3>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-sm-2">
+                    <label>Eating Habits</label>
+                </div>
+                <div class="col-sm-10 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="EatingHabit in EatingHabitList">
+                            <label ng-class="{'radio-active':$parent.PersonalDetail.EatingHabit==EatingHabit.Name}">
+                                {{EatingHabit.Name}}
+                                <input type="radio" ng-model="$parent.PersonalDetail.EatingHabit" value="{{EatingHabit.Name}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>*@
+            @*<div class="row">
+                <div class="col-sm-2">
+                    <label>Drinking Habits</label>
+                </div>
+                <div class="col-sm-10 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="DrinkingHabit in DrinkingHabitList">
+                            <label ng-class="{'radio-active':$parent.PersonalDetail.DrinkingHabit==DrinkingHabit.Name}">
+                                {{DrinkingHabit.Name}}
+                                <input type="radio" ng-model="$parent.PersonalDetail.DrinkingHabit" value="{{DrinkingHabit.Name}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>*@
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Smoking Habits</label>
+                </div>
+                <div class="col-sm-10 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="SmokingHabit in SmokingHabitList">
+                            <label ng-class="{'radio-active':$parent.PersonalDetail.SmokingHabit==SmokingHabit.Name}">
+                                {{SmokingHabit.Name}}
+                                <input type="radio" ng-model="$parent.PersonalDetail.SmokingHabit" value="{{SmokingHabit.Name}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Interests</label>
+                </div>
+                <div class="col-sm-10">
+                    <textarea rows="4" ng-model="PersonalDetail.Interests" maxlength="200" class="form-control"></textarea>
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Hobbies</label>
+                </div>
+                <div class="col-sm-10">
+                    <textarea rows="4" ng-model="PersonalDetail.Hobbies" maxlength="500" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+        @*<input type="button" name="previous" class="previous action-button-previous" value="Previous" />*@
+        @*<input type="button" name="make_payment" class="next action-button" value="Next Step" />*@
+        @*<input type="button" name="next" class="btnSave action-button nextBtn" value="Skip" />*@
+        <hr />
+        <div class="col-sm-12 text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button preBtn float-left" value="Previous" />
+                </div>
+                <div class="col-md-4">
+                    <input id="btnPersonalDetail" type="submit" name="next" class="btnSave action-button nextBtn" value="Save" />
+                </div>
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button nextBtn float-right" value="Next" />
+                </div>
+            </div>
+        </div>        
+    </form>
+</div>
+
+@*<script src="~/Scripts/dragdrop.js"></script>*@

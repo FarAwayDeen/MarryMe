@@ -1,0 +1,104 @@
+﻿<script src="~/assets/vendor/parsleyjs/js/parsley.min.js"></script>
+<script src="~/Angular/Account/MemberLogin.js"></script>
+@*<script src="~/Angular/Account/MemberLogin.js?v=@DateTime.Now.Ticks"></script>*@
+<style>
+    .btn-book {
+        color: #28a745 !important;
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 12px 30px;
+        border-radius: 50px;
+        transition: 0.3s;
+        line-height: 1;
+        color: white;
+        border: 2px solid #28a745;
+    }
+
+        .btn-book:hover {
+            background: #6ee388;
+            color: #fff !important;
+        }
+
+    /*.alert-success {
+        margin-top: -400px !important;
+    }*/
+
+    #home-header-text {
+        margin-top: -100px !important;
+    } 
+    .dropdown:hover > .dropdown-menu {
+        display: block;
+    }
+
+</style>
+
+<div ng-controller="MemberLoginController">
+    <form id="frmMemberLogin" data-parsley-validate novalidate class="php-email-form RegisterForm" ng-submit="Login()">
+        <div class="card-body register-login">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label class="form-check-label"><b>Login Form</b></label>
+                    <hr />
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label class="form-check-label">Email</label>
+                    <input type="email" id="txtEmail" ng-model="MemberLogin.Email" placeholder="You Email" required class="form-control" />
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label>Password</label>
+                    @*<div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>*@
+                    <div class="input-group">
+                        <div class="input-group-prepend" style="width:100%">
+                            <input type="password" class="form-control" id="txtPass" ng-model="MemberLogin.Password" placeholder="You Password" required />
+                            <span class="input-group-text">
+                                <i id="lgpsw" class="fa fa-eye" onClick="ViewPass(this)"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 form-group">
+                @*<a href="/Account/ForgetPassword">Forgot Password?</a>*@
+                @*<input id="btnMemberLogin" type="submit" value="Login" class="btn btn-book float-right" />*@
+                <button id="btnMemberLogin" type="submit" class="btn btn-block btn-book float-right">
+                    <span>
+                        <i class="fa fa-check-circle"></i> Login
+                    </span>
+                    <span style="display:none">
+                        <i class="fa fa-spinner fa-spin"></i>
+                        Requesting...
+                    </span>
+                </button>
+            </div>
+        </div>
+    </form>
+    
+</div>
+
+<script>
+    function ViewPass(obj) {
+        var x = $(obj).parent().prev()[0];
+        console.log(obj);
+        if (x.type === "password") {
+            x.type = "text";
+            $('#lgpsw').removeClass('fa fa-eye');
+            $('#lgpsw').addClass('fa fa-eye-slash');
+
+            //x.class = "fa fa-eye-slash";
+        } else {
+            x.type = "password";
+            $('#lgpsw').removeClass('fa fa-eye-slash');
+            $('#lgpsw').addClass('fa fa-eye');
+            //x.class = "fa fa-eye";
+        }
+    }
+</script>

@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "AcceptanceCriteria";
+}
+<script src="~/Angular/Member/AcceptanceCriteria.js"></script>
+<style>
+    .row {
+        margin-bottom: 5px;
+    }
+    input[type = "radio"]{
+        transform:scale(1.5);
+    }
+    .col-sm-5 label{
+        cursor:pointer;
+    }
+@@media screen and (min-width:575@*max-width: 765px*@) {
+  .adaptable{
+      text-align:start;
+      font-size:.5rem;
+      color:red;
+  }
+}
+</style>
+<div class="container-fluid">
+    <div class="col-sm-12 col-md-12" ng-controller="AcceptanceController">
+        <div class="row">
+            <div class="col-sm-3 col-sm-3C">
+                @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+            </div>
+            <div class="col-sm-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Family Involvement</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="AcceptanceForm" ng-submit="SaveCriteria()">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-7 ">
+                                            <label class="">Do your Brothers Agree with this Marriage?</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label for="choice">Yes</label>
+                                            <input type="radio" name="yesorno" id="choice" value="{{t.name}}" />
+                                            <label for="choice2">No</label>
+                                            <input type="radio" name="yesorno" id="choice2" value="{{t.name}}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-7 ">
+                                            <label class="">Do your Sons Agree with this Marriage?</label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <label for="choice3">Yes</label>
+                                            <input type="radio" name="yesorno1" id="choice3" value="{{t.name}}" />
+                                            <label for="choice4">No</label>
+                                            <input type="radio" name="yesorno1" id="choice4" value="{{t.name}}" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <label class="">Does your Mother Agree with this Marriage?</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label for="choice5">Yes</label>
+                                            <input type="radio" name="yesorno2" id="choice5" value="{{t.name}}" />
+                                            <label for="choice6">No</label>
+                                            <input type="radio" name="yesorno2" id="choice6" value="{{t.name}}" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <label class="">Does your Father Agree with this Marriage?</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label for="choice7">Yes</label>
+                                            <input type="radio" name="yesorno3" id="choice7" value="{{t.name}}" />
+                                            <label for="choice8">No</label>
+                                            <input type="radio" name="yesorno3" id="choice8" value="{{t.name}}" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <label class="">Do your Uncles Agree with this Marriage?</label>
+                                        </div>
+                                        <div class="col-sm-5 ">
+                                            <label for="choice9">Yes</label>
+                                            <input type="radio" name="yesorno4" id="choice9" value="{{t.name}}" />
+                                            <label for="choice10">No</label>
+                                            <input type="radio" name="yesorno4" id="choice10" value="{{t.name}}" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <label class="">Do your Aunts Agree with this Marriage?</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label for="choice11">Yes</label>
+                                            <input type="radio" name="yesorno5" id="choice11" value="{{t.name}}" />
+                                            <label for="choice12">No</label>
+                                            <input type="radio" name="yesorno5" id="choice12" value="{{t.name}}" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <label class="">Do your Daughters Agree with this Marriage?</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label for="choice13">Yes</label>
+                                            <input type="radio" name="yesorno6" id="choice13" value="{{t.name}}" />
+                                            <label for="choice14">No</label>
+                                            <input type="radio" name="yesorno6" id="choice14" value="{{t.name}}" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <label class="">Do your Sisters Agree with this Marriage?</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label for="choice15">Yes</label>
+                                            <input type="radio" name="yesorno7" id="choice15" value="{{t.name}}" />
+                                            <label for="choice16">Yes</label>
+                                            <input type="radio" name="yesorno7" id="choice16" value="{{t.name}}" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 text-right">
+                                    <input id="btnAcceptance" type="submit" class="btn btn-success" value="Save" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @*<div class="col-sm-12 pt-2">
+                    <div class="row">
+                        <div class="col-sm-6 text-left">
+                            <a href="/Member/WifeDetail" type="button" class="btn btn-success ">Previous</a>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <a href="/Member/UploadDocs" type="button" class="btn btn-success ">Next</a>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+﻿<script src="~/Angular/Profile/AboutMeSetup.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="AboutMeSetupController">
+    <form id="frmAboutMe" data-parsley-validate novalidate ng-submit="Save()">
+        <div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="fs-title"><i class="icofont-pencil-alt-2" id="iconbox"></i> About me</h2>
+                    &nbsp; <p style="margin-top:5px">(Enter Maximum 500 Characters Only)</p>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <textarea rows="5" cols="50" ng-model="About.AboutMe" maxlength="500" placeholder="" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+        @*<input type="button" name="previous" class="previous action-button-previous" value="Previous" />*@
+        <hr />
+        <div class="col-sm-12 text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button preBtn float-left" value="Previous" />
+                </div>
+                <div class="col-md-4">
+                    <input id="btnAboutMe" type="submit" class="next action-button" value="Finish!" />
+                </div>
+                <div class="col-md-4">
+                    @*<input type="button" name="next" class="btnSave action-button nextBtn float-right" value="next" />*@
+                </div>
+            </div>
+        </div>
+        @*<div class="col-sm-12 text-center">
+            <input id="btnAboutMe" type="submit" class="next action-button" value="Finish!" />
+        </div>*@
+    </form>
+</div>
+
+

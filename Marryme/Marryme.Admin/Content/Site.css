@@ -1,0 +1,63 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+ /*Set padding to keep content from hitting the edges 
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+ Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+ Set width on the form input elements since they're 100% wide by default 
+input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+.nav-bg {
+    background: linear-gradient(-45deg,#e64545,#6e1a52) !important;
+    border-bottom:1px solid #fff;
+}
+#wrapper #sidebar-nav {
+    background: linear-gradient(-45deg,#e64545,#6e1a52) !important;
+}
+/*.sidebar .nav li > a {*/
+    /*color: #fff !important;*/
+/*}*/
+    .sidebar .nav li > a[data-toggle] .icon-submenu{
+        color:#fff !important;
+    }
+.sidebar .nav > li > a:hover, .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
+    background-color: #721c52 !important;
+}
+.sidebar .submenu > li > a:hover, .sidebar .submenu > li > a:focus {
+    background-color: #721c52 !important;
+    color:#fff !important ;
+}
+.btn-primary, .btn-success {
+    background-color: #8b244f !important;
+    border-color: #8b244f !important;
+}
+    .btn-primary:hover, .btn-primary:focus, .btn-success:hover, .btn-success:focus {
+        background-color: #e24445 !important;
+        border-color: #e24446 !important;
+    }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #90264e !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #e24445 !important;
+}
+a.active, .activeDash>a {
+    background: #fff;
+    color: black !important;
+}

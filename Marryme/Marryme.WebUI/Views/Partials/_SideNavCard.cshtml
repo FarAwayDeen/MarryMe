@@ -1,0 +1,51 @@
+﻿<link href="~/assets/css/Navcard.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="sidenav card card-header" id="sidenav">
+    <a href="@Url.Action("Index","Home")"><span class="fa fa-home mr-3"></span>Home</a>
+    @*<button class="w3-button w3-block w3-left-align" onclick="myAccFunc()">
+            Accordion <i class="fa fa-caret-down"></i>
+        </button>
+        <div id="demoAcc" class="w3-hide w3-white w3-card">
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+        </div>*@
+
+    <a id="toggle-function" class="container-fluid" ng-click="isShowRightContent = !isShowRightContent;isShowSideBarMobile = false;"><span class="fa fa-list mr-3"></span>Profile</a>
+
+    <div id="right-content-mobile" class="container-fluid" ng-show="isShowRightContent && !isShowSideBarMobile">
+        <a href="@Url.Action("ProfileWizard","Member")" routerLinkActive="active"><span class="fa fa-user mr-3"></span>My Profile</a>
+        <a href="@Url.Action("WifeDetail","Member")"><span class="fa fa-info-circle mr-3"></span>Existing Wife Detail</a>
+        <a href="@Url.Action("UploadDocs","Member")"><span class="fa fa-file mr-3"></span>Upload Documents</a>
+        @*<a href="@Url.Action("MarriagePolicy","Member")"><span class="fa fa-legal mr-3"></span>Marriage Policy</a>*@
+        <a href="@Url.Action("DivorcePolicy","Member")"><span class="fa fa-legal mr-3"></span>Divorce Policy</a>
+
+    </div>
+    <a href="@Url.Action("MyMatches","Member")" routerLinkActive="active"><span class="fa-solid fa-users mr-3"></span>My Matches</a>
+    @*<a href="@Url.Action("MemberList","Member")"><span class="fa fa-list mr-3"></span>Member List</a>*@
+    @if ((Session["Gender"]).ToString() == "Male")
+    {
+        <a href="@Url.Action("ProfileRequirement","Member")"><span class="fa fa-clipboard mr-3"></span>My Preferred Wife </a>
+    }
+    else
+    {
+        <a href="@Url.Action("ProfileRequirement","Member")"><span class="fa fa-clipboard mr-3"></span>My Preferred Husband </a>
+    }
+    @* Acceptance Criterai changed to Family Involvement *@
+    <a href="@Url.Action("AcceptanceCriteria","Member")"><span class="fa fa-check-double mr-3"></span>Family Involvement</a>
+    @*Future Agreement changed to Acceptance Critria*@
+    <a href="@Url.Action("Index","FutureAgreement")"><span class="fa fa-check-double mr-3"></span>Acceptance Criteria</a>
+    @*<a href="@Url.Action("DocumentList","Member")"><span class="fa fa-file mr-3"></span>Upload Documents List</a>*@
+    <a href="@Url.Action("ChangePassword","Member")"><span class="fa fa-lock mr-3"></span>Change Password</a>
+    <a href="@Url.Action("Logout","Account")"><span class="fa fa-sign-out mr-3"></span>Sign out</a>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+        $('.sidenav a').each(function () {
+            if (this.href === path) {
+                $(this).addClass('active');
+            }
+        });
+    });
+</script>

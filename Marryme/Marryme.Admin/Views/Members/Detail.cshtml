@@ -1,0 +1,256 @@
+﻿
+@{
+    ViewBag.Title = "MemberDetail";
+}
+<script src="~/Angular/Members/MemberDetail.js?v=@DateTime.Now.Ticks"></script>
+@*<link href="~/Content/UserDetail.css" rel="stylesheet" />*@
+<div class="bg-white" ng-controller="MemberDetailController">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3" style="font-size:14px">
+                <p>
+                    Membership type:&nbsp;<span>3 Star</span>
+                    <h4>{{MemberDetail.Name}} (EF00{{MemberDetail.Id}})</h4>
+                    profile created by | <strong>{{MemberDetail.ProfileCreatedBy}}</strong>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            @*<div class="col-sm-3 col-12">
+                    <div class="row">
+                        <div class="col-7">
+                            <a href="#">
+                                <img src="~/Images/2.jpg" class="rounded" style="height:200px;width:200px" />
+                            </a>
+                        </div>
+                        <div class="col-6 text-center">
+                            <a href="#" class="btn btn-sm" id="registerbtn">Click to like</a>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="col-sm-8">
+                <div class="card form-group">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="card-text">
+                                    <p><strong>Name:&nbsp;</strong>{{MemberDetail.Name}}</p>
+                                    <p><strong>DOB:&nbsp;</strong>{{MemberDetail.DOB|jsonDate|date: MM-dd-yyyy}}</p>
+                                    <p><strong>Religion:&nbsp;</strong>{{MemberDetail.Religion}}</p>
+                                    <p><strong>Marital Status:&nbsp;</strong>{{MemberDetail.MaritalStatus}}</p>
+                                    <p><strong>Location:&nbsp;</strong>{{MemberDetail.Country}}</p>
+                                    <p><strong>Cast:&nbsp;</strong>{{MemberDetail.Subcast}}</p>
+                                    <p><strong>LifeStyle:&nbsp;</strong>Will tel you later</p>
+                                    <p><strong>Culture:&nbsp;</strong>Punjabi</p>
+                                    <p><strong>Educatoin:&nbsp;</strong>{{MemberDetail.HighestEducation}}</p>
+                                    <p><strong>Occupation:&nbsp;</strong>{{MemberDetail.Occupation}}</p>
+                                    <p><strong>Contact:&nbsp;</strong>{{MemberDetail.MobileNo}}</p>
+                                    <p><strong>Language:&nbsp;</strong>{{MemberDetail.Language}}</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-8">
+                                    <a href="#">
+                                        <img src="{{MemberDetail.ProfilePicPath}}" class="rounded" style="width:180px;margin-top:-10px;margin-left:-36px" onerror="CheckImage(this)" />
+                                    </a>
+                                </div>
+                                @*<div class="col-4">
+                                        <a href="#" class="btn btn-sm" id="registerbtn" style="width:115px;margin-top:1px">Click to like</a>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!--Accordion wrapper-->
+                    <div class="">
+
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header bg-white">
+                                <p>
+
+                                    ABOUT MY SELF
+                                </p>
+                            </div>
+
+                            <div class="card-body">
+                                <P>
+                                    {{MemberDetail.AboutMe||"N/A"}}
+                                </P>
+                            </div>
+
+                        </div><br />
+                        <!-- Accordion card -->
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header bg-white">
+                                LIFE STYLE & APPEARANCE
+                            </div>
+
+                            <div class="card-body">
+                                <div class="profile_icons">
+                                    @*<div class="col-sm-3">
+                                            <img src="~/Images/MemberDetail/no_veg_food.jpg" /><p>{{MemberDetail.EatingHabit||"N/A"}}</p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <img src="~/Images/MemberDetail/dont_drink.jpg" /><p>{{MemberDetail.DrinkingHabit||"N/A"}}</p>
+                                        </div>*@
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/no_smoking.jpg" /><p>{{MemberDetail.SmokingHabit||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/complexion-bulid.jpg" /><p>{{MemberDetail.Complexion||"N/A"}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br />
+                        <!-- Accordion card -->
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header bg-white">
+                                BACKGROUND
+                            </div>
+
+                            <div class="card-body">
+                                <div class="profile_icons">
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/religion.jpg" /><p>{{MemberDetail.Religion||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/religion (1).jpg" /><p>{{MemberDetail.Language||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/live_location.jpg" /><p>{{MemberDetail.State||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/Grew_up.jpg" /><p>{{MemberDetail.Country||"N/A"}}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><br />
+                        <!-- Accordion card -->
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header bg-white">
+                                EDUCATION & CAREER
+                            </div>
+
+                            <div class="card-body">
+                                <div class="profile_icons">
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/master_degree.jpg" /><p>{{MemberDetail.HighestEducation||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/team_member.jpg" /><p>{{MemberDetail.Occupation||"N/A"}}</p>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img src="~/Images/MemberDetail/earn.jpg" /><p>{{MemberDetail.AnualIncome||"N/A"}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br />
+                        <!-- Accordion card -->
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header">
+                                <p>
+                                    MORE DETAILS
+                                </p>
+                            </div>
+
+                            <div class="card card-body">
+                                <div class="container">
+                                    <div class="row" style="margin-top:10px">
+                                        <div class="col-sm-3">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <P>Family Status:{{MemberDetail.FamilyStatus||"N/A"}}</P>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <P>Father Alive:{{MemberDetail.IsFatherAlive||"N/A"}}</P>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <P>Mother Alive:{{MemberDetail.IsMotherAlive||"N/A"}}</P>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <P>No.of Brothers:{{MemberDetail.NoOfBrothers||"N/A"}}</P>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3" style="margin-top:10px">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <P>No.of Sisters:{{MemberDetail.NoOfSisters||"N/A"}}</P>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><br />
+                        <!-- Accordion card -->
+                    </div>
+                    <!-- Accordion wrapper -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-4">
+        <div class="row">
+
+            <div class="col-sm-8">
+
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
+</div>
+<style>
+    .card-header {
+        border-bottom: 1px solid;
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 33px 12px;
+    }
+        /*.card-header > p {
+            padding: 10px;
+        }*/
+
+        .card-body > p {
+            padding: 10px;
+        }
+</style>

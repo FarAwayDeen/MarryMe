@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/content/css")
+    @Scripts.Render("~/bundles/js")
+    <script src="/Angular/Generic.js?v=@DateTime.UtcNow.Ticks"></script>
+    <script src="/Angular/Method.js?v=@DateTime.UtcNow.Ticks"></script>
+    <script src="/Angular/Service.js?v=@DateTime.UtcNow.Ticks"></script>
+    <script src="/Angular/Filter.js?v=@DateTime.UtcNow.Ticks"></script>
+    <link href="~/Content/Gharjode Logo/32x32.png" rel="icon">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/notification.css" rel="stylesheet" />
+    <link href="~/Assets/css/main.css" rel="stylesheet" />
+
+</head>
+<body>
+    @{
+        string CurrentContextAction = Convert.ToString(ViewContext.RouteData.Values["Action"]);
+        string CurrentContextController = Convert.ToString(ViewContext.RouteData.Values["Controller"]);
+    }
+    <div id="wrapper" ng-app="MatrimonyAdminModule" ng-cloak>
+        <nav class="navbar navbar-default navbar-fixed-top nav-bg" style="min-height:55px;">
+            <div class="brand">
+                <a href="/Home/Index">
+                    @*<h4>Matrimony Admin</h4>*@
+                    <img src="/Images/AppSettingLogo/@Marryme.BAL.Static.ApplicationSettings.Id/@Marryme.BAL.Static.LogoPath" alt="LOGO" style="height:60px" />
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div id="tour-fullwidth" class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="ti-arrow-circle-left"></i></button>
+                </div>
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="@Marryme.BAL.Static.UserProfile.ProfilePictureUrl" width="50" />
+                                <span>@string.Concat(Marryme.BAL.Static.UserProfile.FirstName, " ", Marryme.BAL.Static.UserProfile.LastName)</span>
+                                <span class="fa fa-chevron-down"></span>
+                            </a>
+                            <ul class="dropdown-menu logged-user-menu">
+                                <li><a href="/Account/MyProfile"><i class="fa fa-key"></i> <span>My Profile</span></a></li>
+                                <li><a href="/Account/ChangePassword"><i class="fa fa-key"></i> <span>Change Password</span></a></li>
+                                <li><a href="/Account/LogOut"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @*<ul class="nav navbar-nav navbar-right" id="notifyIcon">
+                        @Html.Action("FetchNotifications", "Notification")
+                    </ul>*@
+                    @*<ul class="nav navbar-nav navbar-right">
+                        @Html.Partial("~/Views/Partials/_Notifications.cshtml")
+                    </ul>*@
+                </div>
+            </div>
+        </nav>
+
+        @*@Html.Partial("~/Views/Partial/_SidebarMenu.cshtml")*@
+        <div id="sidebar-nav" class="sidebar">
+            <nav>
+                <ul class="nav" id="sidebar-nav-menu">
+                    <li class="@(CurrentContextController=="Home"?"activeDash":"")"><a href="/Home/Index"><i class="fa fa-home"></i>Dashboard</a></li>
+                    @*<li class="panel @((CurrentContextAction== "PageContents"||CurrentContextController=="PageContents") ? "active" : "")">
+                        <a href="#SetupPageContent" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-receipt"></i><span class="title">Page Content Management</span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="SetupPageContent" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/PageContent/Index" class="@((string.Concat(CurrentContextAction,CurrentContextController)) == "IndexPageContent" ? "active" : "")"><i class="fa fa-edit"></i> Page Content Setup</a>
+                                    <a href="/PageContent/PageContents" class="@(ViewContext.RouteData.Values["Action"].ToString() == "PageContents" ? "active" : "")"><i class="fa fa-list"></i> Page Contents</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>*@
+                    @*<li class="panel @((CurrentContextAction== "PackageSubscriptions"||CurrentContextController=="PackagePricingPlan"||CurrentContextController=="package"||CurrentContextAction=="packages"||CurrentContextAction=="PackagePricingPlans") ? "active" : "")">
+                        <a href="#SetupPackage" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-package"></i><span class="title">Packages Management</span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="SetupPackage" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/package/Setup" class="@(CurrentContextController+CurrentContextAction == "packageSetup" ? "active" : "")"><i class="fa fa-edit"></i> Package Setup</a>
+                                    <a href="/package/packages" class="@(ViewContext.RouteData.Values["Action"].ToString() == "packages" ? "active" : "")"><i class="fa fa-list"></i> Packages List</a>
+                                    <a href="/PackagePricingPlan/SetUp" class="@(CurrentContextController+CurrentContextAction == "PackagePricingPlanSetUp" ? "active" : "")"><i class="fa fa-edit"></i> Package Pricing Plan Setup</a>
+                                    <a href="/PackagePricingPlan/PackagePricingPlans" class="@(ViewContext.RouteData.Values["Action"].ToString() == "PackagePricingPlans" ? "active" : "")"><i class="fa fa-list"></i> Package Pricing Plan List</a>
+                                    <a href="/PackageSubscription/PackageSubscriptions" class="@(ViewContext.RouteData.Values["Action"].ToString() == "PackageSubscriptions" ? "active" : "")"><i class="fa fa-edit"></i> Members Package Subscriptions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>*@
+                    @*<li class="panel @((CurrentContextAction== "ConfirmPayments"||CurrentContextAction=="GetPaymentOptions"||CurrentContextController=="PaymentOptions") ? "active" : "")">
+                        <a href="#SetupPaymentOptions" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-credit-card"></i><span class="title">Payment Management </span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="SetupPaymentOptions" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/PaymentOptions/Setup" class="@(ViewContext.RouteData.Values["Controller"].ToString() == "PaymentOptions" ? "active" : "")"><i class="fa fa-edit"></i>Add Payment Option</a>
+                                    <a href="/PaymentOptions/GetPaymentOptions" class="@(ViewContext.RouteData.Values["Action"].ToString() == "GetPaymentOptions" ? "active" : "")"><i class="fa fa-list"></i>Payment Options List</a>
+                                    <a href="/MemberSubscription/ConfirmPayments" class="@(ViewContext.RouteData.Values["Action"].ToString() == "ConfirmPayments" ? "active" : "")"><i class="fa fa-list"></i> Member Submitted Payment List</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>*@
+                    <!--<li class="panel ((CurrentContextAction== "SaveUpdate") ? "active" : "")">
+                        <a href="#SetupFieldPermission" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-key"></i><span class="title">Field Permission </span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="SetupFieldPermission" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/FieldPermission/SaveUpdate" class="(ViewContext.RouteData.Values["Action"].ToString() == "SaveUpdate" ? "active" : "")"><i class="fa fa-edit"></i> Field Permission Update</a>-->
+                                    @*<a href="/PackagePricingPlan/PackagePricingPlans"><i class="fa fa-list"></i> Package Pricing Plan</a>*@
+                                <!--</li>
+                            </ul>
+                        </div>
+                    </li>-->
+
+                    @*<li class="panel @((CurrentContextAction== "SetupCountry"||CurrentContextAction=="Countries"||CurrentContextAction=="SetupStates"||CurrentContextAction=="States"||CurrentContextAction=="SetupCity"||CurrentContextAction=="Cities") ? "active" : "")">
+                        <a href="#SetupLocation" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-world"></i><span class="title">Location Managment </span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="SetupLocation" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/Location/SetupCountry" class="@(ViewContext.RouteData.Values["Action"].ToString() == "SetupCountry" ? "active" : "")"><i class="fa fa-edit"></i> Country Setup</a>
+                                </li>
+                                <li id="role">
+                                    <a href="/Location/Countries" class="@(ViewContext.RouteData.Values["Action"].ToString() == "Countries" ? "active" : "")"><i class="fa fa-list"></i> Country List</a>
+                                </li>
+                                <li id="role">
+                                    <a href="/Location/SetupStates" class="@(ViewContext.RouteData.Values["Action"].ToString() == "SetupStates" ? "active" : "")"><i class="fa fa-edit"></i> State Setup</a>
+                                </li>
+                                <li id="role">
+                                    <a href="/Location/States" class="@(ViewContext.RouteData.Values["Action"].ToString() == "States" ? "active" : "")"><i class="fa fa-list"></i> State List</a>
+                                </li>
+                                <li id="role">
+                                    <a href="/Location/SetupCity" class="@(ViewContext.RouteData.Values["Action"].ToString() == "SetupCity" ? "active" : "")"><i class="fa fa-edit"></i> City Setup</a>
+                                </li>
+                                <li id="role">
+                                    <a href="/Location/Cities" class="@(ViewContext.RouteData.Values["Action"].ToString() == "Cities" ? "active" : "")"><i class="fa fa-list"></i> City List</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>*@
+                    <li class="panel @((CurrentContextAction== "MemberList"||CurrentContextController=="Members") ? "active" : "")">
+                        <a href="#MembersList" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-user"></i><span class="title">Members Management </span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="MembersList" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/Members/Index" class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Members" ? "active" : "")"><i class="fa fa-edit"></i> Register Members</a>
+                                </li>
+                                <li id="role">
+                                    <a href="/Members/Documents" class="@(ViewContext.RouteData.Values["Action"].ToString() == "Documents" ? "active" : "")"><i class="fa fa-file"></i>Members Documents</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="panel @((CurrentContextAction== "Setup") ? "active" : "")">
+                        <a href="#SetupApplicationSetting" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-settings"></i><span class="title">Application Setting </span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="SetupApplicationSetting" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/ApplicationSetting/Setup" class="@(ViewContext.RouteData.Values["Action"].ToString() == "Setup" ? "active" : "")"><i class="fa fa-list"></i> Application Setting Setup</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="panel @((CurrentContextAction== "GetContactUs") ? "active" : "")">
+                        <a href="#SetupContactUs" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-envelope"></i><span class="title">Contact Us </span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="SetupContactUs" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/ContactUs/GetContactUs" class="@(ViewContext.RouteData.Values["Action"].ToString() == "GetContactUs" ? "active" : "")"><i class="fa fa-list"></i> Contact Us List</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="panel @( (CurrentContextAction== "GetFeedBack") ? "active" : "")">
+                        <a href="#SetupFeedBack" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="" aria-expanded="false">
+                            <i class="ti-comment-alt"></i><span class="title">FeedBack </span><i class="icon-submenu ti-angle-left"></i>
+                        </a>
+                        <div id="SetupFeedBack" class="collapse" aria-expanded="false" style="">
+                            <ul class="submenu">
+                                <li id="role">
+                                    <a href="/FeedBack/GetFeedBack" class="@(ViewContext.RouteData.Values["Action"].ToString() == "GetFeedBack" ? "active" : "")"><i class="fa fa-list"></i> FeedBack</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                @*<button type="button" class="btn-toggle-minified SideBarClass" title="Toggle Minified Menu"><i class="ti-arrows-horizontal"></i></button>*@
+            </nav>
+        </div>
+        <!-- MAIN -->
+        <div class="main">
+            <div class="loader" id="divLoader" style="display:none"></div>
+            <!-- MAIN CONTENT -->
+            <div class="main-content" style="">
+                <div class="content-heading clearfix">
+                    <div class="heading-left">
+                        <h1 class="page-title">@Html.Raw(ViewBag.TitleIcon + ViewBag.Title)</h1>
+                        <p class="page-subtitle">@Html.Raw(ViewBag.SubTitle)</p>
+                    </div>
+
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/Index"><i class="fa fa-home"></i>Dashboard</a></li>
+                        <li>@Html.Raw(ViewBag.Title)</li>
+                    </ul>
+                </div>
+                <div class="container-fluid">
+                    @RenderBody()
+
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <footer></footer>
+    </div>
+    @*<script src="~/Scripts/jquery.min.js"></script>*@
+    <script>
+        $(document).ready(function () {
+            $('li.active>a').attr('aria-expanded', 'true');
+            $('li.active>a').trigger('click');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿#text {
+    text-align: center !important;
+    color: black;
+    font-size: 17px !important;
+    font-family: sans-serif !important;
+}
+
+.card {
+    box-shadow: 0px 3px gainsboro;
+}
+
+.profile_icons {
+    display: flex;
+    text-align: center;
+}
+
+.form-control {
+    border-radius: unset;
+}
+
+#registerbtn {
+    background-color: #d61933 !important;
+    color: white !important;
+    border-radius: 1.5rem !important;
+}
+
+#header-register {
+    background-color: #d61933;
+    color: white !important;
+    text-align: center;
+    font-size: 16px;
+}
+
+#height {
+    line-height: 19px !important;
+}
+
+.alignbutton {
+    width: 102%;
+    margin: 6px -3px;
+}
+
+.newly-heading {
+    background: #e6e6e6;
+    padding: 12px;
+}

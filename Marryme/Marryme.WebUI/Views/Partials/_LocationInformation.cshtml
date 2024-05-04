@@ -1,0 +1,88 @@
+﻿
+<script src="~/Angular/Profile/LocationInfoSetup.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="LocationInfoSetupController">
+    <form id="frmLocationInfo" data-parsley-validate novalidate ng-submit="Save()">
+        <h2 class="fs-title"><i class="icofont-location-pin" id="iconbox"></i> Location Information</h2>
+        <hr />
+        <div class="row">
+            <div class="col-sm-2 adaptable">
+                <label>Place of Birth </label>
+            </div>
+            <div class="col-sm-7 form-group">
+                <input type="text" ng-model="LocationInfo.PlaceOfBirth" maxlength="50" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-2 adaptable">Country Living In</label>
+            <div class="col-sm-7 form-group">
+                <select class="form-control" ng-model="LocationInfo.CountryLivingInTypeCode" ng-change="BindState()">
+                    <option value="">----- Please Select -----</option>
+                    <option value="{{CountryLivingIn.Code}}" ng-repeat=" CountryLivingIn in CoutriesLivingInList">{{CountryLivingIn.Name}}</option>
+                </select>
+                @*<label>{{CountryLivingIn}}</label>*@
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 adaptable">
+                <label>Residing State</label>
+            </div>
+            <div class="col-sm-7 form-group">
+                <select class="form-control" ng-model="LocationInfo.StateTypeCode" ng-change="BindCities()">
+                    <option value="">----- Please States -----</option>
+                    <option value="{{State.Code}}" ng-repeat=" State in States">{{State.Name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 form-group adaptable">
+                <label>Residing City </label>
+            </div>
+            <div class="col-sm-7 form-group">
+                <select class="form-control" ng-model="LocationInfo.CityTypeCode">
+                    <option value="">----- Select State First -----</option>
+                    <option value="{{City.Code}}" ng-repeat=" City in Cities">{{City.Name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 adaptable">
+                <label>Citizenship </label>
+            </div>
+            <div class="col-sm-7 form-group">
+                <select class="form-control" ng-model="LocationInfo.CountryTypeCode">
+                    <option value="">----- Please Select -----</option>
+                    <option value="{{Country.Code}}" ng-repeat=" Country in Countries">{{Country.Name}}</option>
+                </select>
+            </div>
+        </div>
+        @*<input type="button" name="previous" class="previous action-button-previous" value="Previous" />*@
+        @*<input type="button" name="next" class="next action-button" value="Next Step" />*@
+        <hr />
+        @*<div class="col-sm-12 text-center">*@
+            <div class="row">
+                <div class="col-4 d-flex justify-content-start colxs">
+                    <input type="button" name="next" class="btnTab action-button preBtn float-left" value="Previous" />
+                </div>
+                <div class="col-4 d-flex justify-content-center colxs">
+                    <input id="btnLocationInfo" type="submit" name="next" class="btnSave action-button nextBtn" value="Save" />
+                </div>
+                <div class="col-4 d-flex justify-content-end colxs">
+                    <input type="button" name="next" class="btnTab action-button nextBtn float-right" value="Next" />
+                </div>
+            </div>
+        @*</div>*@
+@*        <div class="col-sm-12 text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button preBtn float-left" value="Previous" />
+                </div>
+                <div class="col-md-4">
+                    <input id="btnLocationInfo" type="submit" name="next" class="btnSave action-button nextBtn" value="Save" />
+                </div>
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button nextBtn float-right" value="Next" />
+                </div>
+            </div>
+        </div>*@
+    </form>
+</div>

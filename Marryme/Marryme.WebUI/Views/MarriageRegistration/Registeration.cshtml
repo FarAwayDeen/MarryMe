@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "Registrar Registeration";
+    Layout = "~/Views/Shared/_RegistrarLayout.cshtml";
+}
+<script src="~/Angular/Registrar/RegistrarRegistration.js"></script>
+<br>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 offset-3 align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">          
+            <div ng-controller="RegistrarRegisterController">
+                <form name="form" ng-if="!isRegistrationSuccess" id="frmMemberRegister" data-parsley-validate novalidate class="php-email-form RegisterForm" ng-submit="Save()">
+                    <div class="card ">
+                        <div class="card-header bg-info text-white">
+                            <h3>Registration Form</h3>
+                        </div>
+                        <div class=" card-body shadow success" style="padding-bottom:0; padding-top:8px">
+                            <div class="row">
+
+                                <div class="col-sm-12 form-group" style="display:none">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Registered By </label>
+                                        </div>
+                                        <div class="col-sm-8 form-group">
+                                            <select class="form-control" required ng-model="MemberRegister.ProfileCreatedBy" data-parsley-error-message="">
+                                                <option value="">--- Please Select ---</option>
+                                                <option value="{{Register.Type}}" ng-model='Self' ng-repeat="Register in RegisteredBy">{{Register.Type}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mb-2 ">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Full Name</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" ng-model="MemberRegister.Name" placeholder="Full Name" required class="form-control" data-parsley-error-message="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mb-2 ">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Mask Name</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" ng-model="MemberRegister.NickName" placeholder="Mask Name" required class="form-control" data-parsley-error-message="" />
+                                        </div>
+                                    </div>
+                                </div>                               
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Gender</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <ul class="radio-list">
+                                                <li ng-repeat="Gender in GenderList">
+                                                    <label ng-class="{ 'bg-info text-white':$parent.MemberRegister.Gender==Gender.Name}">
+                                                        {{Gender.Name}}
+                                                        <input type="radio" ng-model="$parent.MemberRegister.Gender" value="{{Gender.Name}}" />
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Phone No</label>
+                                        </div>
+                                        <div class="col-sm-8 form-group">
+                                            <input type="tel" ng-model="MemberRegister.MobileNo" placeholder="Phone No" maxlength="20" required class="form-control allow-number" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Date Of Birth</label>
+                                        </div>
+                                        <div class="col-sm-2 form-group">
+                                            <select class="form-control" style="width:80px" ng-model="MemberRegister.Day" required data-parsley-error-message="">
+                                                <option value="">Day</option>
+                                                <option value="{{Day.Id}}" ng-repeat="Day in Days">{{Day.Id}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <select class="form-control ml-3" ng-model="MemberRegister.Month" required data-parsley-error-message="">
+                                                <option value="">Month</option>
+                                                <option value="{{Month.Id}}" ng-repeat="Month in Months">{{Month.Type}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+
+                                            <select class="form-control" ng-model="MemberRegister.Year" required data-parsley-error-message="">
+                                                <option value="">Year</option>
+                                                <option value="{{Year.Id}}" ng-repeat="Year in Years">{{Year.Id}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Religion</label>
+                                        </div>
+                                        <div class="col-sm-8 form-group">
+                                            <select class="form-control" required ng-model="MemberRegister.ReligionId" data-parsley-error-message="">
+                                                <option value="">--- Please Select ---</option>
+                                                <option value="{{Religion.ID}}" ng-repeat="Religion in Religions">{{Religion.Name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Marital Status</label>
+                                        </div>
+                                        <div class="col-sm-8 form-group">
+                                            <select class="form-control"
+                                                    required ng-model="MemberRegister.MaritalStatus"
+                                                    data-parsley-error-message="">
+                                                <option value="">--- Please Select ---</option>
+                                                <option value="{{MaleStatus.ID}}" style="color:#888;" ng-repeat="MaleStatus in MaritalStatusForMale">{{MaleStatus.Name}}</option>
+                                            </select>
+                                            @*<select class="form-control" required ng-model="MemberRegister.MaritalStatus" ng-if="MemberRegister.Gender=='Female'" data-parsley-error-message="">
+                                        <option value="">--- Please Select ---</option>
+                                        <option value="{{FemalStatus.Type}}" style="color:#888;" ng-repeat="FemalStatus in MaritalStatusForFemale">{{FemalStatus.Type}}</option>
+                                    </select>*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Country</label>
+                                        </div>
+                                        <div class="col-sm-8 form-group">
+                                            <select class="form-control" required ng-model="MemberRegister.CountryTypeCode" data-parsley-error-message="">
+                                                <option value="">--- Please Select ---</option>
+                                                <option value="{{Country.Code}}" ng-repeat="Country in Coutries">{{Country.Name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <hr />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Login Detail</label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Email</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="email" autocomplete="off" id="regEmail" ng-model="MemberRegister.Email" ng-keyup="VerifyDuplicateEmail()" placeholder="Email" required class="form-control" name="name" value="" data-parsley-error-message="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="form-check-label">Password</label>
+                                        </div>
+                                        <div class="col-sm-8 form-group">
+                                            <input type="password" class="form-control" name="Password" id="Password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{7,}$/" ng-model="MemberRegister.Password" minlength="7" maxlength="50" ng-class="submitted?'ng-dirty':''" placeholder="Password" required />
+                                            <span class="error" style="color:red" ng-show=" (form.Password.$dirty || submitted) && form.Password.$error.required">Required</span>
+                                            <span class="error" style="color:red" ng-show=" (form.Password.$dirty || submitted) && form.Password.$error.minlength">Mini 7 characters:</span>
+                                            <span class="success" style="color:red" ng-show=" (form.Password.$dirty || submitted) && form.Password.$error.pattern">alphabets and numeric</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <input id="btnMemberRegister" type="submit" value="Proceed" class="btn btn-sky float-right" style="color:red;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+

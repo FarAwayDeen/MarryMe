@@ -1,0 +1,1997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarrymeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MarrymeEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="AdminReporting" ReturnType="Collection(MarrymeModel.AdminReporting_Result)" />
+    <FunctionImport Name="DisableCurrentMemberPackageIfExpired">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchAstroMatches">
+      <Parameter Name="star" Mode="In" Type="String" />
+      <Parameter Name="raashi" Mode="In" Type="String" />
+      <Parameter Name="gothra" Mode="In" Type="String" />
+      <Parameter Name="dosham" Mode="In" Type="String" />
+      <Parameter Name="RecordToFetch" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchChatFriendList" ReturnType="Collection(MarrymeModel.FetchChatFriendList_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchChatMemberConversation" ReturnType="Collection(MarrymeModel.FetchChatMemberConversation_Result)">
+      <Parameter Name="CurrentMemberId" Mode="In" Type="Int64" />
+      <Parameter Name="SelectedMemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchChatMemberList" ReturnType="Collection(MarrymeModel.FetchChatMemberList_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchCitiesAdminList">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchConfirmPaymentAdminList" ReturnType="Collection(MarrymeModel.FetchConfirmPaymentAdminList_Result)">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchConfirmPaymentClientList" ReturnType="Collection(MarrymeModel.FetchConfirmPaymentClientList_Result)">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchContactUs" ReturnType="Collection(MarrymeModel.FetchContactUs_Result)">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchContactUsNotification" ReturnType="Collection(MarrymeModel.FetchContactUsNotification_Result)" />
+    <FunctionImport Name="FetchCountriesAdminList">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchCountryNameByMemberId">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchFeedBack" ReturnType="Collection(MarrymeModel.FetchFeedBack_Result)" />
+    <FunctionImport Name="FetchFeedBackAdminList" ReturnType="Collection(MarrymeModel.FetchFeedBackAdminList_Result)">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchFeedBackNotification" ReturnType="Collection(MarrymeModel.FetchFeedBackNotification_Result)" />
+    <FunctionImport Name="FetchLanguages" ReturnType="Collection(MarrymeModel.FetchLanguages_Result)" />
+    <FunctionImport Name="FetchMemberAdminList">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchMemberFieldPermission" ReturnType="Collection(MarrymeModel.FetchMemberFieldPermission_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchMemberSubscription" ReturnType="Collection(MarrymeModel.FetchMemberSubscription_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchNewlyRegisteredMemberList" />
+    <FunctionImport Name="FetchOrderSummary" ReturnType="Collection(MarrymeModel.FetchOrderSummary_Result)">
+      <Parameter Name="PackagePricingPlanId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchPackagePricingPlans" ReturnType="Collection(MarrymeModel.FetchPackagePricingPlans_Result)">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchPackages" ReturnType="Collection(MarrymeModel.FetchPackages_Result)" />
+    <FunctionImport Name="FetchPackagesDuration" ReturnType="Collection(MarrymeModel.FetchPackagesDuration_Result)">
+      <Parameter Name="PackageDuration" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchPackageSubscription" ReturnType="Collection(MarrymeModel.FetchPackageSubscription_Result)">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchPackageType" ReturnType="Collection(MarrymeModel.FetchPackageType_Result)" />
+    <FunctionImport Name="FetchPaymentOptionddl" ReturnType="Collection(MarrymeModel.FetchPaymentOptionddl_Result)">
+      <Parameter Name="PaymentType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchPaymentOptions" ReturnType="Collection(MarrymeModel.FetchPaymentOptions_Result)">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchPremiumMember" ReturnType="Collection(MarrymeModel.FetchPremiumMember_Result)">
+      <Parameter Name="IsActive" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchStatesAdminList">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetPackageRemainingWeeksByMemberId" ReturnType="Collection(MarrymeModel.GetPackageRemainingWeeksByMemberId_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchCountries" ReturnType="Collection(MarrymeModel.FetchCountries_Result)" />
+    <FunctionImport Name="FetchPremiumBestMatches" ReturnType="Collection(MarrymeModel.FetchPremiumBestMatches_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchProfileRequirementList" ReturnType="Collection(MarrymeModel.FetchProfileRequirementList_Result)" />
+    <FunctionImport Name="FetchWomanRights" ReturnType="Collection(MarrymeModel.FetchWomanRights_Result)" />
+    <FunctionImport Name="FetchProposalQuestions" ReturnType="Collection(MarrymeModel.FetchProposalQuestions_Result)">
+      <Parameter Name="questionFor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchParentCatagoryList" ReturnType="Collection(MarrymeModel.FetchParentCatagoryList_Result)" />
+    <FunctionImport Name="FetchFacilitiesByMemberId" ReturnType="Collection(MarrymeModel.FetchFacilitiesByMemberId_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchProposalQuestionsByMemberId" ReturnType="Collection(MarrymeModel.FetchProposalQuestionsByMemberId_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchWomanRightsByMemberId" ReturnType="Collection(MarrymeModel.FetchWomanRightsByMemberId_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchPartnerCategoriesByMemberId" ReturnType="Collection(MarrymeModel.FetchPartnerCategoriesByMemberId_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="MembersFetch" ReturnType="Collection(MarrymeModel.MembersFetch_Result)">
+      <Parameter Name="DisplayLength" Mode="In" Type="Int32" />
+      <Parameter Name="DisplayStart" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="Int64" />
+      <Parameter Name="SortOrder" Mode="In" Type="String" />
+      <Parameter Name="Search" Mode="In" Type="String" />
+      <Parameter Name="Active" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchProfileRequirementCheckListResult" ReturnType="Collection(MarrymeModel.FetchProfileRequirementCheckListResult_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchMemberDetail" ReturnType="Collection(MarrymeModel.FetchMemberDetail_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchAcceptanceQuestionList" ReturnType="Collection(MarrymeModel.FetchAcceptanceQuestionList_Result)" />
+    <FunctionImport Name="FetchAcceptanceCriteria" ReturnType="Collection(MarrymeModel.FetchAcceptanceCriteria_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchInfoForPersonalProfileCard" ReturnType="Collection(MarrymeModel.FetchInfoForPersonalProfileCard_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchMarriagePolicy" ReturnType="Collection(MarrymeModel.FetchMarriagePolicy_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+      <Parameter Name="option" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchDucomentLisById" ReturnType="Collection(MarrymeModel.FetchDucomentLisById_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchDocuments" ReturnType="Collection(MarrymeModel.FetchDocuments_Result)" />
+    <FunctionImport Name="FetchMemberList" ReturnType="Collection(MarrymeModel.FetchMemberList_Result)">
+      <Parameter Name="Pageindex" Mode="In" Type="Int32" />
+      <Parameter Name="Pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="search" Mode="In" Type="String" />
+      <Parameter Name="gender" Mode="In" Type="String" />
+      <Parameter Name="country" Mode="In" Type="Int32" />
+      <Parameter Name="relegion" Mode="In" Type="Int32" />
+      <Parameter Name="maritalStatus" Mode="In" Type="String" />
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchWifeDetailByMemberId" ReturnType="Collection(MarrymeModel.FetchWifeDetailByMemberId_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchWifeKidsDetailByMemberId" ReturnType="Collection(MarrymeModel.FetchWifeKidsDetailByMemberId_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCRList" ReturnType="Collection(MarrymeModel.GetAllCRList_Result)" />
+    <FunctionImport Name="GetCRList_ByTypeID" ReturnType="Collection(MarrymeModel.GetCRList_ByTypeID_Result)">
+      <Parameter Name="ListTypeID" Mode="In" Type="Int64" />
+      <Parameter Name="DisplayFor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchFacilities" ReturnType="Collection(MarrymeModel.FetchFacilities_Result)">
+      <Parameter Name="facilityFor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchDivorcePolicy" ReturnType="Collection(MarrymeModel.FetchDivorcePolicy_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+      <Parameter Name="option" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="FetchProfileLocationDetail" ReturnType="Collection(MarrymeModel.FetchProfileLocationDetail_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchCities" ReturnType="Collection(MarrymeModel.FetchCities_Result)">
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchStates" ReturnType="Collection(MarrymeModel.FetchStates_Result)">
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FetchProfilePersonalInfoDetail" ReturnType="Collection(MarrymeModel.FetchProfilePersonalInfoDetail_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchProfilePersonalInfo" ReturnType="Collection(MarrymeModel.FetchProfilePersonalInfo_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchProfilePersonalInfoForRegistrar" ReturnType="Collection(MarrymeModel.FetchProfilePersonalInfoForRegistrar_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetBestMatchingByCRList" ReturnType="Collection(MarrymeModel.GetBestMatchingByCRList_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchMemberDetailById" ReturnType="Collection(MarrymeModel.FetchMemberDetailById_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchMyMatches" ReturnType="Collection(MarrymeModel.FetchMyMatches_Result)">
+      <Parameter Name="Pageindex" Mode="In" Type="Int32" />
+      <Parameter Name="Pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="search" Mode="In" Type="String" />
+      <Parameter Name="gender" Mode="In" Type="String" />
+      <Parameter Name="country" Mode="In" Type="Int32" />
+      <Parameter Name="StateID" Mode="In" Type="Int32" />
+      <Parameter Name="cityId" Mode="In" Type="Int32" />
+      <Parameter Name="relegionSect" Mode="In" Type="String" />
+      <Parameter Name="maritalStatus" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+      <Parameter Name="language" Mode="In" Type="Int32" />
+      <Parameter Name="kidz" Mode="In" Type="String" />
+      <Parameter Name="income" Mode="In" Type="Int32" />
+      <Parameter Name="height" Mode="In" Type="String" />
+      <Parameter Name="weight" Mode="In" Type="String" />
+      <Parameter Name="complexion" Mode="In" Type="String" />
+      <Parameter Name="BodyType" Mode="In" Type="Int32" />
+      <Parameter Name="PhysicalStatus" Mode="In" Type="Int32" />
+      <Parameter Name="FamilyStatus" Mode="In" Type="Int32" />
+      <Parameter Name="FamilyValue" Mode="In" Type="Int32" />
+      <Parameter Name="EductionLevels" Mode="In" Type="Int32" />
+      <Parameter Name="Employment" Mode="In" Type="Int32" />
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchMemberDetailById1" ReturnType="Collection(MarrymeModel.FetchMemberDetailById1_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchMyMatches1" ReturnType="Collection(MarrymeModel.FetchMyMatches1_Result)">
+      <Parameter Name="Pageindex" Mode="In" Type="Int32" />
+      <Parameter Name="Pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="search" Mode="In" Type="String" />
+      <Parameter Name="gender" Mode="In" Type="String" />
+      <Parameter Name="country" Mode="In" Type="Int32" />
+      <Parameter Name="StateID" Mode="In" Type="Int32" />
+      <Parameter Name="cityId" Mode="In" Type="Int32" />
+      <Parameter Name="relegionSect" Mode="In" Type="String" />
+      <Parameter Name="maritalStatus" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+      <Parameter Name="language" Mode="In" Type="Int32" />
+      <Parameter Name="kidz" Mode="In" Type="String" />
+      <Parameter Name="income" Mode="In" Type="Int32" />
+      <Parameter Name="height" Mode="In" Type="String" />
+      <Parameter Name="weight" Mode="In" Type="String" />
+      <Parameter Name="complexion" Mode="In" Type="String" />
+      <Parameter Name="BodyType" Mode="In" Type="Int32" />
+      <Parameter Name="PhysicalStatus" Mode="In" Type="Int32" />
+      <Parameter Name="FamilyStatus" Mode="In" Type="Int32" />
+      <Parameter Name="FamilyValue" Mode="In" Type="Int32" />
+      <Parameter Name="EductionLevels" Mode="In" Type="Int32" />
+      <Parameter Name="Employment" Mode="In" Type="Int32" />
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="FetchProfilePersonalInfoForRegistrar1" ReturnType="Collection(MarrymeModel.FetchProfilePersonalInfoForRegistrar1_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="GetBestMatchingByCRList1" ReturnType="Collection(MarrymeModel.GetBestMatchingByCRList1_Result)">
+      <Parameter Name="MemberId" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="AcceptanceCriterias" EntityType="MarrymeModel.AcceptanceCriteria" />
+    <EntitySet Name="ActivityLogs" EntityType="MarrymeModel.ActivityLog" />
+    <EntitySet Name="AdminProfiles" EntityType="MarrymeModel.AdminProfile" />
+    <EntitySet Name="ApplicationSettings" EntityType="MarrymeModel.ApplicationSetting" />
+    <EntitySet Name="Attachements" EntityType="MarrymeModel.Attachement" />
+    <EntitySet Name="ChatFriendRequests" EntityType="MarrymeModel.ChatFriendRequest" />
+    <EntitySet Name="ChatHistoryDeletedMembers" EntityType="MarrymeModel.ChatHistoryDeletedMember" />
+    <EntitySet Name="ChatMessages" EntityType="MarrymeModel.ChatMessage" />
+    <EntitySet Name="ChatSessions" EntityType="MarrymeModel.ChatSession" />
+    <EntitySet Name="Cities" EntityType="MarrymeModel.City" />
+    <EntitySet Name="ContactUs" EntityType="MarrymeModel.ContactU" />
+    <EntitySet Name="Countries" EntityType="MarrymeModel.Country" />
+    <EntitySet Name="CR_List" EntityType="MarrymeModel.CR_List" />
+    <EntitySet Name="CR_ListType" EntityType="MarrymeModel.CR_ListType" />
+    <EntitySet Name="Divorces" EntityType="MarrymeModel.Divorce" />
+    <EntitySet Name="DivorcePolicies" EntityType="MarrymeModel.DivorcePolicy" />
+    <EntitySet Name="DocDropdownLists" EntityType="MarrymeModel.DocDropdownList" />
+    <EntitySet Name="DocumentTypes" EntityType="MarrymeModel.DocumentType" />
+    <EntitySet Name="EductionLevels" EntityType="MarrymeModel.EductionLevel" />
+    <EntitySet Name="EmailSMSTemplates" EntityType="MarrymeModel.EmailSMSTemplate" />
+    <EntitySet Name="ErrorLogs" EntityType="MarrymeModel.ErrorLog" />
+    <EntitySet Name="ExisitingKidsDetails" EntityType="MarrymeModel.ExisitingKidsDetail" />
+    <EntitySet Name="ExisitingKidsDetailResults" EntityType="MarrymeModel.ExisitingKidsDetailResult" />
+    <EntitySet Name="Facilities" EntityType="MarrymeModel.Facility" />
+    <EntitySet Name="FacilitiesResultFemales" EntityType="MarrymeModel.FacilitiesResultFemale" />
+    <EntitySet Name="FacilitiesResultMales" EntityType="MarrymeModel.FacilitiesResultMale" />
+    <EntitySet Name="FamilyInvolvements" EntityType="MarrymeModel.FamilyInvolvement" />
+    <EntitySet Name="FamilyInvolvementResults" EntityType="MarrymeModel.FamilyInvolvementResult" />
+    <EntitySet Name="FeedBacks" EntityType="MarrymeModel.FeedBack" />
+    <EntitySet Name="FieldsPermissions" EntityType="MarrymeModel.FieldsPermission" />
+    <EntitySet Name="Languages" EntityType="MarrymeModel.Language" />
+    <EntitySet Name="MaritalStatus" EntityType="MarrymeModel.MaritalStatu" />
+    <EntitySet Name="MarriageDurations" EntityType="MarrymeModel.MarriageDuration" />
+    <EntitySet Name="MarriagePolicies" EntityType="MarrymeModel.MarriagePolicy" />
+    <EntitySet Name="MemberAppearances" EntityType="MarrymeModel.MemberAppearance" />
+    <EntitySet Name="MemberEducationDetails" EntityType="MarrymeModel.MemberEducationDetail" />
+    <EntitySet Name="MemberFamilyDetails" EntityType="MarrymeModel.MemberFamilyDetail" />
+    <EntitySet Name="MemberLanguages" EntityType="MarrymeModel.MemberLanguage" />
+    <EntitySet Name="MemberLifeStyles" EntityType="MarrymeModel.MemberLifeStyle" />
+    <EntitySet Name="MemberLikeDislikes" EntityType="MarrymeModel.MemberLikeDislike" />
+    <EntitySet Name="MemberLocationDetails" EntityType="MarrymeModel.MemberLocationDetail" />
+    <EntitySet Name="MemberLoginDetails" EntityType="MarrymeModel.MemberLoginDetail" />
+    <EntitySet Name="MemberPackageConfirmPayments" EntityType="MarrymeModel.MemberPackageConfirmPayment" />
+    <EntitySet Name="MemberPackagePayments" EntityType="MarrymeModel.MemberPackagePayment" />
+    <EntitySet Name="MemberPackageSubscriptions" EntityType="MarrymeModel.MemberPackageSubscription" />
+    <EntitySet Name="MemberPackageSubscriptionDetails" EntityType="MarrymeModel.MemberPackageSubscriptionDetail" />
+    <EntitySet Name="MemberPreferrdLocations" EntityType="MarrymeModel.MemberPreferrdLocation" />
+    <EntitySet Name="MemberRegistrations" EntityType="MarrymeModel.MemberRegistration" />
+    <EntitySet Name="MemberReligiousDetails" EntityType="MarrymeModel.MemberReligiousDetail" />
+    <EntitySet Name="MenCurrentStates" EntityType="MarrymeModel.MenCurrentState" />
+    <EntitySet Name="Notifications" EntityType="MarrymeModel.Notification" />
+    <EntitySet Name="NumberOfMarriages" EntityType="MarrymeModel.NumberOfMarriage" />
+    <EntitySet Name="Packages" EntityType="MarrymeModel.Package" />
+    <EntitySet Name="PackagePricingPlans" EntityType="MarrymeModel.PackagePricingPlan" />
+    <EntitySet Name="PackageTypes" EntityType="MarrymeModel.PackageType" />
+    <EntitySet Name="PageContents" EntityType="MarrymeModel.PageContent" />
+    <EntitySet Name="PartnerCatagoryMaritalStatus" EntityType="MarrymeModel.PartnerCatagoryMaritalStatu" />
+    <EntitySet Name="PartnerCategories" EntityType="MarrymeModel.PartnerCategory" />
+    <EntitySet Name="PartnerCategoryResults" EntityType="MarrymeModel.PartnerCategoryResult" />
+    <EntitySet Name="PartnerCatoryEducationLevels" EntityType="MarrymeModel.PartnerCatoryEducationLevel" />
+    <EntitySet Name="PaymentOptions" EntityType="MarrymeModel.PaymentOption" />
+    <EntitySet Name="ProfileRequirements" EntityType="MarrymeModel.ProfileRequirement" />
+    <EntitySet Name="ProposalQuestions" EntityType="MarrymeModel.ProposalQuestion" />
+    <EntitySet Name="ProposalQuestionsResults" EntityType="MarrymeModel.ProposalQuestionsResult" />
+    <EntitySet Name="Religions" EntityType="MarrymeModel.Religion" />
+    <EntitySet Name="ReligionSects" EntityType="MarrymeModel.ReligionSect" />
+    <EntitySet Name="States" EntityType="MarrymeModel.State" />
+    <EntitySet Name="UploadDocuments" EntityType="MarrymeModel.UploadDocument" />
+    <EntitySet Name="WifeDetails" EntityType="MarrymeModel.WifeDetail" />
+    <EntitySet Name="WifeDetailResults" EntityType="MarrymeModel.WifeDetailResult" />
+    <EntitySet Name="WifeNumbers" EntityType="MarrymeModel.WifeNumber" />
+    <EntitySet Name="WomenCurrentStates" EntityType="MarrymeModel.WomenCurrentState" />
+    <EntitySet Name="WomenResponsibilities" EntityType="MarrymeModel.WomenResponsibility" />
+    <EntitySet Name="WomenRights" EntityType="MarrymeModel.WomenRight" />
+    <EntitySet Name="WomenRightsResults" EntityType="MarrymeModel.WomenRightsResult" />
+    <AssociationSet Name="FK_CR_List_CR_ListType" Association="MarrymeModel.FK_CR_List_CR_ListType">
+      <End Role="CR_ListType" EntitySet="CR_ListType" />
+      <End Role="CR_List" EntitySet="CR_List" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="AdminReporting_Result">
+    <Property Type="Int32" Name="FreeMembers" Nullable="true" />
+    <Property Type="Int32" Name="PaidMembers" Nullable="true" />
+    <Property Type="Int32" Name="TotalFeedBack" Nullable="true" />
+    <Property Type="Int32" Name="ActivePackages" Nullable="true" />
+    <Property Type="Int32" Name="TotalPayments" Nullable="true" />
+    <Property Type="Int32" Name="PendingPayments" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchChatFriendList_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="String" Name="UserStatus" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="SessionId" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Message" Nullable="true" />
+    <Property Type="Int32" Name="UnReadMessages" Nullable="true" />
+    <Property Type="Int64" Name="FriendRequestId" Nullable="false" />
+    <Property Type="Int64" Name="FromId" Nullable="false" />
+    <Property Type="Int64" Name="ToId" Nullable="false" />
+    <Property Type="String" Name="RequestStatus" Nullable="true" MaxLength="20" />
+    <Property Type="Boolean" Name="IsBlocked" Nullable="false" />
+    <Property Type="Int64" Name="BlockedBy" Nullable="true" />
+    <Property Type="Int32" Name="IsFriend" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FetchChatMemberConversation_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Int64" Name="FromID" Nullable="false" />
+    <Property Type="String" Name="FromName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SelectedMemberImage" Nullable="true" />
+    <Property Type="String" Name="CurrentMemberImage" Nullable="true" />
+    <Property Type="String" Name="ToName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Message" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchChatMemberList_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="Int32" Name="UnReadMessages" Nullable="true" />
+    <Property Type="String" Name="UserStatus" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="SessionId" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Message" Nullable="true" />
+    <Property Type="Int32" Name="IsFriend" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FetchConfirmPaymentAdminList_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Boolean" Name="IsMobilePic" Nullable="true" />
+    <Property Type="Int32" Name="PackageSubscriptionId" Nullable="true" />
+    <Property Type="String" Name="PaymentType" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="PaymentOptionId" Nullable="true" />
+    <Property Type="DateTime" Name="PaymentDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="PaymentAmount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="DepositSlip" Nullable="true" />
+    <Property Type="String" Name="PackageName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BankName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="MemberName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="MemberEmail" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="FetchConfirmPaymentClientList_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="PackageSubscriptionId" Nullable="true" />
+    <Property Type="String" Name="PaymentType" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="PaymentOptionId" Nullable="true" />
+    <Property Type="DateTime" Name="PaymentDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="PaymentAmount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="DepositSlip" Nullable="true" />
+    <Property Type="String" Name="PackageName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BankName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="FetchContactUs_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Subject" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Message" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchContactUsNotification_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Subject" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Message" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsRead" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FetchFeedBack_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Designation" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Message" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchFeedBackAdminList_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Designation" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Message" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FetchFeedBackNotification_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Designation" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Message" Nullable="true" />
+    <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsRead" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FetchLanguages_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="FetchMemberFieldPermission_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="25" />
+    <Property Type="Boolean" Name="IsVisibleForPremium" Nullable="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="Section" Nullable="true" MaxLength="20" />
+    <Property Type="Boolean" Name="IsPaid" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FetchMemberSubscription_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="DateTime" Name="SubscriptionStartDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="SubscriptionEndDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Decimal" Name="PackageAmount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="PackageDuration" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="FetchOrderSummary_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+    <Property Type="Int64" Name="PackagePricingPlanId" Nullable="false" />
+    <Property Type="Int64" Name="PackageId" Nullable="false" />
+    <Property Type="Int32" Name="PackageDuration" Nullable="true" />
+    <Property Type="Decimal" Name="PackagePrice" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="FetchPackagePricingPlans_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="PackageDuration" Nullable="true" />
+    <Property Type="Decimal" Name="PackagePrice" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="FetchPackages_Result">
+    <Property Type="Int64" Name="PackageId" Nullable="false" />
+    <Property Type="String" Name="PackageName" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="FetchPackagesDuration_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="PackageTypeId" Nullable="true" />
+    <Property Type="Boolean" Name="CanMemberViewMobileNo" Nullable="false" />
+    <Property Type="Int32" Name="NumberOfMobileNo" Nullable="true" />
+    <Property Type="Boolean" Name="IsAstroMatches" Nullable="false" />
+    <Property Type="Int32" Name="NumberOfAstroMatches" Nullable="true" />
+    <Property Type="Int32" Name="NumberOfChatMessages" Nullable="false" />
+    <Property Type="Boolean" Name="CanViewPhoto" Nullable="false" />
+    <Property Type="Boolean" Name="IsVisibleHighProfile" Nullable="false" />
+    <Property Type="Boolean" Name="CanChat" Nullable="false" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int64" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="PackagePricingPlanId" Nullable="false" />
+    <Property Type="Int64" Name="PackageId" Nullable="false" />
+    <Property Type="Int32" Name="PackageDuration" Nullable="true" />
+    <Property Type="Decimal" Name="PackagePrice" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="FetchPackageSubscription_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Package" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="SubscriptionStartDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="SubscriptionEndDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="PackageAmount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FetchPackageType_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="FetchPaymentOptionddl_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="BankName" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="FetchPaymentOptions_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="BankName" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="PaymentType" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="AccountTitle" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="AccountNumber" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="BranchCode" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="IBAN" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchPremiumMember_Result">
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="memberRegisterationId" Nullable="false" />
+    <Property Type="String" Name="AboutMe" Nullable="true" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Subcast" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="GetPackageRemainingWeeksByMemberId_Result">
+    <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="EndDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="FetchCountries_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchPremiumBestMatches_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsMobilePic" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="Decimal" Name="Age" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="String" Name="HighestEducation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="15" />
+    <Property Type="Boolean" Name="SubmittedResponse" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchProfileRequirementList_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="RequirmentName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchWomanRights_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="WomenRights" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchProposalQuestions_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Question" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchParentCatagoryList_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="PartCategoryName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CategoryType" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchFacilitiesByMemberId_Result">
+    <Property Type="Int64" Name="FacilityId" Nullable="true" />
+    <Property Type="String" Name="FacilityResult" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchProposalQuestionsByMemberId_Result">
+    <Property Type="Int64" Name="ProposalQuestionsId" Nullable="true" />
+    <Property Type="String" Name="ProposalQuestionsResult" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchWomanRightsByMemberId_Result">
+    <Property Type="Int64" Name="WomenRightsId" Nullable="true" />
+    <Property Type="String" Name="WomenRightsResult" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchPartnerCategoriesByMemberId_Result">
+    <Property Type="Int64" Name="PartnerCategoryID" Nullable="true" />
+    <Property Type="Boolean" Name="PartnerCategoryStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="MembersFetch_Result">
+    <Property Type="Int64" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="MemberName" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="AboutMe" Nullable="true" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="LookingFor" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Subcast" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="MemberLoginDetailId" Nullable="false" />
+    <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="MotherTongue" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchProfileRequirementCheckListResult_Result">
+    <Property Type="Int64" Name="MemberId" Nullable="true" />
+    <Property Type="Int64" Name="PartnerCategoryID" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchMemberDetail_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="Boolean" Name="IsMobilePic" Nullable="true" />
+    <Property Type="String" Name="ProfileCreatedBy" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="NoOfMarriage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Subcast" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="AboutMe" Nullable="true" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Sect" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="HighestEducation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Occupation" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EmployeedIn" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AnualIncome" Nullable="false" MaxLength="57" />
+    <Property Type="String" Name="Language" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SmokingHabit" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Hobbies" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Interests" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Height" Nullable="true" />
+    <Property Type="Int32" Name="Weight" Nullable="true" />
+    <Property Type="String" Name="PhysicalStatus" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BodyType" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Complexion" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ParentContactNo" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="FamilyValue" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="FamilyType" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="FamilyStatus" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="FamilyDetail" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="FatherOccupation" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsMotherAlive" Nullable="true" />
+    <Property Type="Boolean" Name="IsFatherAlive" Nullable="true" />
+    <Property Type="String" Name="NoOfBrothers" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="NoOfSisters" Nullable="true" MaxLength="5" />
+    <Property Type="Int32" Name="Citizenship" Nullable="true" />
+    <Property Type="Int32" Name="CountryLivingIn" Nullable="true" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ResidingCity" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ResidingState" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="FetchAcceptanceQuestionList_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="AcceptanceQuestion" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchAcceptanceCriteria_Result">
+    <Property Type="String" Name="AuntsAproval" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BrothersAproval" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DaughtersAproval" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FathersAproval" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MotherAproval" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SisterAproval" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SonsAproval" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UnclesAproval" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchInfoForPersonalProfileCard_Result">
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="MobileNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="String" Name="HighestEducation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Occupation" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchMarriagePolicy_Result">
+    <Property Type="String" Name="Amountcheckbox" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="AmountDetail" Nullable="true" />
+    <Property Type="String" Name="dropdownOption" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="HouseCheckBox" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HouseDetail" Nullable="true" />
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="MiscellaneousCheckbox" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MiscellaneousDetail" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchDucomentLisById_Result">
+    <Property Type="String" Name="FilePath" Nullable="true" />
+    <Property Type="String" Name="DocName" Nullable="true" />
+    <Property Type="Int32" Name="DocTypeID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchDocuments_Result">
+    <Property Type="String" Name="FilePath" Nullable="true" />
+    <Property Type="String" Name="DocName" Nullable="true" />
+    <Property Type="Int32" Name="DocTypeID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FetchMemberList_Result">
+    <Property Type="Int32" Name="totalcount" Nullable="true" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="Boolean" Name="IsMobilePic" Nullable="true" />
+    <Property Type="String" Name="HighestEducation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchWifeDetailByMemberId_Result">
+    <Property Type="Int64" Name="MemberId" Nullable="true" />
+    <Property Type="Byte" Name="ExsitingWife" Nullable="true" />
+    <Property Type="String" Name="HaveWife" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MarriageYear" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WifeAge" Nullable="true" MaxLength="50" />
+    <Property Type="Byte" Name="EducationLevelId" Nullable="true" />
+    <Property Type="String" Name="WifeJob" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WifeKids" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="WifeLocation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="WifeReligion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LivingStatus" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FetchWifeKidsDetailByMemberId_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="Int64" Name="MemberId" Nullable="true" />
+    <Property Type="Byte" Name="ExistingWife" Nullable="true" />
+    <Property Type="Int32" Name="KidAge" Nullable="true" />
+    <Property Type="String" Name="KidGender" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="KidLocation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="KidMaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetAllCRList_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="Int64" Name="ListTypeID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DisplayFor" Nullable="true" MaxLength="15" />
+    <Property Type="Int32" Name="SortOrder" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetCRList_ByTypeID_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="FetchFacilities_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FacilityName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="FetchDivorcePolicy_Result">
+    <Property Type="String" Name="Amountcheckbox" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="AmountFrom" Nullable="true" />
+    <Property Type="Int32" Name="AmountTo" Nullable="true" />
+    <Property Type="String" Name="IncomeCurrency" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="dropdownOption" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="HouseCheckBox" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HouseDetail" Nullable="true" />
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="MiscellaneousCheckbox" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MiscellaneousDetail" Nullable="true" />
+    <Property Type="Boolean" Name="ThreeDivorcePolicy" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchProfileLocationDetail_Result">
+    <Property Type="String" Name="CountryName" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="CountryID" Nullable="true" />
+    <Property Type="String" Name="PlaceOfBirth" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CountryLivingIn" Nullable="true" />
+    <Property Type="String" Name="ResidingState" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ResidingCity" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Citizenship" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchCities_Result">
+    <Property Type="Int32" Name="CityID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="StateID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchStates_Result">
+    <Property Type="Int32" Name="StateID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="CountryID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchProfilePersonalInfoDetail_Result">
+    <Property Type="Int64" Name="MemberId" Nullable="true" />
+    <Property Type="Int32" Name="Weight" Nullable="true" />
+    <Property Type="Int64" Name="BodyType" Nullable="true" />
+    <Property Type="Int64" Name="Complexion" Nullable="true" />
+    <Property Type="String" Name="Occupation" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SmokingHabit" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Hobbies" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Interests" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="LanguageId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchProfilePersonalInfo_Result">
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Boolean" Name="IsMobilePic" Nullable="true" />
+    <Property Type="String" Name="Subcast" Nullable="true" MaxLength="15" />
+    <Property Type="Int64" Name="MaritalStatus" Nullable="true" />
+    <Property Type="String" Name="NoOfChildren" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="NoOfMarriage" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="EductionLevels" Nullable="true" />
+    <Property Type="Int64" Name="Employment" Nullable="true" />
+    <Property Type="String" Name="HighestEducation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Sect" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="Int32" Name="Feet" Nullable="true" />
+    <Property Type="String" Name="HeightUnit" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="Inches" Nullable="true" />
+    <Property Type="Int32" Name="Centimeters" Nullable="true" />
+    <Property Type="Int64" Name="PhysicalStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="FetchProfilePersonalInfoForRegistrar_Result">
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Boolean" Name="IsMobilePic" Nullable="true" />
+    <Property Type="String" Name="Subcast" Nullable="true" MaxLength="15" />
+    <Property Type="Int64" Name="MaritalStatus" Nullable="true" />
+    <Property Type="Int64" Name="ReligionId" Nullable="true" />
+    <Property Type="Int64" Name="SectId" Nullable="true" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="Int64" Name="EductionLevels" Nullable="true" />
+    <Property Type="Int64" Name="Employment" Nullable="true" />
+    <Property Type="String" Name="HighestEducation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetBestMatchingByCRList_Result">
+    <Property Type="Int64" Name="MemberId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BodyType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EductionLevels" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Age" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="FetchMemberDetailById_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FamilyType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FamilyStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FamilyValue" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Employment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Complexion" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NoOfMarriage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="String" Name="EductionLevels" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Language" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Age" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="FetchMyMatches_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="totalcount" Nullable="true" />
+    <Property Type="String" Name="EductionLevels" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Age" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="FetchMemberDetailById1_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FamilyType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FamilyStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FamilyValue" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Employment" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Complexion" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DOB" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NoOfMarriage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+    <Property Type="String" Name="EductionLevels" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Language" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Age" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="FetchMyMatches1_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="totalcount" Nullable="true" />
+    <Property Type="String" Name="EductionLevels" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Age" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="FetchProfilePersonalInfoForRegistrar1_Result">
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="Boolean" Name="IsMobilePic" Nullable="true" />
+    <Property Type="String" Name="Subcast" Nullable="true" MaxLength="15" />
+    <Property Type="Int64" Name="MaritalStatus" Nullable="true" />
+    <Property Type="Int64" Name="ReligionId" Nullable="true" />
+    <Property Type="Int64" Name="SectId" Nullable="true" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="Int64" Name="EductionLevels" Nullable="true" />
+    <Property Type="Int64" Name="Employment" Nullable="true" />
+    <Property Type="String" Name="HighestEducation" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ProfilePicPath" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetBestMatchingByCRList1_Result">
+    <Property Type="Int64" Name="MemberId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="NickName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BodyType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EductionLevels" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Religion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Age" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <EntityType Name="AcceptanceCriteria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="SonsAproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DaughtersAproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AuntsAproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnclesAproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SisterAproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrothersAproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherAproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FathersAproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ActivityLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Action" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="AdminProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePicture" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ApplicationSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FaceBookLink" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="GoogleLink" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="TwitterLink" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="SkypeLink" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="NTN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MailingAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Attachement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FilePath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FileExtension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentTypeID" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ChatFriendRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromId" Type="Int64" Nullable="false" />
+    <Property Name="ToId" Type="Int64" Nullable="false" />
+    <Property Name="RequestStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IsBlocked" Type="Boolean" Nullable="false" />
+    <Property Name="BlockedBy" Type="Int64" />
+    <Property Name="RequestDatetime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ChatHistoryDeletedMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="MessageId" Type="Int64" Nullable="false" />
+    <Property Name="HistoryDeletedDatetime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ChatMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromID" Type="Int64" Nullable="false" />
+    <Property Name="ToID" Type="Int64" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MessageDateTime" Type="DateTime" Precision="3" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChatSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="SessionId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StateID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ContactU">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ISO3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ISO" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NameCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="FlagIcon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreadtedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CR_List">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListTypeID" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayFor" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="CR_ListType" Relationship="MarrymeModel.FK_CR_List_CR_ListType" FromRole="CR_List" ToRole="CR_ListType" />
+  </EntityType>
+  <EntityType Name="CR_ListType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsSystem" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="CR_List" Relationship="MarrymeModel.FK_CR_List_CR_ListType" FromRole="CR_ListType" ToRole="CR_List" />
+  </EntityType>
+  <EntityType Name="Divorce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="DivorceReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DivorceDate" Type="DateTime" Precision="3" />
+    <Property Name="DivorceStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="DivorcePolicy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="dropdownOption" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Amountcheckbox" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="AmountFrom" Type="Int32" />
+    <Property Name="AmountTo" Type="Int32" />
+    <Property Name="IncomeCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HouseCheckBox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HouseDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MiscellaneousCheckbox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiscellaneousDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThreeDivorcePolicy" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DocDropdownList">
+    <Key>
+      <PropertyRef Name="DocTypeID" />
+    </Key>
+    <Property Name="DocTypeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CtreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EductionLevel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserFor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="EmailSMSTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BCC" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+    <Property Name="MessageBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ExisitingKidsDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KidDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ExisitingKidsDetailResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="ExistingWife" Type="Byte" />
+    <Property Name="KidAge" Type="Int32" />
+    <Property Name="KidGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KidLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KidMaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Facility">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FacilityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FacilityFor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FacilitiesResultFemale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="FacilityId" Type="Int64" />
+    <Property Name="One" Type="Boolean" />
+    <Property Name="Two" Type="Boolean" />
+    <Property Name="Three" Type="Boolean" />
+    <Property Name="Four" Type="Boolean" />
+    <Property Name="FacilityFor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="FacilitiesResultMale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="FacilityId" Type="Int64" />
+    <Property Name="FacilityFor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="FamilyInvolvement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvolvementOptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="FamilyInvolvementResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="FamilyInvolvementID" Type="Int64" />
+    <Property Name="FamilyInvolvementResult1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FeedBack">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FieldsPermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="IsVisibleForPremium" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Section" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MaritalStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserFor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="MarriageDuration">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="MarriageDuration1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DurationFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="MarriagePolicy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="dropdownOption" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Amountcheckbox" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="AmountDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HouseCheckBox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HouseDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MiscellaneousCheckbox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiscellaneousDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MemberAppearance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="PhysicalStatus" Type="Int64" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="BodyType" Type="Int64" />
+    <Property Name="Complexion" Type="Int64" />
+    <Property Name="Feet" Type="Int32" />
+    <Property Name="HeightUnit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Inches" Type="Int32" />
+    <Property Name="Centimeters" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MemberEducationDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="HighestEducation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Employment" Type="Int64" />
+    <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeCurrency" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="AnnualIncomeFrom" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AnnualIncomeTo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="EductionLevels" Type="Int64" />
+  </EntityType>
+  <EntityType Name="MemberFamilyDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="ParentContactNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyValue" Type="Int64" />
+    <Property Name="FamilyType" Type="Int64" />
+    <Property Name="FamilyStatus" Type="Int64" />
+    <Property Name="IsMotherAlive" Type="Boolean" Nullable="false" />
+    <Property Name="IsFatherAlive" Type="Boolean" Nullable="false" />
+    <Property Name="FatherOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfBrothers" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfSisters" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyDetail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MemberLanguage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberLifeStyle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="SmokingHabit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Interests" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Hobbies" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MemberLikeDislike">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsLike" Type="Boolean" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="ResponseToMemberId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="MemberLocationDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="CountryLivingIn" Type="Int32" />
+    <Property Name="PlaceOfBirth" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ResidingState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ResidingCity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Citizenship" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MemberLoginDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="ConfirmationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsFirstLoginAttempt" Type="Boolean" Nullable="false" />
+    <Property Name="IsMobileUser" Type="Boolean" Nullable="false" />
+    <Property Name="FirebaseUserId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MemberPackageConfirmPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PackageSubscriptionId" Type="Int32" />
+    <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentOptionId" Type="Int64" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DepositSlip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsMobilePic" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="MemberPackagePayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberPackageSubscriptionId" Type="Int64" Nullable="false" />
+    <Property Name="TransactionId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PayerId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentOptionId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="MemberPackageSubscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="PackagePricingPlanId" Type="Int64" Nullable="false" />
+    <Property Name="SubscriptionStartDate" Type="DateTime" Precision="3" />
+    <Property Name="SubscriptionEndDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="PackageAmount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="MemberPackageSubscriptionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="PackageId" Type="Int64" Nullable="false" />
+    <Property Name="TotalNoOfContactsToShow" Type="Int64" Nullable="false" />
+    <Property Name="UsedNoOfContacts" Type="Int32" Nullable="false" />
+    <Property Name="TotalNoOfChatMessages" Type="Int64" Nullable="false" />
+    <Property Name="UsedNoOfChatMessages" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberPreferrdLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="Countries" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="States" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cities" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MemberRegistration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProfileCreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MotherTongue" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfMarriage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LookingFor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="MaritalStatus" Type="Int64" />
+    <Property Name="NoOfChildren" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Subcast" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePicPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReligionId" Type="Int64" />
+    <Property Name="SectId" Type="Int64" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="AboutMe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserRole" Type="Int64" />
+    <Property Name="IsMobilePic" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="MemberReligiousDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <Property Name="Religion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Sect" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Updateddate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="MenCurrentState">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenStateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FromId" Type="Int64" />
+    <Property Name="ToId" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NumberOfMarriage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarriageNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PackageTypeId" Type="Int32" />
+    <Property Name="CanMemberViewMobileNo" Type="Boolean" Nullable="false" />
+    <Property Name="NumberOfMobileNo" Type="Int32" />
+    <Property Name="NumberOfChatMessages" Type="Int32" Nullable="false" />
+    <Property Name="CanViewPhoto" Type="Boolean" Nullable="false" />
+    <Property Name="IsVisibleHighProfile" Type="Boolean" Nullable="false" />
+    <Property Name="CanChat" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PackagePricingPlan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PackageId" Type="Int64" Nullable="false" />
+    <Property Name="PackageDuration" Type="Int32" />
+    <Property Name="PackagePrice" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PackageType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PageContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PageUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PageDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PartnerCatagoryMaritalStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="PartnerMaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PartnerCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentID" Type="Int64" />
+    <Property Name="CategoryFor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CategoryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PartnerCategoryResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="CR_ListId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="PartnerCatoryEducationLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="EducationLevelId" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PaymentOption">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BankName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AccountTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BranchCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BankLogo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IBAN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProfileRequirement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequirmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int64" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProposalQuestion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QuestionsFor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ProposalQuestionsResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="ProposalQuestionsId" Type="Int64" />
+    <Property Name="ProposalQuestionsResult1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReligionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ReligionSect">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UploadDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocTypeID" Type="Int32" />
+    <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MemberId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WifeDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DetailQuestions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="WifeDetailResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="ExsitingWife" Type="Byte" />
+    <Property Name="WifeReligion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MarriageYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WifeLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="WifeKids" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WifeJob" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LivingStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EducationLevelId" Type="Byte" />
+    <Property Name="HaveWife" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WifeAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="WifeNumber">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="WifeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FiledStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="WomenCurrentState">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="WomenResponsibility">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResponsibilityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="WomenRight">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WomenRights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="WomenRightsResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int64" />
+    <Property Name="WomenRightsId" Type="Int64" />
+    <Property Name="WomenRightsResult1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_CR_List_CR_ListType">
+    <End Type="MarrymeModel.CR_ListType" Role="CR_ListType" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MarrymeModel.CR_List" Role="CR_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CR_ListType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CR_List">
+        <PropertyRef Name="ListTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

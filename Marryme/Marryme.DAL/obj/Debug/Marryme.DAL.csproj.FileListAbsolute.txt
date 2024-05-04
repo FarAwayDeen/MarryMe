@@ -1,0 +1,12 @@
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\bin\Debug\Marryme.DAL.dll.config
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\bin\Debug\Marryme.DAL.dll
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\bin\Debug\Marryme.DAL.pdb
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\bin\Debug\EntityFramework.dll
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\bin\Debug\EntityFramework.xml
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\obj\Debug\Marryme.DAL.csproj.AssemblyReference.cache
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\obj\Debug\Marryme.DAL.csproj.CoreCompileInputs.cache
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\obj\Debug\Marryme.DAL.csproj.CopyComplete
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\obj\Debug\Marryme.DAL.dll
+C:\Users\farde\source\repos\MarryMeWeb_New\Marryme\Marryme.DAL\obj\Debug\Marryme.DAL.pdb

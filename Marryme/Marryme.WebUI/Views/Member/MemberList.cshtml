@@ -1,0 +1,378 @@
+﻿
+@{
+    ViewBag.Title = "MemberList";
+}
+
+@*<script src="~/Angular/Member/MemberList.js?v=@DateTime.Now.Ticks"></script>*@
+@*<link href="~/Content/fontawesome.css" rel="stylesheet" />*@
+<link href="~/Content/fontawesome.css" rel="stylesheet" />
+<script src="~/Angular/Member/MemberList.js"></script>
+<link href="~/Content/UserSearch.css" rel="stylesheet" />
+<link href="~/Content/MemberCard.css" rel="stylesheet" />
+<div class="bg-white" ng-controller="MemberListController">
+    @*<div class="row" style="margin-left:0px;margin-right:0px;">
+            <img src="~/Content/Img/img4.jpg" class="img-fluid" />
+            <div class="col-sm-12">
+                <div class="banner-text">
+                    Welcome to the Worlds Premiere Online
+                    <h2>Marryme Matrimony and Matrimonial Service</h2>
+                </div>
+            </div>
+        </div>*@
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 position-sticky" style="margin-top:30px">
+                @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+
+            </div>
+            <div class="col-sm-9">
+                <div class="col-sm-12 pt-4">
+                    <h3><b>Welcome to Marryme</b></h3>
+                    <hr />
+                </div>
+                <span class="col-sm-9" id="justify">Signin to the Marryme Marriage site #1 Matrimonial site on the planet with an immense number of novel profiles arranged to get mix. Find your great accessory at the most punctual open door! Since you would lean toward not to stay single all your life. We have the best marriage and matchmaking organizations! You can without a lot of a stretch, look profile by first dialect, race, religion, gathering and region!</span>
+                @*<div class="row">
+            <div class="col-sm-3 pt-4">
+                <h5>Find Your Best Match</h5>
+            </div>
+            <div class="col-sm-9 pt-4">
+                <h3><b>Welcome to Marryme</b></h3>
+                <hr />
+            </div>
+            <div class="col-sm-3"></div>
+            <span class="col-sm-9" id="justify">Signin to the Marryme Marriage site #1 Matrimonial site on the planet with an immense number of novel profiles arranged to get mix. Find your great accessory at the most punctual open door! Since you would lean toward not to stay single all your life. We have the best marriage and matchmaking organizations! You can without a lot of a stretch, look profile by first dialect, race, religion, gathering and region!</span>
+        </div>*@
+                <form ng-submit="registerlist()" novalidate>
+                    <div class="row">
+                        <div class="col-sm-6 pt-4">
+                            <h5>Find Your Best Match</h5>
+                        </div>
+                        <div class="float-right col-sm-6">
+                            <input type="text" class="form-control col-sm-6 float-right" placeholder="Search" ng-model="MemberList.Search" />
+                            @*<input type="text" class=" col-sm-6 form-control float-right" placeholder="Search Education or Cast " ng-model="MemberList.Search" />*@
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <!--<div class="form-group">
+                <strong>Gender</strong>
+            </div>
+            <div class="form-group">
+                <div class="tab-pane">
+                    <div class="row">
+                        <div class="col-sm-12">-->
+                        <!--<ul class="radio-list">-->
+                        <!--<li>
+                                    <label ng-class="{'radio-active':$parent.MemberList.Gender==Gender.Name}">
+                                        All
+                                        <input type="radio" ng-model="MemberList.Gender" value="" />
+                                    </label>
+                                </li>
+                            <li ng-repeat="Gender in GenderList">
+                                    <label ng-class="{'radio-active':$parent.MemberList.Gender==Gender.Name}">
+                                        {{Gender.Name}}
+                                        <input type="radio" ng-model="MemberList.Gender" value="{{Gender.Name}}" />
+                                    </label>
+                                </li>
+                            </ul>
+                            <label>
+                                    <input type="radio" ng-model="MemberList.Gender" value="" />
+                                    All
+                                </label>
+                                <label>
+                                    <input type="radio" ng-model="MemberList.Gender" value="male" />
+                                    Male
+                                </label>
+                                <label>
+                                    <input type="radio" ng-model="MemberList.Gender" value="Female" />
+                                    FeMale
+                                </label>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+                        <div class="form-group col-sm-3">
+                            <div class="form-group">
+                                <strong>Gender </strong>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <ul class="radio-list">
+                                        <li ng-repeat="Gender in GenderList">
+                                            <label ng-class="{'radio-active':$parent.MemberList.Gender==Gender.Name}">
+                                                {{Gender.Name}}
+                                                <input type="radio" ng-model="MemberList.Gender" value="{{Gender.Name}}" />
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <div class="form-group">
+                                <strong>Country</strong>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" ng-model="MemberList.Country">
+                                    <option value="AQAAAB%2bLCAAAAAAABAAzAAAh39v0AQAAAA%3d%3d">--- All---</option>
+                                    <option value="{{Country.Id}}" ng-repeat="Country in Coutries">{{Country.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <div class="form-group">
+                                <strong>Marital Status</strong>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" ng-model="MemberList.MaritalStatus">
+                                    <option value="">--- All---</option>
+                                    <option value="{{MaritalStatus.Type}}" ng-repeat="MaritalStatus in MaritalStatusList">{{MaritalStatus.Type}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <div class="form-group">
+                                <strong>Action</strong>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-primary mb-3" type="submit" style="width:125px" ng-click="initializedFilter()"><i class="fa fa-refresh" aria-hidden="true"> </i> Reset</button>
+                                @*<button class="btn btn-primary mb-3 col-sm-6" type="submit" style="width:80px" ng-click="initializedFilter()"><i class="fa fa-refresh" aria-hidden="true"> </i>  Reset</button>*@
+                                <button class="btn btn-primary mb-3 text-right " type="submit" style="width:125px"><i class="fa fa-search"></i> Search</button>
+                                @*<button class="btn btn-primary mb-3 col-sm-6" type="submit" style="width:80px"> <i class="fa fa-search"></i> Search</button>*@
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="row section2">
+                    <div class="col-md-3">
+                        <!--<form ng-submit="registerlist()" novalidate>
+                <div class="form-group">
+
+
+
+                </div>
+                <div class="form-group">
+                    <strong>Gender</strong>
+                </div>
+                <div class="form-group">
+                    <div class="tab-pane">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <strong>Country</strong>
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+                </div>-->
+                        @*<div class="form-group">
+                    <div class="form-group">
+                        <strong>Relegion</strong>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" ng-model="MemberList.Relegion">
+                            <option value="AQAAAB%2bLCAAAAAAABAAzAAAh39v0AQAAAA%3d%3d">--- All---</option>
+                            <option value="{{Religion.ID}}" ng-repeat="Religion in Religions">{{Religion.ReligionName}}</option>
+                        </select>
+                    </div>
+                </div>*@
+                        <!--<div class="form-group">
+                    <div class="form-group">
+                        <strong>Marital Status</strong>
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+                </div>
+            </form>-->
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span class="float-left form-group">
+                                    <label>
+                                        Page: {{pageIndex}} of {{numPages}}
+                                    </label>
+                                </span>
+                                <span class="form-group float-right page-size form-inline">
+
+                                    <select id="ddlPageSize" class="form-control control-color"
+                                            ng-model="pageSize"
+                                            ng-change="changePageSize()">
+
+                                        <option value="5">5</option>
+
+                                        <option value="10">10</option>
+
+                                        <option value="25">25</option>
+
+                                        <option value="50">50</option>
+
+                                    </select>
+
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-deck mb-3 text-center">
+                            <div class="col-lg-4 col-md-4 col-sm-4 mt-4" ng-repeat="member in Members">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="py-3" data-aos="zoom-in">
+                                            <div class="card" style="width:300px">
+                                                @*<img src="~/Content/Img/img11.jpg" alt="—Pngtree—seo_3631356" class="card-img-top" height="210px" width="200px">*@
+                                                <div class="card-header text-center text-white bg-success">
+                                                    <h3>{{member.ShowName}}</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    @*<span class=" text-success float-left">
+                                                <span href="" ng-if="!FetchFieldPermissionList.Name"><h5>{{member.ShowName}}</h5></span>
+                                                <span href="" ng-if="FetchFieldPermissionList.Name"> <span style="font-size:small;color:grey;">{{FieldPermissionMessage}}</span></span>
+                                            </span>*@
+                                                    <div class="text-left">
+                                                        <div class="row">
+                                                            <label class="col-sm-6"><b>Gender:</b> </label>
+                                                            <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{member.Gender}}</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-sm-6"><b>Marital Status:</b> </label>
+                                                            <span class="justify-content-start   col-sm-6" style="font-weight: 600; display: inline-flex;"> {{member.MaritalStatus}}</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-sm-6"><b>Age:</b> </label>
+                                                            <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{member.age}}</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-sm-6"><b>Education:</b> </label>
+                                                            <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{member.HighestEducation}}</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-sm-6"><b>Religion:</b> </label>
+                                                            <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{member.Religion}}</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <label class="col-sm-6"><b>Country:</b> </label>
+                                                            <span class="  float-right col-sm-6" style="font-weight: 600; display: inline-flex;">{{member.Country}}</span>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="text-left">
+                                                        <a href="~/Member/MemberDetail?Code={{member.Code}}" class="text-info"> View Detail</a>
+                                                    </div>
+
+                                                </div>
+                                                <!--<div class="p-2" style="border-top: 1px solid lightgray;">
+                                    &nbsp;-->
+                                                @*<p class="float-right text-secondary" style="padding-top: 13px; font-weight: 550; font-size: medium;"><i class="far fa-user">&nbsp;</i>50 <i class="far fa-heart">&nbsp;</i>65</p>*@
+                                                <!--</div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+                                    <!-- old code with Old Design
+                        <div class="row">
+                        <div class="col-md-8 col-sm-8 usrdta">-->
+                                    @*<a href="" title="view full profile">EF00{{member.Id}}</a>*@
+
+
+                                    <!--<a href="" ng-if="!FetchFieldPermissionList.Name"> <h5>{{member.ShowName}}</h5></a>
+                        <a href="" ng-if="FetchFieldPermissionList.Name"> <span style="font-size:small;color:grey;">{{FieldPermissionMessage}}</span></a>
+                        <h6><b>Age:</b> {{member.age}}</h6>
+                        <h6 ng-if="!FetchFieldPermissionList.Gender"><b>Gender:</b> {{member.Gender||"N/A"}}</h6>
+                        <h6 ng-if="FetchFieldPermissionList.Gender"><b>Gender:</b><span style="font-size:smaller;color:grey;">{{FieldPermissionMessage}}</span></h6>
+                        <h6 ng-if="!FetchFieldPermissionList.Religion"><b>Religion:</b> {{member.Religion||"N/A"}}</h6>
+                        <h6 ng-if="FetchFieldPermissionList.Religion"><b>Religion:</b><span style="font-size:smaller;color:grey;">{{FieldPermissionMessage}}</span></h6>
+                        <h6 ng-if="!FetchFieldPermissionList.HighestEducation"><b>Education:</b> {{member.HighestEducation||"N/A"}}</h6>
+                        <h6 ng-if="FetchFieldPermissionList.HighestEducation"><b>Education:</b><span style="font-size:smaller;color:grey;">{{FieldPermissionMessage}}</span></h6>
+                        <h6 ng-if="!FetchFieldPermissionList.CountryLivingIn"><b>From:</b> {{member.Country||"N/A"}}</h6>
+                        <h6 ng-if="FetchFieldPermissionList.CountryLivingIn"><b>From:</b><span style="font-size:smaller;color:grey;">{{FieldPermissionMessage}}</span></h6>
+                        <div>
+                            if (Session["MemberId"] != null)
+                            {-->
+                                    @*<a href="~/Member/MemberDetail?Code={{member.Code}}" id="register">View Detail</a>*@
+                                    <!--<a href="~/Member/MemberDetail?Code={{member.Code}}">View Detail</a>
+                        }
+                        else
+                        {-->
+                                    @*<div>To view details</div>
+                            <a href="~/Home/Index" class="btn btn-sm" id="register">Register for free</a>*@
+                                    <!--<a href="" onclick="loginMessage()">View Detail</a>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 img">
+                                <img ng-src="{{member.ProfilePicPath}}" alt="ProfilePic" width="110" style="margin-left:12px;margin-top:28px" onerror="CheckImage(this)" class="best-match-pic" />
+                            </div>
+                        </div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="float-right">
+                            <pagination total-items="totalcount" ng-change="pagechanged()" items-per-page="pageSize" direction-links="true" ng-model="pageIndex" max-size="maxsize" class="pagination" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 text-left">
+                            <a href="/Member/MyMatches" type="button" class="btn btn-success ">Previous</a>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <a href="/Member/ProfileRequirement" type="button" class="btn btn-success ">Next</a>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+        
+    </div>
+</div>
+<style>
+    .pagination {
+        /*display: inline-block;*/
+        background: #fff;
+        border: 1px solid #000033;
+    }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .pagination li.active, .pagination li.active > a {
+            background-color: #eb5252;
+            color: white;
+        }
+
+        .pagination li:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        .pagination li.disabled {
+            background: #dddddd;
+        }
+
+    /*h5 {
+        padding-top: 13px;
+        color: #fff !important;
+    }*/
+</style>
+<script>
+    // var slider = new Slider('#ex2', {});
+    function loginMessage() {
+        InfoMessage("Please login to view detail");
+    }
+</script>

@@ -1,0 +1,78 @@
+﻿
+<script src="~/Angular/Profile/FamilyInfoSetup.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="FamilyInfoSetupController">
+    <form id="frmFamilyInfo" data-parsley-validate novalidate ng-submit="Save()">
+        <div>
+            <h2 class="fs-title"><i class="icofont-users-alt-3" id="iconbox"></i> Family Information</h2>
+            <hr />
+            <div class="row">
+                <label class="col-sm-2">Parents Contact No. </label>
+                <div class="col-sm-4 form-group">
+                    <input type="text" ng-model="FamilyInfo.ParentContactNo" class="form-control allow-number" maxlength="20" placeholder="Mobile No./LandLine No." />
+                </div>
+                <div class="col-sm-4"><span>Optional but recommended</span></div>
+            </div><br />
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Family Value </label>
+                </div>
+                <div class="col-sm-7 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="FamilyValue in FamilyValueList">
+                            <label ng-class="{'radio-active':$parent.FamilyInfo.FamilyValue==FamilyValue.ID}">
+                                {{FamilyValue.Name}}
+                                <input type="radio" ng-model="$parent.FamilyInfo.FamilyValue" value="{{FamilyValue.ID}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-sm-2 form-group">
+                    <label>Family type </label>
+                </div>
+                <div class="col-sm-7 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="FamilyType in FamilyTypeList">
+                            <label ng-class="{'radio-active':$parent.FamilyInfo.FamilyType==FamilyType.ID}">
+                                {{FamilyType.Name}}
+                                <input type="radio" ng-model="$parent.FamilyInfo.FamilyType" value="{{FamilyType.ID}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Family Status </label>
+                </div>
+                <div class="col-sm-7 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="FamilyStatus in FamilyStatusList">
+                            <label ng-class="{'radio-active':$parent.FamilyInfo.FamilyStatus==FamilyStatus.ID}">
+                                {{FamilyStatus.Name}}
+                                <input type="radio" ng-model="$parent.FamilyInfo.FamilyStatus" value="{{FamilyStatus.ID}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        @*<input type="button" name="previous" class="previous action-button-previous" value="Previous" />*@
+        @*<input type="button" name="make_payment" class="next action-button" value="Next Step" />*@
+        <hr />
+        <div class="col-sm-12 text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button preBtn float-left" value="Previous" />
+                </div>
+                <div class="col-md-4">
+                    <input id="btnFamilyInfo" type="submit" name="next" class="btnSave action-button nextBtn" value="Save" />
+                </div>
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button nextBtn float-right" value="Next" />
+                </div>
+            </div>
+        </div>        
+    </form>
+</div>

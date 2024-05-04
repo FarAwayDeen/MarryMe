@@ -1,0 +1,305 @@
+﻿/*body {
+    background-image: url('../Images/bg-couple.png');
+}*/
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%
+}
+
+/*#grad1 {
+    background-color: #9C27B0;
+    background-image: linear-gradient(120deg, #FF4081, #81D4FA)
+}*/
+
+#msform {
+    /*text-align: center;*/
+    position: relative;
+}
+
+    #msform fieldset .form-card {
+        background: white;
+        border: 0 none;
+        border-radius: 0px;
+        box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+        padding: 20px 40px 30px 40px;
+        box-sizing: border-box;
+        width: 94%;
+        margin: 0 3% 20px 3%;
+        position: relative
+    }
+
+    #msform fieldset {
+        background: white;
+        border: 0 none;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 20px;
+        position: relative
+    }
+
+        #msform fieldset:not(:first-of-type) {
+            display: none
+        }
+
+        #msform fieldset .form-card {
+            text-align: left;
+            color: #9E9E9E
+        }
+
+.form-control {
+    border-radius: unset;
+    background-clip: unset;
+    height: auto !important;
+}
+
+#msform .action-button {
+    width: 100px;
+    background: #2d4ff7;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    border-radius: 50px;
+    text-align: center !important;
+}
+
+
+/*#grad1 {
+    margin-top: -50px;
+}*/
+
+#iconbox {
+    font-size: 30px;
+    color: #dc3545;
+}
+
+#msform .action-button:hover,
+/*#msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+}*/
+#msform .action-button-previous {
+    width: 100px;
+    background: #5f77e9;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    border-radius: 50px;
+}
+
+    #msform .action-button-previous:hover,
+    #msform .action-button-previous:focus {
+        box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+    }
+
+select.list-dt {
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px 3px 5px;
+    margin: 2px
+}
+
+    select.list-dt:focus {
+        border-bottom: 2px solid skyblue
+    }
+
+.card {
+    z-index: 0;
+    border: none;
+    border-radius: 0.5rem;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+    #progressbar .active {
+        color: #000000
+    }
+
+    #progressbar li {
+        list-style-type: none;
+        font-size: 12px;
+        width: 14.2%;
+        float: left;
+        position: relative
+    }
+
+        #progressbar li:before {
+            width: 50px;
+            height: 50px;
+            line-height: 45px;
+            display: block;
+            font-size: 18px;
+            color: #ffffff;
+            background: lightgray;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            padding: 2px;
+            left: 55px;
+        }
+
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: lightgray;
+            position: absolute;
+            left: 1px;
+            top: 25px;
+            z-index: -1;
+        }
+
+        #progressbar li.active:before,
+        #progressbar li.active:after {
+            background: #dc3545;
+        }
+
+.radio-group {
+    position: relative;
+    margin-bottom: 25px
+}
+
+.radio {
+    display: inline-block;
+    width: 204px;
+    height: 104px;
+    border-radius: 0;
+    background: lightblue;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 8px 2px
+}
+
+    .radio:hover {
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+    }
+
+    .radio.selected {
+        box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+    }
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+.custom-select {
+    height: 110px !important;
+}
+
+.btnSave {
+    background: #28a745 !important;
+}
+
+    .btnSave:hover {
+        background: #3ee363 !important;
+    }
+
+#imgPreview {
+    width: 135px;
+    border: 3px solid green;
+    border-radius: 50%;
+    height: 135px;
+}
+
+body {
+    margin-top: 60px !important;
+}
+
+.stepwizard-step p {
+    margin-top: 10px;
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    /*z-order: 0;*/
+}
+
+.stepwizard-step {
+    display: table-cell;
+    /*text-align: center;*/
+    position: relative;
+}
+
+.btn-circle {
+    width: 45px;
+    height: 35px;
+    line-height: 25px !important;
+    display: block;
+    font-size: 20px !important;
+    color: #ffffff;
+    background: #59799b;
+    border-radius: 50% !important;
+    margin: 0 auto 10px auto;
+    padding: 2px;
+    left: 55px;
+}
+p {
+    color: #1e7e34;
+    font-weight: 400;
+}
+.btnTab {
+    background: #59799b !important;
+}
+    .btnTab:hover {
+        background: #5f5eab !important;
+    }
+@media (max-width: 550px) {
+    .feetInputGroup, .metersInputGroup {
+        margin-top: 20px !important;
+    }
+}
+@media (max-width: 550px) {
+    .stepwizard-step p{
+        display:none;
+    }
+}

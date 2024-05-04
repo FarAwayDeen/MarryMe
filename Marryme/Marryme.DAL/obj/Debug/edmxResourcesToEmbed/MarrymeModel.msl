@@ -1,0 +1,1775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MarrymeModelStoreContainer" CdmEntityContainer="MarrymeEntities">
+    <FunctionImportMapping FunctionImportName="AdminReporting" FunctionName="MarrymeModel.Store.AdminReporting">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.AdminReporting_Result">
+          <ScalarProperty Name="FreeMembers" ColumnName="FreeMembers" />
+          <ScalarProperty Name="PaidMembers" ColumnName="PaidMembers" />
+          <ScalarProperty Name="TotalFeedBack" ColumnName="TotalFeedBack" />
+          <ScalarProperty Name="ActivePackages" ColumnName="ActivePackages" />
+          <ScalarProperty Name="TotalPayments" ColumnName="TotalPayments" />
+          <ScalarProperty Name="PendingPayments" ColumnName="PendingPayments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DisableCurrentMemberPackageIfExpired" FunctionName="MarrymeModel.Store.DisableCurrentMemberPackageIfExpired" />
+    <FunctionImportMapping FunctionImportName="FetchChatFriendList" FunctionName="MarrymeModel.Store.FetchChatFriendList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchChatFriendList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="UnReadMessages" ColumnName="UnReadMessages" />
+          <ScalarProperty Name="FriendRequestId" ColumnName="FriendRequestId" />
+          <ScalarProperty Name="FromId" ColumnName="FromId" />
+          <ScalarProperty Name="ToId" ColumnName="ToId" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="BlockedBy" ColumnName="BlockedBy" />
+          <ScalarProperty Name="IsFriend" ColumnName="IsFriend" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchChatMemberConversation" FunctionName="MarrymeModel.Store.FetchChatMemberConversation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchChatMemberConversation_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FromID" ColumnName="FromID" />
+          <ScalarProperty Name="FromName" ColumnName="FromName" />
+          <ScalarProperty Name="SelectedMemberImage" ColumnName="SelectedMemberImage" />
+          <ScalarProperty Name="CurrentMemberImage" ColumnName="CurrentMemberImage" />
+          <ScalarProperty Name="ToName" ColumnName="ToName" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchChatMemberList" FunctionName="MarrymeModel.Store.FetchChatMemberList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchChatMemberList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="UnReadMessages" ColumnName="UnReadMessages" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="IsFriend" ColumnName="IsFriend" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchConfirmPaymentAdminList" FunctionName="MarrymeModel.Store.FetchConfirmPaymentAdminList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchConfirmPaymentAdminList_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsMobilePic" ColumnName="IsMobilePic" />
+          <ScalarProperty Name="PackageSubscriptionId" ColumnName="PackageSubscriptionId" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PaymentOptionId" ColumnName="PaymentOptionId" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="DepositSlip" ColumnName="DepositSlip" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchConfirmPaymentClientList" FunctionName="MarrymeModel.Store.FetchConfirmPaymentClientList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchConfirmPaymentClientList_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PackageSubscriptionId" ColumnName="PackageSubscriptionId" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PaymentOptionId" ColumnName="PaymentOptionId" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="DepositSlip" ColumnName="DepositSlip" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchContactUs" FunctionName="MarrymeModel.Store.FetchContactUs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchContactUs_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchContactUsNotification" FunctionName="MarrymeModel.Store.FetchContactUsNotification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchContactUsNotification_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchFeedBack" FunctionName="MarrymeModel.Store.FetchFeedBack">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchFeedBack_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchFeedBackAdminList" FunctionName="MarrymeModel.Store.FetchFeedBackAdminList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchFeedBackAdminList_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchFeedBackNotification" FunctionName="MarrymeModel.Store.FetchFeedBackNotification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchFeedBackNotification_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchLanguages" FunctionName="MarrymeModel.Store.FetchLanguages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchLanguages_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchMemberFieldPermission" FunctionName="MarrymeModel.Store.FetchMemberFieldPermission">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchMemberFieldPermission_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsVisibleForPremium" ColumnName="IsVisibleForPremium" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchMemberSubscription" FunctionName="MarrymeModel.Store.FetchMemberSubscription">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchMemberSubscription_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubscriptionStartDate" ColumnName="SubscriptionStartDate" />
+          <ScalarProperty Name="SubscriptionEndDate" ColumnName="SubscriptionEndDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PackageAmount" ColumnName="PackageAmount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PackageDuration" ColumnName="PackageDuration" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchNewlyRegisteredMemberList" FunctionName="MarrymeModel.Store.FetchNewlyRegisteredMemberList" />
+    <FunctionImportMapping FunctionImportName="FetchOrderSummary" FunctionName="MarrymeModel.Store.FetchOrderSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchOrderSummary_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PackagePricingPlanId" ColumnName="PackagePricingPlanId" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="PackageDuration" ColumnName="PackageDuration" />
+          <ScalarProperty Name="PackagePrice" ColumnName="PackagePrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPackagePricingPlans" FunctionName="MarrymeModel.Store.FetchPackagePricingPlans">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPackagePricingPlans_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PackageDuration" ColumnName="PackageDuration" />
+          <ScalarProperty Name="PackagePrice" ColumnName="PackagePrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPackages" FunctionName="MarrymeModel.Store.FetchPackages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPackages_Result">
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPackagesDuration" FunctionName="MarrymeModel.Store.FetchPackagesDuration">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPackagesDuration_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PackageTypeId" ColumnName="PackageTypeId" />
+          <ScalarProperty Name="CanMemberViewMobileNo" ColumnName="CanMemberViewMobileNo" />
+          <ScalarProperty Name="NumberOfMobileNo" ColumnName="NumberOfMobileNo" />
+          <ScalarProperty Name="IsAstroMatches" ColumnName="IsAstroMatches" />
+          <ScalarProperty Name="NumberOfAstroMatches" ColumnName="NumberOfAstroMatches" />
+          <ScalarProperty Name="NumberOfChatMessages" ColumnName="NumberOfChatMessages" />
+          <ScalarProperty Name="CanViewPhoto" ColumnName="CanViewPhoto" />
+          <ScalarProperty Name="IsVisibleHighProfile" ColumnName="IsVisibleHighProfile" />
+          <ScalarProperty Name="CanChat" ColumnName="CanChat" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="PackagePricingPlanId" ColumnName="PackagePricingPlanId" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="PackageDuration" ColumnName="PackageDuration" />
+          <ScalarProperty Name="PackagePrice" ColumnName="PackagePrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPackageSubscription" FunctionName="MarrymeModel.Store.FetchPackageSubscription">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPackageSubscription_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Package" ColumnName="Package" />
+          <ScalarProperty Name="SubscriptionStartDate" ColumnName="SubscriptionStartDate" />
+          <ScalarProperty Name="SubscriptionEndDate" ColumnName="SubscriptionEndDate" />
+          <ScalarProperty Name="PackageAmount" ColumnName="PackageAmount" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPackageType" FunctionName="MarrymeModel.Store.FetchPackageType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPackageType_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPaymentOptionddl" FunctionName="MarrymeModel.Store.FetchPaymentOptionddl">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPaymentOptionddl_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPaymentOptions" FunctionName="MarrymeModel.Store.FetchPaymentOptions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPaymentOptions_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="AccountTitle" ColumnName="AccountTitle" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPremiumMember" FunctionName="MarrymeModel.Store.FetchPremiumMember">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPremiumMember_Result">
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="memberRegisterationId" ColumnName="memberRegisterationId" />
+          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Subcast" ColumnName="Subcast" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPackageRemainingWeeksByMemberId" FunctionName="MarrymeModel.Store.GetPackageRemainingWeeksByMemberId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.GetPackageRemainingWeeksByMemberId_Result">
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchCountries" FunctionName="MarrymeModel.Store.FetchCountries">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchCountries_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchPremiumBestMatches" FunctionName="MarrymeModel.Store.FetchPremiumBestMatches">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchPremiumBestMatches_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="IsMobilePic" ColumnName="IsMobilePic" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="HighestEducation" ColumnName="HighestEducation" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SubmittedResponse" ColumnName="SubmittedResponse" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchProfileRequirementList" FunctionName="MarrymeModel.Store.FetchProfileRequirementList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchProfileRequirementList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequirmentName" ColumnName="RequirmentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchWomanRights" FunctionName="MarrymeModel.Store.FetchWomanRights">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchWomanRights_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WomenRights" ColumnName="WomenRights" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchProposalQuestions" FunctionName="MarrymeModel.Store.FetchProposalQuestions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchProposalQuestions_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchParentCatagoryList" FunctionName="MarrymeModel.Store.FetchParentCatagoryList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchParentCatagoryList_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartCategoryName" ColumnName="PartCategoryName" />
+          <ScalarProperty Name="CategoryType" ColumnName="CategoryType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchFacilitiesByMemberId" FunctionName="MarrymeModel.Store.FetchFacilitiesByMemberId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchFacilitiesByMemberId_Result">
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+          <ScalarProperty Name="FacilityResult" ColumnName="FacilityResult" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchProposalQuestionsByMemberId" FunctionName="MarrymeModel.Store.FetchProposalQuestionsByMemberId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchProposalQuestionsByMemberId_Result">
+          <ScalarProperty Name="ProposalQuestionsId" ColumnName="ProposalQuestionsId" />
+          <ScalarProperty Name="ProposalQuestionsResult" ColumnName="ProposalQuestionsResult" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchWomanRightsByMemberId" FunctionName="MarrymeModel.Store.FetchWomanRightsByMemberId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchWomanRightsByMemberId_Result">
+          <ScalarProperty Name="WomenRightsId" ColumnName="WomenRightsId" />
+          <ScalarProperty Name="WomenRightsResult" ColumnName="WomenRightsResult" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="MembersFetch" FunctionName="MarrymeModel.Store.MembersFetch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.MembersFetch_Result">
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="LookingFor" ColumnName="LookingFor" />
+          <ScalarProperty Name="Subcast" ColumnName="Subcast" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="MemberLoginDetailId" ColumnName="MemberLoginDetailId" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="MotherTongue" ColumnName="MotherTongue" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchAcceptanceCriteria" FunctionName="MarrymeModel.Store.FetchAcceptanceCriteria">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchAcceptanceCriteria_Result">
+          <ScalarProperty Name="AuntsAproval" ColumnName="AuntsAproval" />
+          <ScalarProperty Name="BrothersAproval" ColumnName="BrothersAproval" />
+          <ScalarProperty Name="DaughtersAproval" ColumnName="DaughtersAproval" />
+          <ScalarProperty Name="FathersAproval" ColumnName="FathersAproval" />
+          <ScalarProperty Name="MotherAproval" ColumnName="MotherAproval" />
+          <ScalarProperty Name="SisterAproval" ColumnName="SisterAproval" />
+          <ScalarProperty Name="SonsAproval" ColumnName="SonsAproval" />
+          <ScalarProperty Name="UnclesAproval" ColumnName="UnclesAproval" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchInfoForPersonalProfileCard" FunctionName="MarrymeModel.Store.FetchInfoForPersonalProfileCard">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchInfoForPersonalProfileCard_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="HighestEducation" ColumnName="HighestEducation" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchMarriagePolicy" FunctionName="MarrymeModel.Store.FetchMarriagePolicy">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchMarriagePolicy_Result">
+          <ScalarProperty Name="Amountcheckbox" ColumnName="Amountcheckbox" />
+          <ScalarProperty Name="AmountDetail" ColumnName="AmountDetail" />
+          <ScalarProperty Name="dropdownOption" ColumnName="dropdownOption" />
+          <ScalarProperty Name="HouseCheckBox" ColumnName="HouseCheckBox" />
+          <ScalarProperty Name="HouseDetail" ColumnName="HouseDetail" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MiscellaneousCheckbox" ColumnName="MiscellaneousCheckbox" />
+          <ScalarProperty Name="MiscellaneousDetail" ColumnName="MiscellaneousDetail" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchDucomentLisById" FunctionName="MarrymeModel.Store.FetchDucomentLisById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchDucomentLisById_Result">
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="DocTypeID" ColumnName="DocTypeID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchDocuments" FunctionName="MarrymeModel.Store.FetchDocuments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchDocuments_Result">
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="DocTypeID" ColumnName="DocTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchMemberList" FunctionName="MarrymeModel.Store.FetchMemberList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchMemberList_Result">
+          <ScalarProperty Name="totalcount" ColumnName="totalcount" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="IsMobilePic" ColumnName="IsMobilePic" />
+          <ScalarProperty Name="HighestEducation" ColumnName="HighestEducation" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchWifeDetailByMemberId" FunctionName="MarrymeModel.Store.FetchWifeDetailByMemberId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchWifeDetailByMemberId_Result">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ExsitingWife" ColumnName="ExsitingWife" />
+          <ScalarProperty Name="HaveWife" ColumnName="HaveWife" />
+          <ScalarProperty Name="MarriageYear" ColumnName="MarriageYear" />
+          <ScalarProperty Name="WifeAge" ColumnName="WifeAge" />
+          <ScalarProperty Name="EducationLevelId" ColumnName="EducationLevelId" />
+          <ScalarProperty Name="WifeJob" ColumnName="WifeJob" />
+          <ScalarProperty Name="WifeKids" ColumnName="WifeKids" />
+          <ScalarProperty Name="WifeLocation" ColumnName="WifeLocation" />
+          <ScalarProperty Name="WifeReligion" ColumnName="WifeReligion" />
+          <ScalarProperty Name="LivingStatus" ColumnName="LivingStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchWifeKidsDetailByMemberId" FunctionName="MarrymeModel.Store.FetchWifeKidsDetailByMemberId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchWifeKidsDetailByMemberId_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ExistingWife" ColumnName="ExistingWife" />
+          <ScalarProperty Name="KidAge" ColumnName="KidAge" />
+          <ScalarProperty Name="KidGender" ColumnName="KidGender" />
+          <ScalarProperty Name="KidLocation" ColumnName="KidLocation" />
+          <ScalarProperty Name="KidMaritalStatus" ColumnName="KidMaritalStatus" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCRList" FunctionName="MarrymeModel.Store.GetAllCRList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.GetAllCRList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ListTypeID" ColumnName="ListTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayFor" ColumnName="DisplayFor" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCRList_ByTypeID" FunctionName="MarrymeModel.Store.GetCRList_ByTypeID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.GetCRList_ByTypeID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchFacilities" FunctionName="MarrymeModel.Store.FetchFacilities">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchFacilities_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchDivorcePolicy" FunctionName="MarrymeModel.Store.FetchDivorcePolicy">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchDivorcePolicy_Result">
+          <ScalarProperty Name="Amountcheckbox" ColumnName="Amountcheckbox" />
+          <ScalarProperty Name="AmountFrom" ColumnName="AmountFrom" />
+          <ScalarProperty Name="AmountTo" ColumnName="AmountTo" />
+          <ScalarProperty Name="IncomeCurrency" ColumnName="IncomeCurrency" />
+          <ScalarProperty Name="dropdownOption" ColumnName="dropdownOption" />
+          <ScalarProperty Name="HouseCheckBox" ColumnName="HouseCheckBox" />
+          <ScalarProperty Name="HouseDetail" ColumnName="HouseDetail" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MiscellaneousCheckbox" ColumnName="MiscellaneousCheckbox" />
+          <ScalarProperty Name="MiscellaneousDetail" ColumnName="MiscellaneousDetail" />
+          <ScalarProperty Name="ThreeDivorcePolicy" ColumnName="ThreeDivorcePolicy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchProfileLocationDetail" FunctionName="MarrymeModel.Store.FetchProfileLocationDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchProfileLocationDetail_Result">
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="CountryLivingIn" ColumnName="CountryLivingIn" />
+          <ScalarProperty Name="ResidingState" ColumnName="ResidingState" />
+          <ScalarProperty Name="ResidingCity" ColumnName="ResidingCity" />
+          <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchCities" FunctionName="MarrymeModel.Store.FetchCities">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchCities_Result">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchStates" FunctionName="MarrymeModel.Store.FetchStates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchStates_Result">
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchProfilePersonalInfoDetail" FunctionName="MarrymeModel.Store.FetchProfilePersonalInfoDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchProfilePersonalInfoDetail_Result">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="BodyType" ColumnName="BodyType" />
+          <ScalarProperty Name="Complexion" ColumnName="Complexion" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="SmokingHabit" ColumnName="SmokingHabit" />
+          <ScalarProperty Name="Hobbies" ColumnName="Hobbies" />
+          <ScalarProperty Name="Interests" ColumnName="Interests" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchProfilePersonalInfo" FunctionName="MarrymeModel.Store.FetchProfilePersonalInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchProfilePersonalInfo_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsMobilePic" ColumnName="IsMobilePic" />
+          <ScalarProperty Name="Subcast" ColumnName="Subcast" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="NoOfChildren" ColumnName="NoOfChildren" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NoOfMarriage" ColumnName="NoOfMarriage" />
+          <ScalarProperty Name="EductionLevels" ColumnName="EductionLevels" />
+          <ScalarProperty Name="Employment" ColumnName="Employment" />
+          <ScalarProperty Name="HighestEducation" ColumnName="HighestEducation" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Sect" ColumnName="Sect" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="Feet" ColumnName="Feet" />
+          <ScalarProperty Name="HeightUnit" ColumnName="HeightUnit" />
+          <ScalarProperty Name="Inches" ColumnName="Inches" />
+          <ScalarProperty Name="Centimeters" ColumnName="Centimeters" />
+          <ScalarProperty Name="PhysicalStatus" ColumnName="PhysicalStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchMemberDetailById1" FunctionName="MarrymeModel.Store.FetchMemberDetailById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchMemberDetailById1_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="FamilyType" ColumnName="FamilyType" />
+          <ScalarProperty Name="FamilyStatus" ColumnName="FamilyStatus" />
+          <ScalarProperty Name="FamilyValue" ColumnName="FamilyValue" />
+          <ScalarProperty Name="Employment" ColumnName="Employment" />
+          <ScalarProperty Name="Complexion" ColumnName="Complexion" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="NoOfMarriage" ColumnName="NoOfMarriage" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="EductionLevels" ColumnName="EductionLevels" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchMyMatches1" FunctionName="MarrymeModel.Store.FetchMyMatches">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchMyMatches1_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="totalcount" ColumnName="totalcount" />
+          <ScalarProperty Name="EductionLevels" ColumnName="EductionLevels" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FetchProfilePersonalInfoForRegistrar1" FunctionName="MarrymeModel.Store.FetchProfilePersonalInfoForRegistrar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.FetchProfilePersonalInfoForRegistrar1_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsMobilePic" ColumnName="IsMobilePic" />
+          <ScalarProperty Name="Subcast" ColumnName="Subcast" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+          <ScalarProperty Name="SectId" ColumnName="SectId" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="EductionLevels" ColumnName="EductionLevels" />
+          <ScalarProperty Name="Employment" ColumnName="Employment" />
+          <ScalarProperty Name="HighestEducation" ColumnName="HighestEducation" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetBestMatchingByCRList1" FunctionName="MarrymeModel.Store.GetBestMatchingByCRList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarrymeModel.GetBestMatchingByCRList1_Result">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="BodyType" ColumnName="BodyType" />
+          <ScalarProperty Name="EductionLevels" ColumnName="EductionLevels" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AcceptanceCriterias">
+      <EntityTypeMapping TypeName="MarrymeModel.AcceptanceCriteria">
+        <MappingFragment StoreEntitySet="AcceptanceCriteria">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FathersAproval" ColumnName="FathersAproval" />
+          <ScalarProperty Name="MotherAproval" ColumnName="MotherAproval" />
+          <ScalarProperty Name="BrothersAproval" ColumnName="BrothersAproval" />
+          <ScalarProperty Name="SisterAproval" ColumnName="SisterAproval" />
+          <ScalarProperty Name="UnclesAproval" ColumnName="UnclesAproval" />
+          <ScalarProperty Name="AuntsAproval" ColumnName="AuntsAproval" />
+          <ScalarProperty Name="DaughtersAproval" ColumnName="DaughtersAproval" />
+          <ScalarProperty Name="SonsAproval" ColumnName="SonsAproval" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityLogs">
+      <EntityTypeMapping TypeName="MarrymeModel.ActivityLog">
+        <MappingFragment StoreEntitySet="ActivityLog">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminProfiles">
+      <EntityTypeMapping TypeName="MarrymeModel.AdminProfile">
+        <MappingFragment StoreEntitySet="AdminProfile">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationSettings">
+      <EntityTypeMapping TypeName="MarrymeModel.ApplicationSetting">
+        <MappingFragment StoreEntitySet="ApplicationSettings">
+          <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MailingAddress" ColumnName="MailingAddress" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="NTN" ColumnName="NTN" />
+          <ScalarProperty Name="SkypeLink" ColumnName="SkypeLink" />
+          <ScalarProperty Name="TwitterLink" ColumnName="TwitterLink" />
+          <ScalarProperty Name="GoogleLink" ColumnName="GoogleLink" />
+          <ScalarProperty Name="FaceBookLink" ColumnName="FaceBookLink" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attachements">
+      <EntityTypeMapping TypeName="MarrymeModel.Attachement">
+        <MappingFragment StoreEntitySet="Attachements">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatFriendRequests">
+      <EntityTypeMapping TypeName="MarrymeModel.ChatFriendRequest">
+        <MappingFragment StoreEntitySet="ChatFriendRequest">
+          <ScalarProperty Name="RequestDatetime" ColumnName="RequestDatetime" />
+          <ScalarProperty Name="BlockedBy" ColumnName="BlockedBy" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+          <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+          <ScalarProperty Name="ToId" ColumnName="ToId" />
+          <ScalarProperty Name="FromId" ColumnName="FromId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatHistoryDeletedMembers">
+      <EntityTypeMapping TypeName="MarrymeModel.ChatHistoryDeletedMember">
+        <MappingFragment StoreEntitySet="ChatHistoryDeletedMember">
+          <ScalarProperty Name="HistoryDeletedDatetime" ColumnName="HistoryDeletedDatetime" />
+          <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatMessages">
+      <EntityTypeMapping TypeName="MarrymeModel.ChatMessage">
+        <MappingFragment StoreEntitySet="ChatMessage">
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="MessageDateTime" ColumnName="MessageDateTime" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ToID" ColumnName="ToID" />
+          <ScalarProperty Name="FromID" ColumnName="FromID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatSessions">
+      <EntityTypeMapping TypeName="MarrymeModel.ChatSession">
+        <MappingFragment StoreEntitySet="ChatSession">
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="MarrymeModel.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactUs">
+      <EntityTypeMapping TypeName="MarrymeModel.ContactU">
+        <MappingFragment StoreEntitySet="ContactUs">
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="MarrymeModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreadtedBy" ColumnName="CreadtedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="FlagIcon" ColumnName="FlagIcon" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="PhoneCode" ColumnName="PhoneCode" />
+          <ScalarProperty Name="NameCode" ColumnName="NameCode" />
+          <ScalarProperty Name="ISO" ColumnName="ISO" />
+          <ScalarProperty Name="ISO3" ColumnName="ISO3" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CR_List">
+      <EntityTypeMapping TypeName="MarrymeModel.CR_List">
+        <MappingFragment StoreEntitySet="CR_List">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="DisplayFor" ColumnName="DisplayFor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ListTypeID" ColumnName="ListTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CR_ListType">
+      <EntityTypeMapping TypeName="MarrymeModel.CR_ListType">
+        <MappingFragment StoreEntitySet="CR_ListType">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divorces">
+      <EntityTypeMapping TypeName="MarrymeModel.Divorce">
+        <MappingFragment StoreEntitySet="Divorce">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DivorceStatus" ColumnName="DivorceStatus" />
+          <ScalarProperty Name="DivorceDate" ColumnName="DivorceDate" />
+          <ScalarProperty Name="DivorceReason" ColumnName="DivorceReason" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivorcePolicies">
+      <EntityTypeMapping TypeName="MarrymeModel.DivorcePolicy">
+        <MappingFragment StoreEntitySet="DivorcePolicy">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ThreeDivorcePolicy" ColumnName="ThreeDivorcePolicy" />
+          <ScalarProperty Name="MiscellaneousDetail" ColumnName="MiscellaneousDetail" />
+          <ScalarProperty Name="MiscellaneousCheckbox" ColumnName="MiscellaneousCheckbox" />
+          <ScalarProperty Name="HouseDetail" ColumnName="HouseDetail" />
+          <ScalarProperty Name="HouseCheckBox" ColumnName="HouseCheckBox" />
+          <ScalarProperty Name="IncomeCurrency" ColumnName="IncomeCurrency" />
+          <ScalarProperty Name="AmountTo" ColumnName="AmountTo" />
+          <ScalarProperty Name="AmountFrom" ColumnName="AmountFrom" />
+          <ScalarProperty Name="Amountcheckbox" ColumnName="Amountcheckbox" />
+          <ScalarProperty Name="dropdownOption" ColumnName="dropdownOption" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocDropdownLists">
+      <EntityTypeMapping TypeName="MarrymeModel.DocDropdownList">
+        <MappingFragment StoreEntitySet="DocDropdownList">
+          <ScalarProperty Name="DocName" ColumnName="DocName" />
+          <ScalarProperty Name="DocTypeID" ColumnName="DocTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentTypes">
+      <EntityTypeMapping TypeName="MarrymeModel.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentTypes">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CtreatedBy" ColumnName="CtreatedBy" />
+          <ScalarProperty Name="DocTypeName" ColumnName="DocTypeName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EductionLevels">
+      <EntityTypeMapping TypeName="MarrymeModel.EductionLevel">
+        <MappingFragment StoreEntitySet="EductionLevels">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="UserFor" ColumnName="UserFor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailSMSTemplates">
+      <EntityTypeMapping TypeName="MarrymeModel.EmailSMSTemplate">
+        <MappingFragment StoreEntitySet="EmailSMSTemplate">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MessageBody" ColumnName="MessageBody" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="BCC" ColumnName="BCC" />
+          <ScalarProperty Name="CC" ColumnName="CC" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="MarrymeModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLog">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExisitingKidsDetails">
+      <EntityTypeMapping TypeName="MarrymeModel.ExisitingKidsDetail">
+        <MappingFragment StoreEntitySet="ExisitingKidsDetail">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="KidDetail" ColumnName="KidDetail" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExisitingKidsDetailResults">
+      <EntityTypeMapping TypeName="MarrymeModel.ExisitingKidsDetailResult">
+        <MappingFragment StoreEntitySet="ExisitingKidsDetailResult">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="KidMaritalStatus" ColumnName="KidMaritalStatus" />
+          <ScalarProperty Name="KidLocation" ColumnName="KidLocation" />
+          <ScalarProperty Name="KidGender" ColumnName="KidGender" />
+          <ScalarProperty Name="KidAge" ColumnName="KidAge" />
+          <ScalarProperty Name="ExistingWife" ColumnName="ExistingWife" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facilities">
+      <EntityTypeMapping TypeName="MarrymeModel.Facility">
+        <MappingFragment StoreEntitySet="Facilities">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="FacilityFor" ColumnName="FacilityFor" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacilitiesResultFemales">
+      <EntityTypeMapping TypeName="MarrymeModel.FacilitiesResultFemale">
+        <MappingFragment StoreEntitySet="FacilitiesResultFemale">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FacilityFor" ColumnName="FacilityFor" />
+          <ScalarProperty Name="Four" ColumnName="Four" />
+          <ScalarProperty Name="Three" ColumnName="Three" />
+          <ScalarProperty Name="Two" ColumnName="Two" />
+          <ScalarProperty Name="One" ColumnName="One" />
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacilitiesResultMales">
+      <EntityTypeMapping TypeName="MarrymeModel.FacilitiesResultMale">
+        <MappingFragment StoreEntitySet="FacilitiesResultMale">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FacilityFor" ColumnName="FacilityFor" />
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyInvolvements">
+      <EntityTypeMapping TypeName="MarrymeModel.FamilyInvolvement">
+        <MappingFragment StoreEntitySet="FamilyInvolvement">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="InvolvementOptions" ColumnName="InvolvementOptions" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyInvolvementResults">
+      <EntityTypeMapping TypeName="MarrymeModel.FamilyInvolvementResult">
+        <MappingFragment StoreEntitySet="FamilyInvolvementResult">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="FamilyInvolvementResult1" ColumnName="FamilyInvolvementResult" />
+          <ScalarProperty Name="FamilyInvolvementID" ColumnName="FamilyInvolvementID" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedBacks">
+      <EntityTypeMapping TypeName="MarrymeModel.FeedBack">
+        <MappingFragment StoreEntitySet="FeedBack">
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FieldsPermissions">
+      <EntityTypeMapping TypeName="MarrymeModel.FieldsPermission">
+        <MappingFragment StoreEntitySet="FieldsPermission">
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsVisibleForPremium" ColumnName="IsVisibleForPremium" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="MarrymeModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaritalStatus">
+      <EntityTypeMapping TypeName="MarrymeModel.MaritalStatu">
+        <MappingFragment StoreEntitySet="MaritalStatus">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="UserFor" ColumnName="UserFor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarriageDurations">
+      <EntityTypeMapping TypeName="MarrymeModel.MarriageDuration">
+        <MappingFragment StoreEntitySet="MarriageDuration">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DurationFrom" ColumnName="DurationFrom" />
+          <ScalarProperty Name="MarriageDuration1" ColumnName="MarriageDuration" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarriagePolicies">
+      <EntityTypeMapping TypeName="MarrymeModel.MarriagePolicy">
+        <MappingFragment StoreEntitySet="MarriagePolicy">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="MiscellaneousDetail" ColumnName="MiscellaneousDetail" />
+          <ScalarProperty Name="MiscellaneousCheckbox" ColumnName="MiscellaneousCheckbox" />
+          <ScalarProperty Name="HouseDetail" ColumnName="HouseDetail" />
+          <ScalarProperty Name="HouseCheckBox" ColumnName="HouseCheckBox" />
+          <ScalarProperty Name="AmountDetail" ColumnName="AmountDetail" />
+          <ScalarProperty Name="Amountcheckbox" ColumnName="Amountcheckbox" />
+          <ScalarProperty Name="dropdownOption" ColumnName="dropdownOption" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberAppearances">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberAppearance">
+        <MappingFragment StoreEntitySet="MemberAppearance">
+          <ScalarProperty Name="Centimeters" ColumnName="Centimeters" />
+          <ScalarProperty Name="Inches" ColumnName="Inches" />
+          <ScalarProperty Name="HeightUnit" ColumnName="HeightUnit" />
+          <ScalarProperty Name="Feet" ColumnName="Feet" />
+          <ScalarProperty Name="Complexion" ColumnName="Complexion" />
+          <ScalarProperty Name="BodyType" ColumnName="BodyType" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="PhysicalStatus" ColumnName="PhysicalStatus" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberEducationDetails">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberEducationDetail">
+        <MappingFragment StoreEntitySet="MemberEducationDetail">
+          <ScalarProperty Name="EductionLevels" ColumnName="EductionLevels" />
+          <ScalarProperty Name="AnnualIncomeTo" ColumnName="AnnualIncomeTo" />
+          <ScalarProperty Name="AnnualIncomeFrom" ColumnName="AnnualIncomeFrom" />
+          <ScalarProperty Name="IncomeCurrency" ColumnName="IncomeCurrency" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Employment" ColumnName="Employment" />
+          <ScalarProperty Name="HighestEducation" ColumnName="HighestEducation" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberFamilyDetails">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberFamilyDetail">
+        <MappingFragment StoreEntitySet="MemberFamilyDetail">
+          <ScalarProperty Name="FamilyDetail" ColumnName="FamilyDetail" />
+          <ScalarProperty Name="NoOfSisters" ColumnName="NoOfSisters" />
+          <ScalarProperty Name="NoOfBrothers" ColumnName="NoOfBrothers" />
+          <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+          <ScalarProperty Name="IsFatherAlive" ColumnName="IsFatherAlive" />
+          <ScalarProperty Name="IsMotherAlive" ColumnName="IsMotherAlive" />
+          <ScalarProperty Name="FamilyStatus" ColumnName="FamilyStatus" />
+          <ScalarProperty Name="FamilyType" ColumnName="FamilyType" />
+          <ScalarProperty Name="FamilyValue" ColumnName="FamilyValue" />
+          <ScalarProperty Name="ParentContactNo" ColumnName="ParentContactNo" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberLanguages">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberLanguage">
+        <MappingFragment StoreEntitySet="MemberLanguages">
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberLifeStyles">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberLifeStyle">
+        <MappingFragment StoreEntitySet="MemberLifeStyle">
+          <ScalarProperty Name="Hobbies" ColumnName="Hobbies" />
+          <ScalarProperty Name="Interests" ColumnName="Interests" />
+          <ScalarProperty Name="SmokingHabit" ColumnName="SmokingHabit" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberLikeDislikes">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberLikeDislike">
+        <MappingFragment StoreEntitySet="MemberLikeDislike">
+          <ScalarProperty Name="ResponseToMemberId" ColumnName="ResponseToMemberId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="IsLike" ColumnName="IsLike" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberLocationDetails">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberLocationDetail">
+        <MappingFragment StoreEntitySet="MemberLocationDetail">
+          <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+          <ScalarProperty Name="ResidingCity" ColumnName="ResidingCity" />
+          <ScalarProperty Name="ResidingState" ColumnName="ResidingState" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="CountryLivingIn" ColumnName="CountryLivingIn" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberLoginDetails">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberLoginDetail">
+        <MappingFragment StoreEntitySet="MemberLoginDetail">
+          <ScalarProperty Name="FirebaseUserId" ColumnName="FirebaseUserId" />
+          <ScalarProperty Name="IsMobileUser" ColumnName="IsMobileUser" />
+          <ScalarProperty Name="IsFirstLoginAttempt" ColumnName="IsFirstLoginAttempt" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ConfirmationCode" ColumnName="ConfirmationCode" />
+          <ScalarProperty Name="IsEmailConfirmed" ColumnName="IsEmailConfirmed" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberPackageConfirmPayments">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberPackageConfirmPayment">
+        <MappingFragment StoreEntitySet="MemberPackageConfirmPayment">
+          <ScalarProperty Name="IsMobilePic" ColumnName="IsMobilePic" />
+          <ScalarProperty Name="DepositSlip" ColumnName="DepositSlip" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PaymentOptionId" ColumnName="PaymentOptionId" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PackageSubscriptionId" ColumnName="PackageSubscriptionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberPackagePayments">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberPackagePayment">
+        <MappingFragment StoreEntitySet="MemberPackagePayment">
+          <ScalarProperty Name="PaymentOptionId" ColumnName="PaymentOptionId" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PayerId" ColumnName="PayerId" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="MemberPackageSubscriptionId" ColumnName="MemberPackageSubscriptionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberPackageSubscriptions">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberPackageSubscription">
+        <MappingFragment StoreEntitySet="MemberPackageSubscription">
+          <ScalarProperty Name="PackageAmount" ColumnName="PackageAmount" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SubscriptionEndDate" ColumnName="SubscriptionEndDate" />
+          <ScalarProperty Name="SubscriptionStartDate" ColumnName="SubscriptionStartDate" />
+          <ScalarProperty Name="PackagePricingPlanId" ColumnName="PackagePricingPlanId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberPackageSubscriptionDetails">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberPackageSubscriptionDetail">
+        <MappingFragment StoreEntitySet="MemberPackageSubscriptionDetail">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UsedNoOfChatMessages" ColumnName="UsedNoOfChatMessages" />
+          <ScalarProperty Name="TotalNoOfChatMessages" ColumnName="TotalNoOfChatMessages" />
+          <ScalarProperty Name="UsedNoOfContacts" ColumnName="UsedNoOfContacts" />
+          <ScalarProperty Name="TotalNoOfContactsToShow" ColumnName="TotalNoOfContactsToShow" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberPreferrdLocations">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberPreferrdLocation">
+        <MappingFragment StoreEntitySet="MemberPreferrdLocation">
+          <ScalarProperty Name="Cities" ColumnName="Cities" />
+          <ScalarProperty Name="States" ColumnName="States" />
+          <ScalarProperty Name="Countries" ColumnName="Countries" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberRegistrations">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberRegistration">
+        <MappingFragment StoreEntitySet="MemberRegistration">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsMobilePic" ColumnName="IsMobilePic" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="AboutMe" ColumnName="AboutMe" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="SectId" ColumnName="SectId" />
+          <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+          <ScalarProperty Name="ProfilePicPath" ColumnName="ProfilePicPath" />
+          <ScalarProperty Name="Subcast" ColumnName="Subcast" />
+          <ScalarProperty Name="NoOfChildren" ColumnName="NoOfChildren" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="LookingFor" ColumnName="LookingFor" />
+          <ScalarProperty Name="NoOfMarriage" ColumnName="NoOfMarriage" />
+          <ScalarProperty Name="MotherTongue" ColumnName="MotherTongue" />
+          <ScalarProperty Name="ProfileCreatedBy" ColumnName="ProfileCreatedBy" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberReligiousDetails">
+      <EntityTypeMapping TypeName="MarrymeModel.MemberReligiousDetail">
+        <MappingFragment StoreEntitySet="MemberReligiousDetail">
+          <ScalarProperty Name="Updateddate" ColumnName="Updateddate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Sect" ColumnName="Sect" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenCurrentStates">
+      <EntityTypeMapping TypeName="MarrymeModel.MenCurrentState">
+        <MappingFragment StoreEntitySet="MenCurrentState">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="MenStateName" ColumnName="MenStateName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="MarrymeModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ToId" ColumnName="ToId" />
+          <ScalarProperty Name="FromId" ColumnName="FromId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NumberOfMarriages">
+      <EntityTypeMapping TypeName="MarrymeModel.NumberOfMarriage">
+        <MappingFragment StoreEntitySet="NumberOfMarriage">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="MarriageNumber" ColumnName="MarriageNumber" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="MarrymeModel.Package">
+        <MappingFragment StoreEntitySet="Package">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CanChat" ColumnName="CanChat" />
+          <ScalarProperty Name="IsVisibleHighProfile" ColumnName="IsVisibleHighProfile" />
+          <ScalarProperty Name="CanViewPhoto" ColumnName="CanViewPhoto" />
+          <ScalarProperty Name="NumberOfChatMessages" ColumnName="NumberOfChatMessages" />
+          <ScalarProperty Name="NumberOfMobileNo" ColumnName="NumberOfMobileNo" />
+          <ScalarProperty Name="CanMemberViewMobileNo" ColumnName="CanMemberViewMobileNo" />
+          <ScalarProperty Name="PackageTypeId" ColumnName="PackageTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PackagePricingPlans">
+      <EntityTypeMapping TypeName="MarrymeModel.PackagePricingPlan">
+        <MappingFragment StoreEntitySet="PackagePricingPlan">
+          <ScalarProperty Name="PackagePrice" ColumnName="PackagePrice" />
+          <ScalarProperty Name="PackageDuration" ColumnName="PackageDuration" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PackageTypes">
+      <EntityTypeMapping TypeName="MarrymeModel.PackageType">
+        <MappingFragment StoreEntitySet="PackageType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageContents">
+      <EntityTypeMapping TypeName="MarrymeModel.PageContent">
+        <MappingFragment StoreEntitySet="PageContent">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PageDescription" ColumnName="PageDescription" />
+          <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerCatagoryMaritalStatus">
+      <EntityTypeMapping TypeName="MarrymeModel.PartnerCatagoryMaritalStatu">
+        <MappingFragment StoreEntitySet="PartnerCatagoryMaritalStatus">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PartnerMaritalStatus" ColumnName="PartnerMaritalStatus" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerCategories">
+      <EntityTypeMapping TypeName="MarrymeModel.PartnerCategory">
+        <MappingFragment StoreEntitySet="PartnerCategory">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CategoryType" ColumnName="CategoryType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="CategoryFor" ColumnName="CategoryFor" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="PartCategoryName" ColumnName="PartCategoryName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerCategoryResults">
+      <EntityTypeMapping TypeName="MarrymeModel.PartnerCategoryResult">
+        <MappingFragment StoreEntitySet="PartnerCategoryResult">
+          <ScalarProperty Name="CR_ListId" ColumnName="CR_ListId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerCatoryEducationLevels">
+      <EntityTypeMapping TypeName="MarrymeModel.PartnerCatoryEducationLevel">
+        <MappingFragment StoreEntitySet="PartnerCatoryEducationLevel">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="EducationLevelId" ColumnName="EducationLevelId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentOptions">
+      <EntityTypeMapping TypeName="MarrymeModel.PaymentOption">
+        <MappingFragment StoreEntitySet="PaymentOptions">
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+          <ScalarProperty Name="BankLogo" ColumnName="BankLogo" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="AccountTitle" ColumnName="AccountTitle" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfileRequirements">
+      <EntityTypeMapping TypeName="MarrymeModel.ProfileRequirement">
+        <MappingFragment StoreEntitySet="ProfileRequirement">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="RequirmentName" ColumnName="RequirmentName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProposalQuestions">
+      <EntityTypeMapping TypeName="MarrymeModel.ProposalQuestion">
+        <MappingFragment StoreEntitySet="ProposalQuestions">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="QuestionsFor" ColumnName="QuestionsFor" />
+          <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProposalQuestionsResults">
+      <EntityTypeMapping TypeName="MarrymeModel.ProposalQuestionsResult">
+        <MappingFragment StoreEntitySet="ProposalQuestionsResult">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ProposalQuestionsResult1" ColumnName="ProposalQuestionsResult" />
+          <ScalarProperty Name="ProposalQuestionsId" ColumnName="ProposalQuestionsId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Religions">
+      <EntityTypeMapping TypeName="MarrymeModel.Religion">
+        <MappingFragment StoreEntitySet="Religion">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ReligionName" ColumnName="ReligionName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReligionSects">
+      <EntityTypeMapping TypeName="MarrymeModel.ReligionSect">
+        <MappingFragment StoreEntitySet="ReligionSect">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="SectName" ColumnName="SectName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="MarrymeModel.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UploadDocuments">
+      <EntityTypeMapping TypeName="MarrymeModel.UploadDocument">
+        <MappingFragment StoreEntitySet="UploadDocuments">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="DocTypeID" ColumnName="DocTypeID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WifeDetails">
+      <EntityTypeMapping TypeName="MarrymeModel.WifeDetail">
+        <MappingFragment StoreEntitySet="WifeDetail">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DetailQuestions" ColumnName="DetailQuestions" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WifeDetailResults">
+      <EntityTypeMapping TypeName="MarrymeModel.WifeDetailResult">
+        <MappingFragment StoreEntitySet="WifeDetailResult">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WifeAge" ColumnName="WifeAge" />
+          <ScalarProperty Name="HaveWife" ColumnName="HaveWife" />
+          <ScalarProperty Name="EducationLevelId" ColumnName="EducationLevelId" />
+          <ScalarProperty Name="LivingStatus" ColumnName="LivingStatus" />
+          <ScalarProperty Name="WifeJob" ColumnName="WifeJob" />
+          <ScalarProperty Name="WifeKids" ColumnName="WifeKids" />
+          <ScalarProperty Name="WifeLocation" ColumnName="WifeLocation" />
+          <ScalarProperty Name="MarriageYear" ColumnName="MarriageYear" />
+          <ScalarProperty Name="WifeReligion" ColumnName="WifeReligion" />
+          <ScalarProperty Name="ExsitingWife" ColumnName="ExsitingWife" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WifeNumbers">
+      <EntityTypeMapping TypeName="MarrymeModel.WifeNumber">
+        <MappingFragment StoreEntitySet="WifeNumber">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="FiledStatus" ColumnName="FiledStatus" />
+          <ScalarProperty Name="WifeNo" ColumnName="WifeNo" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WomenCurrentStates">
+      <EntityTypeMapping TypeName="MarrymeModel.WomenCurrentState">
+        <MappingFragment StoreEntitySet="WomenCurrentState">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WomenResponsibilities">
+      <EntityTypeMapping TypeName="MarrymeModel.WomenResponsibility">
+        <MappingFragment StoreEntitySet="WomenResponsibilities">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ResponsibilityName" ColumnName="ResponsibilityName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WomenRights">
+      <EntityTypeMapping TypeName="MarrymeModel.WomenRight">
+        <MappingFragment StoreEntitySet="WomenRights">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WomenRights" ColumnName="WomenRights" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WomenRightsResults">
+      <EntityTypeMapping TypeName="MarrymeModel.WomenRightsResult">
+        <MappingFragment StoreEntitySet="WomenRightsResult">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="WomenRightsResult1" ColumnName="WomenRightsResult" />
+          <ScalarProperty Name="WomenRightsId" ColumnName="WomenRightsId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,30 @@
+/* Styles go here */
+
+
+.dragableItems {
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: #8b244f;
+}
+
+    .dragableItems:hover, .dragableItems:focus {
+        color: #5e6773;
+        background-color: #f4f6f8;
+        border-color: gainsboro;
+    }
+
+    .dragableItems:active, .dragableItems:active:hover, .dragableItems:active:focus, .dragableItems.active, .dragableItems.active:hover, .dragableItems.active:focus {
+        color: #5e6773;
+        background-color: #f0f3f6;
+        border-color: gainsboro;
+    }
+
+.box-item {
+    margin-top: 3px !important;
+    width: 100%;
+    z-index: 1000
+}
+.hand {
+    margin-top: 100px;
+    font-size: 34px;
+}

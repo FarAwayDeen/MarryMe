@@ -1,0 +1,191 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "My Profile";
+    ViewBag.SubTitle = "Save and Update Your Profile";
+    ViewBag.TitleIcon = "<i class='fa fa-newspaper-o'></i>";
+}
+<script src="~/Angular/Accounts/Profile.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="ProfileController">
+    <form id="frmAuthenticate" data-parsley-validate novalidate ng-submit="SaveProfile()">
+        <div class="row">
+            <div class="col-md-3">
+                <img ng-src="{{Profile.ProfilePictureUrl}}" alt="Profile Picture" class="img-responsive img-thumbnail" id="imgPreview" />
+                <input type="file" accept="images/*" id="imgProfile" />
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="col-md-4 control-label"> First Name </label>
+                            <div class="col-md-8">
+                                <input ng-model="Profile.FirstName" required placeholder="First Name" class="form-control">
+                                @*<input name="txtPaymentType" ng-model="PaymentOption.PaymentType" placeholder="Payment Type" class="form-control">*@
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-md-4 control-label"> Last Name </label>
+                            <div class="col-md-8">
+                                <input ng-model="Profile.LastName" required placeholder="Last Name" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="col-md-4 control-label"> Email </label>
+                            <div class="col-md-8">
+                                <input ng-model="Profile.Email" required placeholder="Email" class="form-control" disabled readonly>
+                                @*<input name="txtPaymentType" ng-model="PaymentOption.PaymentType" placeholder="Payment Type" class="form-control">*@
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-md-4 control-label"> Phone No </label>
+                            <div class="col-md-8">
+                                <input ng-model="Profile.Phone" required placeholder="Phone No" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12" style="padding-left:11px;">
+                            <label class="col-md-2 control-label"> Address </label>
+                            <div class="col-md-10">
+                                <textarea ng-model="Profile.Address" required placeholder="Address" class="form-control"></textarea>
+                                @*<input name="txtPaymentType" ng-model="PaymentOption.PaymentType" placeholder="Payment Type" class="form-control">*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                <a class="btn btn-default back" href="/Home/Index">
+                                    <i class="fa fa-arrow-circle-left"></i><span>Back to Dashboard</span>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <button id="btnAuthenticate" type="submit" class="btn btn-success pull-right">
+                                    <span>
+                                        <i class="fa fa-check-circle"></i> Save
+                                    </span>
+                                    <span style="display:none">
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                        Processing...
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@*<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Assets/scripts/jquery-ui.min.js?v=@DateTime.Now.Ticks"></script>
+
+        <script src="~/Assets/vendor/moment/js/moment.js"></script>
+        <script src="~/Assets/vendor/summernote/summernote.min.js"></script>
+        <link href="~/Assets/vendor/select2/css/select2.min.css" rel="stylesheet" />
+        <script src="~/Assets/vendor/select2/js/select2.min.js"></script>
+        <link href="~/Assets/vendor/bootstrap-toggle/css/bootstrap-toggle.css" rel="stylesheet" />
+        <script src="~/Assets/vendor/bootstrap-toggle/js/bootstrap-toggle.js"></script>
+        <link href="~/Assets/vendor/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+        <script src="~/Assets/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <link href="~/Assets/vendor/bootstrap-date-time-picker/css/bootstrap-datetimepickermin.css" rel="stylesheet" />
+        <script src="~/Assets/vendor/bootstrap-date-time-picker/js/bootstrap-datetimepickermin.js"></script>
+        <link href="~/Assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+        <script src="~/Assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/Assets/scripts/angular.js"></script>
+        <link href="~/Assets/vendor/iziToast/iziToast-min.css" rel="stylesheet" />
+        <script src="~/Assets/vendor/iziToast/iziToast-min.js"></script>
+        <script src="~/Angular/Generic.js?v=@DateTime.UtcNow.Ticks"></script>
+        <script src="~/Angular/Method.js?v=@DateTime.UtcNow.Ticks"></script>
+        <script src="~/Angular/Service.js?v=@DateTime.UtcNow.Ticks"></script>
+        <script src="~/Angular/Filter.js?v=@DateTime.UtcNow.Ticks"></script>
+        <link rel="icon" href="~/Assets/img/favicon.png" type="image/x-icon" sizes="16x16">
+        <link href="~/Content/Site.css" rel="stylesheet" />
+        <link href="~/Assets/vendor/parsleyjs/css/parsley.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+        <script src="~/Assets/vendor/parsleyjs/js/parsley.min.js?v=@DateTime.Now.Ticks"></script>
+        <script src="~/Angular/Accounts/Profile.js?v=@DateTime.Now.Ticks"></script>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <title>Login</title>
+    </head>
+    <body ng-app="MatrimonyAdminModule" ng-cloak>*@
+
+@*<div id="wrapper" ng-controller="ProfileController">
+    <nav class="navbar navbar-default navbar-fixed-top nav-bg" style="min-height:55px;">
+        <div class="brand">
+            <a href="javascript:;" class="white-text">
+                <h4>Matrimony Admin</h4>
+            </a>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <div class="col-md-12">
+            <div class="modal-dialog" style="margin-bottom:0">
+                <div class="modal-content">
+                    <div class="panel">
+                        <div class="panel-heading panel-success">
+                            <h3 class="panel-title white-text">Sign In</h3>
+                        </div>*@
+
+@*</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer navbar-inverse">
+            <p>&copy; All Rights Reserved | Powered By EastFlicker IT Solutions</p>
+        </footer>
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                /*background-color: red;*/
+                color: white;
+                text-align: center;
+            }
+
+            body {
+                background-color: #f5f5f5 !important;
+            }
+
+            .panel-success {
+                background: linear-gradient(-45deg,#e64545,#6e1a52) !important;
+                border: none;
+            }
+
+            .white-text {
+                color: white;
+                margin-left: 15px;
+            }
+
+            .brand {
+                margin-left: 15px;
+            }
+
+            a:focus, a:hover {
+                color: white;
+                text-decoration: none;
+            }
+
+            .panel {
+                border: none;
+                margin-bottom: 0px;
+            }
+        </style>
+    </body>
+    </html>*@

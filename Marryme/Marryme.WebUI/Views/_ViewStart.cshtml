@@ -1,0 +1,9 @@
+﻿@{ if (Session["Role"] != null && (Session["Role"]).ToString() == "Registrar")
+    {
+        Layout = "~/Views/Shared/_RegistrarLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}

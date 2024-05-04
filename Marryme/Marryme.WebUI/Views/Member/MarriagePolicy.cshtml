@@ -1,0 +1,180 @@
+﻿
+@{
+    ViewBag.Title = "Marriage Policy";
+}
+<script src="~/Angular/Member/MarriagePolicy.js"></script>
+<div class="container-fluid" ng-controller="PolicyController">
+    <div class="col-sm-12 col-md-12">
+        <div class="row">
+            <div class="col-sm-3C">
+                @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+            </div>
+            <div class="col-sm-9 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Marriage Policy</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="PolicyId" ng-submit="SavePolicy()">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 text-center">
+                                            <h5 class="text-primary">You must be truth ful &amp; honest about your commitments you make as part of this marriage.</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6 offset-3">
+                                    <label>Please Select Your Case</label>
+                                    <select class="form-control" ng-change="option()" ng-model="Policy.dropdownOption">
+                                        <option value="">--Please Select--</option>
+                                        <option value="Divorce">Divorce</option>
+                                        <option value="Khula">Khula</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="card" id="Divorce">
+                                        <div class="card-header">
+                                            <h5 class="text-primary">Option for Divorce</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="col-sm-12 col-md-12">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12">
+                                                        <label class="">If you divorce the woman, you will be providing her the followings:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <label>Amount</label>
+                                                        <input type="checkbox" value="true" id="first" ng-model="Policy.DivorceAmountcheckbox" />
+                                                        <input type="text" id="firstinput" placeholder="Amount Detail" class="form-control" ng-model="Policy.DivorceAmountDetail" />
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <label>House</label>
+                                                        <input type="checkbox" value="true" id="second" ng-model="Policy.DivorceHouseCheckBox" />
+                                                        <input type="text" id="secondinput" placeholder="House Detail" class="form-control" ng-model="Policy.DivorceHouseDetail" />
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <label>miscellaneous</label>
+                                                        <input type="checkbox" value="true" id="third" ng-model="Policy.DivorceMiscellaneousCheckbox" />
+                                                        <input type="text" id="thirdinput" placeholder="miscellaneous Detail" class="form-control" ng-model="Policy.DivorceMiscellaneousDetail" />
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="card" id="Khula">
+                                        <div class="card-header">
+                                            <h5 class="text-primary">Option for Khula</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="col-sm-12 col-md-12">
+                                                <label class="">If a woman takes khula, it will be depend on the reason of khula. Based on that her rights will be decided.</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4 col-md-4">
+                                                    <label>Amount</label>
+                                                    <input type="checkbox" value="true" id="fourth" ng-model="Policy.KhulaAmountcheckbox" />
+                                                    <input type="text" id="fourthinput" placeholder="Amount Detail" class="form-control" ng-model="Policy.KhulaAmountDetail" />
+                                                </div>
+                                                <div class="col-sm-4 col-md-4">
+                                                    <label>House</label>
+                                                    <input type="checkbox" value="true" id="fifth" ng-model="Policy.KhulaHouseCheckBox" />
+                                                    <input type="text" id="fifthinput" placeholder="House Detail" class="form-control" ng-model="Policy.KhulaHouseDetail" />
+                                                </div>
+                                                <div class="col-sm-4 col-md-4">
+                                                    <label>miscellaneous</label>
+                                                    <input type="checkbox" value="true" id="sixth" ng-model="Policy.KhulaMiscellaneousCheckbox" />
+                                                    <input type="text" id="sixthinput" placeholder="miscellaneous Detail" class="form-control" ng-model="Policy.KhulaMiscellaneousDetail" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-sm-12 text-right">
+                                    <input id="btnPolicy" type="submit" class="btn btn-success" value="Save" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @*<div class="col-sm-12 pt-2">
+                    <div class="row">
+                        <div class="col-sm-6 text-left">
+                            <a href="/Member/DocumentList" type="button" class="btn btn-success ">Previous</a>
+                        </div>
+                        
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("input[type=text]").hide();
+        $('#Divorce').hide();
+        $('#Khula').hide();
+        $('#btnPolicy').hide();
+        $('#btnPolicy').prop('disabled', true);
+        //if ($('input[type="text"]').val() == '') {
+        //    $('#btnPolicy').prop('disabled', true);
+        //    console.log('ready disable called');
+        //} else {
+        //    $('#btnPolicy').removeProp('disabled', false);
+        //    console.log('ready enable called');
+        //}
+
+
+        //if ($("input[type=checkbox]").val()== 'true') {
+        //    $("input[type=checkbox]").prop('checked', true)
+        //    $("input[type=text]").show();
+        //}
+
+
+    });
+    
+    //$("#checkbox1").is(':checked', function () {
+    //    $("#checkbox1").attr('value', 'true');
+    //});
+   
+
+    $('input[type="text"]').keyup(function () {
+        if ($('input[type="text"]').val() == '') {
+            $('#btnPolicy').prop('disabled', true);
+            console.log('disable called');
+        } else {
+            $('#btnPolicy').prop('disabled', false);
+            console.log('enable called');
+        }
+    });
+
+    $("input[type=checkbox]").on("click", function () {
+        var id = $(this).attr("id");
+        var inputid = id + 'input';
+        //console.log(inputid);
+        //console.log('value of: ' + $('#' + id).val());
+        if ($('#' + id).val() == 'true') {
+            $('#' + inputid).show();
+            $('#' + id).val('false');
+        } else {
+            $('#' + inputid).hide();
+            $('#' + id).val('true');
+        }
+    })
+
+
+</script>

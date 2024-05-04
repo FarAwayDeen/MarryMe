@@ -1,0 +1,135 @@
+﻿
+<script src="~/Angular/Profile/ReligiousInfoSetup.js?v=@DateTime.Now.Ticks"></script>
+<div ng-controller="ReligiousInfoSetupController">
+    <form id="frmReligiousInfo" data-parsley-validate novalidate ng-submit="Save()">
+        <div>
+            <h2 class="fs-title"><i class="icofont-star" id="iconbox"></i> Religious Information</h2>
+            <hr />
+            <div class="row">
+                <label class="col-sm-2">Religion</label>
+                <div class="col-sm-7 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.Religion">
+                        <option>--- Select ---</option>
+                        <option value="{{Religion.ID}}" ng-repeat="Religion in Religions">{{Religion.Name}}</option>
+
+                    </select>                   
+                </div>
+            </div>
+            <div class="row" ng-show="ReligiousInfo.Religion==43">
+                <div class="col-sm-2">
+                    <label>Sect</label>
+                </div>
+                <div class="col-sm-7 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.Sect">
+                        <option>--- Select ---</option>
+                        <option value="{{Sect.ID}}" ng-repeat="Sect in Sects">{{Sect.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-sm-2">
+                    <label>Gothra</label>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <input type="text" ng-model="ReligiousInfo.Gothra" maxlength="20" class="form-control" />
+                </div>
+                <div class="col-sm-3">
+                    <span>Optional but recommended</span>
+                </div>
+            </div>*@
+            @*<div class="row">
+                <div class="col-sm-2 form-group">
+                    <label>Dosham</label>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <ul class="radio-list">
+                        <li ng-repeat="Dosham in DoshamList">
+                            <label ng-class="{'radio-active':$parent.ReligiousInfo.Dosham==Dosham.Name}">
+                                {{Dosham.Name}}
+                                <input type="radio" ng-model="$parent.ReligiousInfo.Dosham" value="{{Dosham.Name}}" />
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>*@
+            @*<div class="row">
+                <div class="col-sm-2">
+                    <label>Time of Birth</label>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.Hour">
+                        <option>--Hours--</option>
+                        <option value="{{Hour.Id}}" ng-repeat="Hour in Hours">{{Hour.Id}}</option>
+
+                    </select>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.Minute">
+                        <option>--Minute--</option>
+                        <option value="{{Minute.Id}}" ng-repeat="Minute in Minutes">{{Minute.Id}}</option>
+
+                    </select>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.Meridiem">
+                        <option>--Meridiem--</option>
+                        <option value="{{Meridiem.Type}}" ng-repeat="Meridiem in Meridiems">{{Meridiem.Type}}</option>
+                    </select>
+                </div>
+            </div>*@
+            @*<div class="row">
+                <label class="col-sm-2">Country of Birth</label>
+                <div class="col-sm-7 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.CountryTypeCode" ng-change="BindStates()">
+                        <option>--- Select Country ---</option>
+                        <option value="{{Country.Id}}" ng-repeat="Country in CountryOfBirth">{{Country.Name}}</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2">State of Birth</label>
+                <div class="col-sm-7 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.StateTypeCode" ng-change="BindCities()">
+                        <option>--- Select State ---</option>
+                        <option value="{{State.StateID}}" ng-repeat="State in StateOfBirth">{{State.Name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-2">City of Birth</label>
+                <div class="col-sm-7 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.CityTypeCode">
+                        <option>--- Select City ---</option>
+                        <option value="{{City.CityID}}" ng-repeat="City in CityOfBirth">{{City.Name}}</option>
+                    </select>
+                </div>
+            </div>*@
+            @*<div class="row">
+                <label class="col-sm-2">Chart Style</label>
+                <div class="col-sm-7 form-group">
+                    <select class="form-control" ng-model="ReligiousInfo.">
+                        <option>--Chart Style--</option>
+
+                    </select>
+                </div>
+            </div>*@
+        </div>
+        @*<input type="button" name="previous" class="previous action-button-previous" value="Previous" />*@
+        @*<input type="button" name="make_payment" class="next action-button" value="Next Step" />*@
+        <hr />
+        <div class="col-sm-12 text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button preBtn float-left" value="Previous" />
+                </div>
+                <div class="col-md-4">
+                    <input id="btnReligiousInfo" type="submit" name="next" class="btnSave action-button nextBtn" value="Save" />
+                </div>
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button nextBtn float-right" value="Next" />
+                </div>
+            </div>
+        </div>        
+    </form>
+</div>

@@ -1,0 +1,228 @@
+﻿
+<script src="~/Angular/Profile/PersonalInfoSetup.js?v=@DateTime.Now.Ticks"></script>
+<style>
+    label.col-md-3, label.col-md-2 {
+        font-weight: bold;
+    }
+
+    .btn-outline-secondary:hover {
+        color: #fff;
+        background-color: #1a7acf;
+        border-color: #1a7acf;
+    }    
+</style>
+<div ng-controller="PersonalInfoSetupController">   
+    <form id="frmPersonalInfo" data-parsley-validate novalidate ng-submit="Save()">
+        <h2 class="fs-title"><i class="icofont-file-alt" id="iconbox"></i> Personal Information</h2>
+        <hr />
+        <div class="col-md-12">
+            <div class="row">
+                <!--<div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">-->
+
+                            <!-- Modal Header -->
+                            <!--<div class="modal-header">
+                                <h4 class="modal-title">Modal Heading</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>-->
+
+                            <!-- Modal body -->
+                            <!--<div class="modal-body">
+                                Modal body..
+                            </div>-->
+
+                            <!-- Modal footer -->
+                            <!--<div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col-md-9">
+                    <div class="row">
+                        <label class="col-md-3">Name </label>
+                        <div class="col-md-6 form-group">
+                            <input type="text" ng-model="PersonalInfo.Name" placeholder="Full Name" class="form-control" />
+                            @*<label>{{PersonalInfo.Name}}</label>*@
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">E-mail </label>
+                        <div class="col-md-8 form-group">
+                            <label>{{PersonalInfo.Email}}</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3">Physical Status </label>
+                        <div class="col-md-8 form-group">
+                            <ul class="radio-list">
+                                <li ng-repeat="PhysicalStatus in PhysicalStatusList">
+                                    <label ng-class="{'radio-active':$parent.PersonalInfo.PhysicalStatus==PhysicalStatus.ID}">
+                                        {{PhysicalStatus.Name}}
+                                        <input type="radio" ng-model="$parent.PersonalInfo.PhysicalStatus" value="{{PhysicalStatus.ID}}" />
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">No.of Children</label>
+                        <div class="col-md-3 form-group">
+                            @*<input type="number" id="quantity" name="quantity" min="0" max="20">*@
+                            <input type="text" class="form-control" name="onlynumbers" title="please enter number only" maxlength="2" ng-model="PersonalInfo.NoOfChildren">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <label class="col-md-2">Cast </label>
+                                <div class="input-group col-md-10">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                                title="Add Your Cast in the List">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <select class="col-md-8 form-control" ng-model="MemberList.Subcast">
+                                        <option value="">---All---</option>
+                                        <option value="{{cast.ID}}" ng-repeat="cast in CastList">{{cast.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        @*<label class="col-md-2 pull-right">Cast </label>
+                <div class="col-md-4 form-group">
+                    <input type="text" ng-model="PersonalInfo.Subcast" placeholder="Cast" class="form-control" name="name" maxlength="15" value="" />
+                </div>*@
+                    </div>
+
+
+                    <div class="row">
+                        <label class="col-md-3">Marital Status </label>
+                        <div class="col-md-3 form-group">
+                            <select class="form-control" required ng-model="PersonalInfo.MaritalStatus" data-parsley-error-message="">
+                                <option value="">--- Please Select ---</option>
+                                <option value="{{MaleStatus.ID}}" style="color:#888;" ng-repeat="MaleStatus in MaritalStatusForMale">{{MaleStatus.Name}}</option>
+                            </select>
+                            @*<select class="form-control" required ng-model="PersonalInfo.MaritalStatus" ng-if="PersonalInfo.Gender=='Female'" data-parsley-error-message="">
+                        <option value="">--- Please Select ---</option>
+                        <option value="{{FemalStatus.ID}}" style="color:#888;" ng-repeat="FemalStatus in MaritalStatusForFemale">{{FemalStatus.Name}}</option>
+                    </select>*@
+                        </div>
+                        <label class="col-md-2 float-right">Gender </label>
+                        <div class="col-md-4 form-group">
+                            <ul class="radio-list">
+                                <li ng-repeat="Gender in GenderList">
+                                    <label ng-class="{'radio-active':$parent.PersonalInfo.Gender==Gender.Name}">
+                                        {{Gender.Name}}
+                                        <input type="radio" ng-model="$parent.PersonalInfo.Gender" value="{{Gender.Name}}" />
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-md-3">Height @*<mdall>(cm)</mdall>*@ </label>
+
+                        @*<div class="col-md-3 form-group">
+                    <input type="text" ng-model="PersonalInfo.Height" placeholder="Height in cm" class="form-control" name="cast" maxlength="5" value="" />
+                </div>*@
+
+                        <div class="col-md-3">
+                            <select name="cars" id="hieght" class="form-control" ng-model="PersonalInfo.HeightUnit">
+                                <option value="cm">Centimeters</option>
+                                <option value="feet">Feet</option>
+                            </select>
+                            @*<input type="button"
+                    class="meters"
+                    value="Enter height in feet and inches" />*@
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="row">
+                                <div class="metersInputGroup col-md-12 col-sm-6  form-group" ng-if="PersonalInfo.HeightUnit=='cm'" style="display:flex">
+                                    <div class="col-md-3">
+                                        <label for="meters" class="pr-3">Centimeters:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input id="meters" type="number" name="meters" step="1" min="0" class="form-control"
+                                               ng-model="PersonalInfo.Centimeters" required />
+                                    </div>
+                                </div>
+                                <div class="feetInputGroup col-md-12 form-group" ng-if="PersonalInfo.HeightUnit=='feet'" style="display:flex">
+                                    <label for="feet" class="pr-3">feet:</label>
+                                    <input id="feet" type="number" name="feet" min="0" step="1" max="8" class="col-md-3 form-control"
+                                           ng-model="PersonalInfo.Feet" />
+                                    <label for="inches" class="pr-3 pl-3">inches:</label>
+                                    <input id="inches" type="number" name="inches" min="0" max="11" step="1" class="col-md-3 form-control" ng-model="PersonalInfo.Inches" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body" style="text-align: center">
+                            @*<h5 class="card-title">Profile Picture</h5>*@
+                            <img id="imgPreview" ng-src="{{PersonalInfo.ProfilePicPath}}" onerror="CheckImage(this)" />
+                        </div>
+                        <div class="card-footer">
+                            <input id="profilePic" type="file" class="form-control-sm" />
+                        </div>
+                    </div>
+
+                    <!--<div class="col-md-12 text-center">
+            <img id="imgPreview" ng-src="{{PersonalInfo.ProfilePicPath}}" onerror="CheckImage(this)" />
+        </div>
+        <div class="col-md-12 mt-1 text-center">-->
+                    @*<label class="col-md-6">Profile Pic</label>*@
+                    <!--<input id="profilePic" type="file" class="form-control-sm" />
+        </div>-->
+                </div>
+            </div>
+        </div>
+        @*<input type="button" name="next" class="next action-button" value="Next Step" />*@
+        <hr />
+        <div class="col-sm-12 text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    @*<input type="button" name="next" class="btnSave action-button preBtn float-left" value="Previous" />*@
+                </div>
+                <div class="col-md-4">
+                    <input id="btnPersonalinfo" type="submit" name="next" class="btnSave action-button nextBtn" value="Save" />
+                </div>
+                <div class="col-md-4">
+                    <input type="button" name="next" class="btnTab action-button nextBtn float-right" value="Next" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready(() => {
+        $(function () {
+            $("input[name='onlynumbers']").on('input', function (e) {
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+
+                if (parseInt($(this).val()) >= 20) {
+                    console.log($(this).val())
+                    $(this).val('');
+                }
+                else {
+                    console.log($(this).val())
+                }
+            });
+        });
+     
+            $("#myBtn").click(function () {
+                $("#myModal").modal("show");
+            });
+            $("#myModal").on('shown.bs.modal', function () {
+                $(this).css("opacity", "8");
+            });
+        
+
+    });
+
+</script>

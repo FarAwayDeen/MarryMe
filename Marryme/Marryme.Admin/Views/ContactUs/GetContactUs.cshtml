@@ -1,0 +1,101 @@
+﻿
+
+@{
+    ViewBag.Title = "ContactUs List";
+    //ViewBag.SubTitle = "Add new Page Payment Options, filter and updated Payment Options";
+    ViewBag.TitleIcon = "<i class='fa fa-newspaper-o'></i>";
+}
+<script src="~/Angular/Contact/ContactUs.js?v=@DateTime.UtcNow.Ticks"></script>
+<div ng-controller="ContactUsController" id="DivContactUs">
+    <div class="panel">
+        <div class="panel-body">
+            <form ng-submit="ContactUsFetch()">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <input class="form-control" ng-model="ContactUs.Search" placeholder="Search ...">
+                    </div>
+                    @*Button trigger modal
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Launch demo modal
+                        </button>*@
+                    @*<div class="col-sm-2">
+                            <select id="selectStatus" ng-model="PaymentOption.Active" class="form-control select" style="width: 100%;">
+                                <option value="">--- All ---</option>
+                                <option value="1">Active</option>
+                                <option value="0">InActive</option>
+                            </select>
+                        </div>*@
+                    @*  <div class="col-sm-2">
+                            <select id="selectContentType" ng-model="CourseSearch.Status" class="form-control select" style="width: 100%;">
+                                <option value="">--- Please Select ---</option>
+                                <option ng-repeat="x in CoursesStatusList" value="{{x.Type}}">{{x.Type}}</option>
+                            </select>
+                        </div>*@
+                    <div class="col-sm-1">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary col-xs-12"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                    @*<div class="col-sm-2 pull-right">
+                            <a href="~/PaymentOptions/Setup" class="btn btn-primary"><i class="fa fa-plus fa-fw"></i> Add New</a>
+                        </div>*@
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default collapsed">
+        <div class="panel-body">
+            <ul class="btns_table clearfix">
+                <li>
+                </li>
+                <li>
+                </li>
+                <li class="manual-dropdown pull-right">
+                </li>
+            </ul>
+            <div class="table-responsive">
+                <table id="tblContactUs" class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th class="th_width_20">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="contactUsModal" tabindex="-1" role="dialog" aria-labelledby="contactUsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactUsModalLabel">Detail</h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>*@
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <strong>Name:</strong>{{ContactUs.Name}}<br />
+                        <strong>Email:</strong>{{ContactUs.Email}}<br />
+                        <strong>Subject:</strong>{{ContactUs.Subject}}<br />
+                        <strong>Message:</strong>{{ContactUs.Message}}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

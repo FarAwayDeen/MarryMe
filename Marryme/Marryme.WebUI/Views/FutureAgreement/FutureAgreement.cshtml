@@ -1,0 +1,535 @@
+﻿<script src="~/Angular/FutureAgreement/FutureAgreement.js"></script>
+<h2>FutureAgreement</h2>
+<div class="container-fluid mt-5" ng-controller="ProfileRequirementController">
+    @*----momdel start----*@
+    <div class="modal bd-example-modal-lg" id="DivorReasonModal" tabindex="-1" role="dialog" aria-labelledby="reporterModelLable" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header card-header">
+                    <h4 class="modal-title" id="DivorReasonModalLabel">Divorce Reason</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <form id="popform" ng-submit="DivorceReason()">
+                            <div class="card-body">
+                                <div class="col-sm-12 col-md-12">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-check form-group">
+                                            <label>Write Divorce Reason</label>
+                                            <textarea ng-model="Divorce.Reason" class="form-control" maxlength="1000" placeholder="Max 1000 Charater"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="form-check form-group">
+                                            <label>Date of Divorce</label>
+                                            <input ng-model="Divorce.Date" type="date" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 text-right">
+                                        <input id="btnDivorceReason" type="submit" class="btn btn-success" value="Save" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closebtn" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*-----model end-----*@
+    <div class="row">
+        <div class="col-sm-3 col-sm-3C">
+            @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+        </div>
+        <div class="col-sm-9 ">
+            @if (Convert.ToString(Session["Gender"]) == "Male")
+            {
+                <div class="container-fluid">
+                    <div class="row pb-2">
+                        <div class="col-sm-12 col-md-12 pt-1 pb-1 heading text-black-50">
+                            <h5>Men Side Options</h5>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class=" col-sm-6 col-md-6 ">
+                        <div class="card">
+                            <form ng-submit="SaveFacilitiesForWoman()">
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h5>{{ProfileFieldList[1].RequirmentName}}</h5>
+                                        </div>
+                                        <!--<div class="col-sm-6">
+                                        <label>Facilities for (_)wife</label>
+                                        <select id="ddlFacilitiesForWoman" class="form-control" ng-model="PartnerCategory.FacilitiesFor" placeholder="---Please Select---" multiple>-->
+                                        @*<option value="">---Please Select---</option>*@
+                                        <!--<option value="{{MarriageNo.Id}}" ng-repeat="MarriageNo in MarriageNoList">{{MarriageNo.Id}}</option>
+                                            </select>
+                                        </div>-->
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <table>
+                                        <!--You can use ng-init (I'm answering in HTML format):
+
+                                        <tr ng-repeat="item in items track by $index" ng-init="firstIndex = $index">-->
+                                        <!-- Then use it here -->
+                                        <!--<a ng-click="changeOption(item, option, firstIndex)"></a>
+                                        </tr>-->
+                                        <tr>
+                                            <th class="col-sm-3 pb-3">Facilities</th>
+                                            <th class="col-sm-2 pb-3" ng-repeat="MarriageNo in MarriageNoList">{{MarriageNo.Id}}</th>
+                                        </tr>
+                                        <tr class="pb-3" ng-repeat="FacilitiesForWoman in WomanFacilitieschecklist track by $index" ng-init="parentIndex = $index">
+                                            <td class="col-sm-3 pb-3">{{FacilitiesForWoman.FacilityName}}</td>
+                                            <td class="col-sm-2 pb-3" ng-repeat="MarriageNo in MarriageNoList track by $index" ng-init="childIndex = $index">
+                                                <label class="container">
+                                                    <input class="checkFacility" type="checkbox" ng-model="FacilitiesDetailList[parentIndex][childIndex].StatusId" ng-click="SaveFacilitiesForWoman($event.target.checked,FacilitiesForWoman.Id,MarriageNo.Id)" ng-true-value="{{FacilitiesForWoman.Id}}" ng-false-value="{{FacilitiesForWoman.Id}}">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <!--<div class="row">-->
+                                    @*<div class="col-sm-2 col-md-2">
+                                            <label ng-repeat="FacilitiesForWoman in WomanFacilitieschecklist track by $index">
+                                                {{FacilitiesForWoman.FacilityName}}
+                                            </label>
+                                        </div>*@
+                                    <!--<div class="col-sm-9">-->
+                                    @*<div class="row">
+                                            <div class="col-sm-12 col-md-12 pt-1 pb-3">
+                                                <div class="row container-fluid">
+                                                    <label class="container col-sm-4 col-md-4" ng-repeat="MarriageNo in MarriageNoList">
+                                                        <input class="checkFacility" type="checkbox" ng-model="FacilitiesDetailList[$index].StatusId" ng-value="FacilitiesDetailList[$index].StatusId"
+                                                               ng-click="SaveFacilitiesForWoman($event.target.checked,FacilitiesForWoman.Id )"
+                                                               ng-true-value="{{FacilitiesForWoman.Id}}" ng-false-value="{{FacilitiesForWoman.Id}}">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                    @*<div class="col-sm-12 text-right">
+                                            <input id="btnFacilitiesForwoman" type="submit" class="btn btn-success" value="Save" />
+                                        </div>*@
+                                    <!--</div>
+                                    </div>-->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>{{ProfileFieldList[5].RequirmentName}}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row ">
+                                            <div class="col-sm-12 col-md-12" ng-repeat="Questionforman in ProposalQuestionForMan">
+                                                <div class="row mt-1 mb-1">
+                                                    <div class="col-sm-8 col-md-8">
+                                                        <span>{{Questionforman.Question}}</span>
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <select class="form-control" ng-model="ProfileReurement[$index].ManProposalQ" ng-change="ProposalQForMan(ProfileReurement.ManProposalQ[$index],Questionforman.Id)">
+                                                            <option value="">Please Select</option>
+                                                            <option data-ng-repeat="t in sample" value="{{t.name}}">{{t.name}}</option>
+                                                            @*<option value="Yes">Yes</option>
+                                                                <option value="No">No</option>*@
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12 mb-1">
+                                                <div class="row">
+                                                    <div class="col-sm-8 col-md-8">
+                                                        <span>Are you Divorced? </span>
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <select id="DivorceMan" class="form-control" ng-model="Divorce.ReasonQuestionMan">
+                                                            <option value="">Please Select</option>
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No" selected>No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 ">
+                                                <div class="row">
+                                                    <div class="col-sm-8 col-md-8">
+                                                        <span>Where will the wife stay </span>
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <select class="form-control" ng-model="PartnerCategory.ManDuration" ng-change="MarriageForMan()">
+                                                            <option value="">Please Select</option>
+                                                            <option value="1 Month">Joint Family</option>
+                                                            <option value="3 Month">Saperate Home</option>
+                                                            <option value="6 Month">With other Wife</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12 mb-1">
+                                                <div class="row">
+                                                    <div class="col-sm-8 col-md-8">
+                                                        <span>Are you Divorced? </span>
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <select id="DivorceMan" class="form-control" ng-model="Divorce.ReasonQuestionMan">
+                                                            <option value="">Please Select</option>
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No" selected>No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 ">
+                                                <div class="row">
+                                                    <div class="col-sm-8 col-md-8">
+                                                        <span>I Want to get Married in (Duration)</span>
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <select class="form-control" ng-model="PartnerCategory.ManDuration" ng-change="MarriageForMan()">
+                                                            <option value="">Please Select</option>
+                                                            <option value="1 Month">1 Month</option>
+                                                            <option value="3 Month">3 Month</option>
+                                                            <option value="6 Month">6 Month</option>
+                                                            <option value="1 Year">1 Year</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12 col-md-12">
+                                                <span>Why do you want to get married another women? </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <textarea class="form-control" maxlength="50" placeholder="Max 50 character"></textarea>
+                                            </div>
+                                        </div>
+                                        @*<div class="col-sm-12 text-right">
+                                                <input id="btnProposalQforMan" type="submit" class="btn btn-success" value="Save" />
+                                            </div>*@
+                                    </form>
+                                </div>
+                            </div>
+                            @*<div class="col-sm-12 col-md-12 pt-1 pb-1 text-black-50">
+                                </div>
+                                <div class="col-sm-12 col-md-12">
+                                </div>*@
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-12">
+                        <div class="card ">
+                            <div class="card-header">
+                                <h5>{{ProfileFieldList[2].RequirmentName}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <form>
+                                        <div class="col-sm-12 col-md-12 pt-1">
+                                            <div class="row container-fluid">
+                                                <label class="container col-sm-3 col-md-3" ng-repeat="WomanRights in WomanRightschecklist">
+                                                    {{WomanRights.WomenRights}}
+                                                    <input type="checkbox" ng-model="ProfileReurement[$index].WomanRights" ng-click="SaveRightsForWoman($event.target.checked,WomanRights.Id )" ng-true-value="'YES'" ng-false-value="'NO'">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <label class="container">
+                                                    Monthly Rupees
+                                                    <input type="checkbox" id="MonthlyExpense">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <div class="form-group" id="ExpenseLab">
+                                                    <label>Monthly Ruppess</label>
+                                                    <input type="text" value="" id="ExpenseBox" placeholder="Enter Amount" class="form-control" />
+                                                    <label id="numbermsg" class="text-danger">Please enter Numbers only</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @*<div class="col-sm-12 text-right">
+                                                <input id="btnWomanRights" type="submit" class="btn btn-success" value="Save" />
+                                            </div>*@
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            @if (Convert.ToString(Session["Gender"]) == "Female")
+            {
+                <div class="container-fluid mt-2">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 heading pt-1 pb-1 text-black-50">
+                            <h5>Women Options</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>{{ProfileFieldList[4].RequirmentName}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <table>
+                                    <!--You can use ng-init (I'm answering in HTML format):
+
+                                    <tr ng-repeat="item in items track by $index" ng-init="firstIndex = $index">-->
+                                    <!-- Then use it here -->
+                                    <!--<a ng-click="changeOption(item, option, firstIndex)"></a>
+                                    </tr>-->
+                                    <tr>
+                                        <th class="col-sm-4 pb-3">Facilities</th>
+                                        <th class="col-sm-2 pb-3" ng-repeat="MarriageNo in MarriageNoList">{{MarriageNo.Id}}</th>
+                                    </tr>
+                                    <tr class="pb-3" ng-repeat="Facilitiesforman in ManFacilitieschecklist track by $index" ng-init="parentIndex = $index">
+                                        <td class="col-sm-4 pb-3">{{Facilitiesforman.FacilityName}}</td>
+                                        <td class="col-sm-2 pb-3" ng-repeat="MarriageNo in MarriageNoList track by $index" ng-init="childIndex = $index">
+                                            <label class="container">
+                                                <input class="checkFacility" type="checkbox" ng-model="FacilitiesForMan[parentIndex][childIndex].StatusId" ng-click="SaveFacilitiesForMan($event.target.checked,Facilitiesforman.Id,MarriageNo.Id)" ng-true-value="{{Facilitiesforman.Id}}" ng-false-value="{{Facilitiesforman.Id}}">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!--<div class="row">
+                                <form>
+                                    <div class="col-sm-12 col-md-12 pt-1 pb-2">
+                                        <div class="row container-fluid">
+                                            <label class="container col-sm-4 col-md-4" ng-repeat="Facilitiesforman in ManFacilitieschecklist">
+                                                {{Facilitiesforman.FacilityName}}
+                                                <input type="checkbox" ng-model="ProfileReurement.FacilitiesForMan[$index]" ng-click="SaveFacilitiesForMan($event.target.checked,Facilitiesforman.Id)" ng-true-value="'YES'" ng-false-value="'NO'">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>-->
+                                @*<div class="col-sm-12 text-right">
+                                        <input id="btnFacilitiesForMan" type="submit" class="btn btn-success" value="Save" />
+                                    </div>*@
+                                <!--</form>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        @*<div class="col-sm-12 col-md-12 pt-1 pb-1 text-black-50">
+                            </div>*@
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>{{ProfileFieldList[3].RequirmentName}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                @*<label ng-repeat="Partnerlist in PartnerCatagoryChecklist">
+                                                        <input type="checkbox" ng-model="PartnerCategory.PartnerCatagoryChecklist[Partnerlist.Id]" checklist-value="Partnerlist.Id" ng-checked="isChecked(Partnerlist.Id,PartnerCategory.PartnerCatagoryChecklist)">{{Partnerlist.PartCategoryName}}
+                                                    </label>*@
+                                                <label>Want to become as </label>
+                                                <label class="container ml-2 mr-2" ng-repeat="MarriageNo in MarriageNoList">
+                                                    {{MarriageNo.Name}}
+                                                    <input id="{{MarriageNo.Id}}" ng-model="PartnerCategory[$index].WifeNo" type="checkbox" ng-click="SaveWifeNo($event.target.checked,MarriageNo.Id )">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" form-group">
+                                        <div class="col-sm-12 col-md-12" ng-repeat="WomanQuestion in ProposalQuestionForWoMan">
+                                            <div class="row mt-1 mb-1">
+                                                <div class="col-sm-8 col-md-8">
+                                                    <span>{{WomanQuestion.Question}}</span>
+                                                </div>
+                                                <div class="col-sm-4 col-md-4">
+                                                    <select class="form-control" ng-model="ProfileReurement[$index].WomanProposalQ" ng-change="ProposalQForWoman(ProfileReurement[$index].WomanProposalQ,WomanQuestion.Id)">
+                                                        <option value="">Please Select</option>
+                                                        <option data-ng-repeat="t in sample" value="{{t.name}}">{{t.name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="row mb-1">
+                                                <div class="col-sm-8 col-md-8">
+                                                    <span>Are you Divorced? </span>
+                                                </div>
+                                                <div class="col-sm-4 col-md-4">
+                                                    <select class="form-control" id="DivorceWomen" ng-model="Divorce.ReasonQuestionWoman">
+                                                        <option value="">Please Select</option>
+                                                        <option data-ng-repeat="t in sample" value="{{t.name}}">{{t.name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class=" form-group ">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="row mt-1 mb-1">
+                                                <div class="col-sm-8 col-md-8">
+                                                    <span>I Want to get Married in (Duration)</span>
+                                                </div>
+                                                <div class="col-sm-4 col-md-4">
+                                                    <select class="form-control" ng-model="PartnerCategory.WomanDuration" ng-change="MarriageForWoman()">
+                                                        <option value="">Please Select</option>
+                                                        <option value="1 Month">1 Month</option>
+                                                        <option value="3 Month">3 Month</option>
+                                                        <option value="6 Month">6 Month</option>
+                                                        <option value="1 Year">1 Year</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class=" form-group ">
+                                        <div class="col-sm-12 col-md-12">
+                                            <div class="row mt-1 mb-1">
+                                                <div class="col-sm-8 col-md-8">
+                                                    <span>Where will the wife stay </span>
+                                                </div>
+                                                <div class="col-sm-4 col-md-4">
+                                                    <select class="form-control" ng-model="PartnerCategory.WomanDuration" ng-change="MarriageForWoman()">
+                                                        <option value="">Please Select</option>
+                                                        <option value="1 Month">1 Month</option>
+                                                        <option value="3 Month">3 Month</option>
+                                                        <option value="6 Month">6 Month</option>
+                                                        <option value="1 Year">1 Year</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="row mt-1 mb-1">
+                                            <div class=" form-group">
+                                                <div class="col-sm-12 col-md-12">
+                                                    <span>Why do you want to get married as (2nd) Wife? </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12">
+                                                <textarea class="form-control" maxlength="50" placeholder="Max 50 character"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    @*<div class="row form-group mb-2">
+
+                                        </div>*@
+
+                                    @*<div class="col-sm-12 text-right">
+                                            <input id="btnPoposalQForWoman" type="submit" class="btn btn-success" value="Save" />
+                                        </div>*@
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+            <div class="row mt-2">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <input id="btnPartnerCategory" type="submit" class="action-button btnSave  btn-success" value="Save" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        var multipleCancelButton = new Choices('.choices-multiple-remove-button', {
+            removeItemButton: true,
+            maxItemCount: 5,
+            searchResultLimit: 5,
+            renderChoiceLimit: 5
+        });
+
+        $("#MonthlyExpense").on("click", function () {
+            console.log('clicked ');
+            if ($('#MonthlyExpense').prop('checked')) {
+                // something when checked
+                //console.log("called")
+                $('#ExpenseLab').show();
+            } else {
+                // something else when not
+                $('#ExpenseLab').hide();
+            }
+
+        })
+
+        $('#ExpenseLab').hide();
+
+        $("#ExpenseBox").focusout(function () {
+            if (!$.isNumeric($('#ExpenseBox').val())) {
+                $('#ExpenseBox').val('');
+                $('#numbermsg').show();
+            } else {
+                $('#numbermsg').hide();
+            }
+            //$(this).css("background-color", "#FFFFFF");
+        });
+        $('#numbermsg').hide();
+        //model show hide
+        $(".close").on("click", function () {
+            $("#DivorReasonModal").modal('hide');
+        });
+        // pop up call for Woman
+        jQuery('#DivorceWomen').on('change', function () {
+            var ddlVal = $("#DivorceWomen").val();
+            //console.log("Woman Reason Clicked");
+            Cehckvalue(ddlVal);
+        });
+        //pop up call for man
+        jQuery('#DivorceMan').on('change', function () {
+            //console.log("Man Reason Clicked");
+            var ddlVal = $("#DivorceMan").val();
+            Cehckvalue(ddlVal);
+        });
+        //Pop Model Call
+        function Cehckvalue(ddlVal) {
+            //console.log('ChechVal Func ' + ddlVal);
+            if (ddlVal == 'Yes') {
+                $("#DivorReasonModal").modal('show');
+                //$("#candDetail").html("");
+            };
+        };
+    });
+
+
+</script>
+

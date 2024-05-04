@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarrymeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AcceptanceCriteria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="SonsAproval" Type="nvarchar" MaxLength="50" />
+    <Property Name="DaughtersAproval" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuntsAproval" Type="nvarchar" MaxLength="50" />
+    <Property Name="UnclesAproval" Type="nvarchar" MaxLength="50" />
+    <Property Name="SisterAproval" Type="nvarchar" MaxLength="50" />
+    <Property Name="BrothersAproval" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherAproval" Type="nvarchar" MaxLength="50" />
+    <Property Name="FathersAproval" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ActivityLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Action" Type="nvarchar" MaxLength="3000" />
+    <Property Name="Detail" Type="nvarchar(max)" />
+    <Property Name="CreateBy" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdminProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfilePicture" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="ApplicationSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="FaceBookLink" Type="nvarchar" MaxLength="300" />
+    <Property Name="GoogleLink" Type="nvarchar" MaxLength="300" />
+    <Property Name="TwitterLink" Type="nvarchar" MaxLength="300" />
+    <Property Name="SkypeLink" Type="nvarchar" MaxLength="300" />
+    <Property Name="NTN" Type="nvarchar" MaxLength="200" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="200" />
+    <Property Name="MailingAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Attachements">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="50" />
+    <Property Name="FileExtension" Type="nvarchar" MaxLength="50" />
+    <Property Name="FileType" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentTypeID" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ChatFriendRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromId" Type="bigint" Nullable="false" />
+    <Property Name="ToId" Type="bigint" Nullable="false" />
+    <Property Name="RequestStatus" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsBlocked" Type="bit" Nullable="false" />
+    <Property Name="BlockedBy" Type="bigint" />
+    <Property Name="RequestDatetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ChatHistoryDeletedMember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="MessageId" Type="bigint" Nullable="false" />
+    <Property Name="HistoryDeletedDatetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ChatMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromID" Type="bigint" Nullable="false" />
+    <Property Name="ToID" Type="bigint" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="MessageDateTime" Type="datetime" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChatSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="SessionId" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="StateID" Type="int" />
+  </EntityType>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ISO3" Type="nvarchar" MaxLength="500" />
+    <Property Name="ISO" Type="nvarchar" MaxLength="500" />
+    <Property Name="NameCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="PhoneCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="FlagIcon" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreadtedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CR_List">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ListTypeID" Type="bigint" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="DisplayFor" Type="varchar" MaxLength="15" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="CR_ListType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="IsSystem" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Divorce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="DivorceReason" Type="nvarchar(max)" />
+    <Property Name="DivorceDate" Type="datetime" />
+    <Property Name="DivorceStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DivorcePolicy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="dropdownOption" Type="nvarchar" MaxLength="150" />
+    <Property Name="Amountcheckbox" Type="nvarchar" MaxLength="150" />
+    <Property Name="AmountFrom" Type="int" />
+    <Property Name="AmountTo" Type="int" />
+    <Property Name="IncomeCurrency" Type="nvarchar" MaxLength="50" />
+    <Property Name="HouseCheckBox" Type="nvarchar" MaxLength="50" />
+    <Property Name="HouseDetail" Type="nvarchar(max)" />
+    <Property Name="MiscellaneousCheckbox" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiscellaneousDetail" Type="nvarchar(max)" />
+    <Property Name="ThreeDivorcePolicy" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DocDropdownList">
+    <Key>
+      <PropertyRef Name="DocTypeID" />
+    </Key>
+    <Property Name="DocTypeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DocumentTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CtreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EductionLevels">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserFor" Type="nvarchar" MaxLength="10" />
+    <Property Name="CategoryId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="EmailSMSTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="CC" Type="nvarchar" MaxLength="500" />
+    <Property Name="BCC" Type="nvarchar" MaxLength="500" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="1500" />
+    <Property Name="MessageBody" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="Url" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExisitingKidsDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KidDetail" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ExisitingKidsDetailResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="ExistingWife" Type="tinyint" />
+    <Property Name="KidAge" Type="int" />
+    <Property Name="KidGender" Type="nvarchar" MaxLength="50" />
+    <Property Name="KidLocation" Type="nvarchar" MaxLength="50" />
+    <Property Name="KidMaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Facilities">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FacilityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FacilityFor" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FacilitiesResultFemale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="FacilityId" Type="bigint" />
+    <Property Name="One" Type="bit" />
+    <Property Name="Two" Type="bit" />
+    <Property Name="Three" Type="bit" />
+    <Property Name="Four" Type="bit" />
+    <Property Name="FacilityFor" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FacilitiesResultMale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="FacilityId" Type="bigint" />
+    <Property Name="FacilityFor" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FamilyInvolvement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvolvementOptions" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FamilyInvolvementResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="FamilyInvolvementID" Type="bigint" />
+    <Property Name="FamilyInvolvementResult" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FeedBack">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="100" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FieldsPermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" />
+    <Property Name="IsVisibleForPremium" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Section" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserFor" Type="nvarchar" MaxLength="10" />
+    <Property Name="CategoryId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="MarriageDuration">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="MarriageDuration" Type="nvarchar" MaxLength="50" />
+    <Property Name="DurationFrom" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MarriagePolicy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="dropdownOption" Type="nvarchar" MaxLength="150" />
+    <Property Name="Amountcheckbox" Type="nvarchar" MaxLength="150" />
+    <Property Name="AmountDetail" Type="nvarchar(max)" />
+    <Property Name="HouseCheckBox" Type="nvarchar" MaxLength="50" />
+    <Property Name="HouseDetail" Type="nvarchar(max)" />
+    <Property Name="MiscellaneousCheckbox" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiscellaneousDetail" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MemberAppearance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="PhysicalStatus" Type="bigint" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="BodyType" Type="bigint" />
+    <Property Name="Complexion" Type="bigint" />
+    <Property Name="Feet" Type="int" />
+    <Property Name="HeightUnit" Type="nvarchar" MaxLength="10" />
+    <Property Name="Inches" Type="int" />
+    <Property Name="Centimeters" Type="int" />
+  </EntityType>
+  <EntityType Name="MemberEducationDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="HighestEducation" Type="nvarchar" MaxLength="200" />
+    <Property Name="Employment" Type="bigint" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="IncomeCurrency" Type="nvarchar" MaxLength="15" />
+    <Property Name="AnnualIncomeFrom" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AnnualIncomeTo" Type="nchar" MaxLength="10" />
+    <Property Name="EductionLevels" Type="bigint" />
+  </EntityType>
+  <EntityType Name="MemberFamilyDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="ParentContactNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="FamilyValue" Type="bigint" />
+    <Property Name="FamilyType" Type="bigint" />
+    <Property Name="FamilyStatus" Type="bigint" />
+    <Property Name="IsMotherAlive" Type="bit" Nullable="false" />
+    <Property Name="IsFatherAlive" Type="bit" Nullable="false" />
+    <Property Name="FatherOccupation" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfBrothers" Type="nvarchar" MaxLength="5" />
+    <Property Name="NoOfSisters" Type="nvarchar" MaxLength="5" />
+    <Property Name="FamilyDetail" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="MemberLanguages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberLifeStyle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="SmokingHabit" Type="nvarchar" MaxLength="20" />
+    <Property Name="Interests" Type="nvarchar" MaxLength="200" />
+    <Property Name="Hobbies" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="MemberLikeDislike">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsLike" Type="bit" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="ResponseToMemberId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="MemberLocationDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="CountryLivingIn" Type="int" />
+    <Property Name="PlaceOfBirth" Type="nvarchar" MaxLength="200" />
+    <Property Name="ResidingState" Type="nvarchar" MaxLength="100" />
+    <Property Name="ResidingCity" Type="nvarchar" MaxLength="100" />
+    <Property Name="Citizenship" Type="int" />
+  </EntityType>
+  <EntityType Name="MemberLoginDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsEmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="ConfirmationCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsFirstLoginAttempt" Type="bit" Nullable="false" />
+    <Property Name="IsMobileUser" Type="bit" Nullable="false" />
+    <Property Name="FirebaseUserId" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="MemberPackageConfirmPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackageSubscriptionId" Type="int" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentOptionId" Type="bigint" />
+    <Property Name="PaymentDate" Type="datetime" />
+    <Property Name="PaymentAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DepositSlip" Type="nvarchar(max)" />
+    <Property Name="IsMobilePic" Type="bit" />
+  </EntityType>
+  <EntityType Name="MemberPackagePayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberPackageSubscriptionId" Type="bigint" Nullable="false" />
+    <Property Name="TransactionId" Type="nvarchar" MaxLength="200" />
+    <Property Name="PayerId" Type="nvarchar" MaxLength="200" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TransactionDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="15" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="20" />
+    <Property Name="PaymentOptionId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="MemberPackageSubscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="PackagePricingPlanId" Type="bigint" Nullable="false" />
+    <Property Name="SubscriptionStartDate" Type="datetime" />
+    <Property Name="SubscriptionEndDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="PackageAmount" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="MemberPackageSubscriptionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="PackageId" Type="bigint" Nullable="false" />
+    <Property Name="TotalNoOfContactsToShow" Type="bigint" Nullable="false" />
+    <Property Name="UsedNoOfContacts" Type="int" Nullable="false" />
+    <Property Name="TotalNoOfChatMessages" Type="bigint" Nullable="false" />
+    <Property Name="UsedNoOfChatMessages" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberPreferrdLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="Countries" Type="nvarchar" MaxLength="50" />
+    <Property Name="States" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cities" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MemberRegistration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfileCreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="MotherTongue" Type="nvarchar" MaxLength="20" />
+    <Property Name="NoOfMarriage" Type="nvarchar" MaxLength="50" />
+    <Property Name="LookingFor" Type="nvarchar" MaxLength="20" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="MaritalStatus" Type="bigint" />
+    <Property Name="NoOfChildren" Type="nvarchar" MaxLength="5" />
+    <Property Name="Subcast" Type="nvarchar" MaxLength="15" />
+    <Property Name="ProfilePicPath" Type="nvarchar(max)" />
+    <Property Name="ReligionId" Type="bigint" />
+    <Property Name="SectId" Type="bigint" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="AboutMe" Type="nvarchar(max)" />
+    <Property Name="UserRole" Type="bigint" />
+    <Property Name="IsMobilePic" Type="bit" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MemberReligiousDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="Religion" Type="nvarchar" MaxLength="20" />
+    <Property Name="Sect" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="Updateddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MenCurrentState">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenStateName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="FromId" Type="bigint" />
+    <Property Name="ToId" Type="bigint" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NumberOfMarriage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarriageNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackageTypeId" Type="int" />
+    <Property Name="CanMemberViewMobileNo" Type="bit" Nullable="false" />
+    <Property Name="NumberOfMobileNo" Type="int" />
+    <Property Name="NumberOfChatMessages" Type="int" Nullable="false" />
+    <Property Name="CanViewPhoto" Type="bit" Nullable="false" />
+    <Property Name="IsVisibleHighProfile" Type="bit" Nullable="false" />
+    <Property Name="CanChat" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PackagePricingPlan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackageId" Type="bigint" Nullable="false" />
+    <Property Name="PackageDuration" Type="int" />
+    <Property Name="PackagePrice" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PackageType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PageContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PageUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="PageDescription" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PartnerCatagoryMaritalStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="PartnerMaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PartnerCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartCategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentID" Type="bigint" />
+    <Property Name="CategoryFor" Type="nvarchar" MaxLength="10" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CategoryType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PartnerCategoryResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="CR_ListId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PartnerCatoryEducationLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="EducationLevelId" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PaymentOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="200" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="200" />
+    <Property Name="AccountTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="200" />
+    <Property Name="BranchCode" Type="nvarchar" MaxLength="200" />
+    <Property Name="BankLogo" Type="nvarchar" MaxLength="150" />
+    <Property Name="IBAN" Type="nvarchar" MaxLength="200" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="CreatedDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProfileRequirement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequirmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryId" Type="bigint" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProposalQuestions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="nvarchar(max)" />
+    <Property Name="QuestionType" Type="nvarchar" MaxLength="50" />
+    <Property Name="QuestionsFor" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ProposalQuestionsResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="ProposalQuestionsId" Type="bigint" />
+    <Property Name="ProposalQuestionsResult" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReligionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ReligionSect">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SectName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="States">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UploadDocuments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocTypeID" Type="int" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+    <Property Name="MemberId" Type="int" />
+  </EntityType>
+  <EntityType Name="WifeDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DetailQuestions" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WifeDetailResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="ExsitingWife" Type="tinyint" />
+    <Property Name="WifeReligion" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarriageYear" Type="nvarchar" MaxLength="50" />
+    <Property Name="WifeLocation" Type="nvarchar" MaxLength="200" />
+    <Property Name="WifeKids" Type="nvarchar" MaxLength="50" />
+    <Property Name="WifeJob" Type="nvarchar" MaxLength="50" />
+    <Property Name="LivingStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="EducationLevelId" Type="tinyint" />
+    <Property Name="HaveWife" Type="nvarchar" MaxLength="50" />
+    <Property Name="WifeAge" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WifeNumber">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="WifeNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="FiledStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WomenCurrentState">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WomenResponsibilities">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResponsibilityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WomenRights">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WomenRights" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WomenRightsResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" />
+    <Property Name="WomenRightsId" Type="bigint" />
+    <Property Name="WomenRightsResult" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_CR_List_CR_ListType">
+    <End Role="CR_ListType" Type="Self.CR_ListType" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CR_List" Type="Self.CR_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CR_ListType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CR_List">
+        <PropertyRef Name="ListTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AdminReporting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DisableCurrentMemberPackageIfExpired" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchAcceptanceCriteria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchChatFriendList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchChatMemberConversation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CurrentMemberId" Type="bigint" Mode="In" />
+    <Parameter Name="SelectedMemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchChatMemberList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchCities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchConfirmPaymentAdminList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchConfirmPaymentClientList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchContactUs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchContactUsNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchDivorcePolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+    <Parameter Name="option" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FetchDocuments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchDucomentLisById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchFacilities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="facilityFor" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchFacilitiesByMemberId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchFeedBack" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchFeedBackAdminList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchFeedBackNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchInfoForPersonalProfileCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchLanguages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchMarriagePolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+    <Parameter Name="option" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FetchMemberDetailById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchMemberFieldPermission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchMemberList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Pageindex" Type="int" Mode="In" />
+    <Parameter Name="Pagesize" Type="int" Mode="In" />
+    <Parameter Name="search" Type="nvarchar" Mode="In" />
+    <Parameter Name="gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="country" Type="int" Mode="In" />
+    <Parameter Name="relegion" Type="int" Mode="In" />
+    <Parameter Name="maritalStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchMemberSubscription" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchMyMatches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Pageindex" Type="int" Mode="In" />
+    <Parameter Name="Pagesize" Type="int" Mode="In" />
+    <Parameter Name="search" Type="nvarchar" Mode="In" />
+    <Parameter Name="gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="country" Type="int" Mode="In" />
+    <Parameter Name="StateID" Type="int" Mode="In" />
+    <Parameter Name="cityId" Type="int" Mode="In" />
+    <Parameter Name="relegionSect" Type="nvarchar" Mode="In" />
+    <Parameter Name="maritalStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="age" Type="int" Mode="In" />
+    <Parameter Name="language" Type="int" Mode="In" />
+    <Parameter Name="kidz" Type="nvarchar" Mode="In" />
+    <Parameter Name="income" Type="int" Mode="In" />
+    <Parameter Name="height" Type="nvarchar" Mode="In" />
+    <Parameter Name="weight" Type="nvarchar" Mode="In" />
+    <Parameter Name="complexion" Type="nvarchar" Mode="In" />
+    <Parameter Name="BodyType" Type="int" Mode="In" />
+    <Parameter Name="PhysicalStatus" Type="int" Mode="In" />
+    <Parameter Name="FamilyStatus" Type="int" Mode="In" />
+    <Parameter Name="FamilyValue" Type="int" Mode="In" />
+    <Parameter Name="EductionLevels" Type="int" Mode="In" />
+    <Parameter Name="Employment" Type="int" Mode="In" />
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchNewlyRegisteredMemberList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchOrderSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackagePricingPlanId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchPackagePricingPlans" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchPackages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchPackagesDuration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PackageDuration" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchPackageSubscription" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchPackageType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchParentCatagoryList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchPaymentOptionddl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentType" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchPaymentOptions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchPremiumBestMatches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchPremiumMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IsActive" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchProfileLocationDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchProfilePersonalInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchProfilePersonalInfoDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchProfilePersonalInfoForRegistrar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchProfileRequirementList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchProposalQuestions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="questionFor" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FetchProposalQuestionsByMemberId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchStates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FetchWifeDetailByMemberId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchWifeKidsDetailByMemberId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="FetchWomanRights" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FetchWomanRightsByMemberId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAllCRList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetBestMatchingByCRList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetCRList_ByTypeID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ListTypeID" Type="bigint" Mode="In" />
+    <Parameter Name="DisplayFor" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetPackageRemainingWeeksByMemberId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MemberId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="MembersFetch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PageContents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DisplayLength" Type="int" Mode="In" />
+    <Parameter Name="DisplayStart" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="bigint" Mode="In" />
+    <Parameter Name="SortOrder" Type="nvarchar" Mode="In" />
+    <Parameter Name="Search" Type="nvarchar" Mode="In" />
+    <Parameter Name="Active" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="MarrymeModelStoreContainer">
+    <EntitySet Name="AcceptanceCriteria" EntityType="Self.AcceptanceCriteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdminProfile" EntityType="Self.AdminProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApplicationSettings" EntityType="Self.ApplicationSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Attachements" EntityType="Self.Attachements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatFriendRequest" EntityType="Self.ChatFriendRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatHistoryDeletedMember" EntityType="Self.ChatHistoryDeletedMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatMessage" EntityType="Self.ChatMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChatSession" EntityType="Self.ChatSession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CR_List" EntityType="Self.CR_List" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CR_ListType" EntityType="Self.CR_ListType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Divorce" EntityType="Self.Divorce" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DivorcePolicy" EntityType="Self.DivorcePolicy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocDropdownList" EntityType="Self.DocDropdownList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EductionLevels" EntityType="Self.EductionLevels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailSMSTemplate" EntityType="Self.EmailSMSTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExisitingKidsDetail" EntityType="Self.ExisitingKidsDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExisitingKidsDetailResult" EntityType="Self.ExisitingKidsDetailResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Facilities" EntityType="Self.Facilities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacilitiesResultFemale" EntityType="Self.FacilitiesResultFemale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacilitiesResultMale" EntityType="Self.FacilitiesResultMale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyInvolvement" EntityType="Self.FamilyInvolvement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyInvolvementResult" EntityType="Self.FamilyInvolvementResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedBack" EntityType="Self.FeedBack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FieldsPermission" EntityType="Self.FieldsPermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarriageDuration" EntityType="Self.MarriageDuration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarriagePolicy" EntityType="Self.MarriagePolicy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberAppearance" EntityType="Self.MemberAppearance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberEducationDetail" EntityType="Self.MemberEducationDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberFamilyDetail" EntityType="Self.MemberFamilyDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberLanguages" EntityType="Self.MemberLanguages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberLifeStyle" EntityType="Self.MemberLifeStyle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberLikeDislike" EntityType="Self.MemberLikeDislike" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberLocationDetail" EntityType="Self.MemberLocationDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberLoginDetail" EntityType="Self.MemberLoginDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberPackageConfirmPayment" EntityType="Self.MemberPackageConfirmPayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberPackagePayment" EntityType="Self.MemberPackagePayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberPackageSubscription" EntityType="Self.MemberPackageSubscription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberPackageSubscriptionDetail" EntityType="Self.MemberPackageSubscriptionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberPreferrdLocation" EntityType="Self.MemberPreferrdLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberRegistration" EntityType="Self.MemberRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberReligiousDetail" EntityType="Self.MemberReligiousDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenCurrentState" EntityType="Self.MenCurrentState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NumberOfMarriage" EntityType="Self.NumberOfMarriage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PackagePricingPlan" EntityType="Self.PackagePricingPlan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PackageType" EntityType="Self.PackageType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PageContent" EntityType="Self.PageContent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerCatagoryMaritalStatus" EntityType="Self.PartnerCatagoryMaritalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerCategory" EntityType="Self.PartnerCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerCategoryResult" EntityType="Self.PartnerCategoryResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerCatoryEducationLevel" EntityType="Self.PartnerCatoryEducationLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentOptions" EntityType="Self.PaymentOptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfileRequirement" EntityType="Self.ProfileRequirement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProposalQuestions" EntityType="Self.ProposalQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProposalQuestionsResult" EntityType="Self.ProposalQuestionsResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Religion" EntityType="Self.Religion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReligionSect" EntityType="Self.ReligionSect" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UploadDocuments" EntityType="Self.UploadDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WifeDetail" EntityType="Self.WifeDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WifeDetailResult" EntityType="Self.WifeDetailResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WifeNumber" EntityType="Self.WifeNumber" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WomenCurrentState" EntityType="Self.WomenCurrentState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WomenResponsibilities" EntityType="Self.WomenResponsibilities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WomenRights" EntityType="Self.WomenRights" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WomenRightsResult" EntityType="Self.WomenRightsResult" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CR_List_CR_ListType" Association="Self.FK_CR_List_CR_ListType">
+      <End Role="CR_ListType" EntitySet="CR_ListType" />
+      <End Role="CR_List" EntitySet="CR_List" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

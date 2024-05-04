@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Upload Documents";
+}
+@*upload file design
+        <style>
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btnupload {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+    </style>*@
+
+<script src="~/Angular/Member/UploadDoc.js"></script>
+<div class="container-fluid">
+    <div class="col-sm-12 col-md-12" ng-controller="UploadDocController">
+        <div class="row">
+            <div class="col-sm-3C ">
+                @Html.Partial("~/Views/Partials/_SideNavCard.cshtml")
+            </div>
+            <div class=" col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h5>Upload Docs</h5>
+                                    </div>
+                                    <div class="col-sm-6 text-right">
+                                        <a href="@Url.Action("DocumentList","Member")" type="button" class="btn btn-success float-right"><span class="fa fa-list mr-3"></span> Document List</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form id="Docs" ng-submit="Save()" name="Doclist">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <select class="form-control" ng-model="UploadDocs.List" ng-change="filechange()">
+                                                <option value="">--Please Select--</option>
+                                                <option value="{{doc.DocTypeID}}" ng-repeat="doc in Doclist">{{doc.DocName}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-primary form-control text-white" ng-click="showFileinput()" type="button">Submit Documents</button>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2" style="display:none" id="uploadbtn">
+                                        <div class="col-sm-6">
+                                            <div class="upload-btn-wrapper">
+                                                @*<button class="btnupload">Upload a file</button>*@
+                                                <input id="docFile" type="file" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 mt-2 text-right">
+                                            <input id="btnDocs" type="submit" class="btn btn-success" value="Save" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-sm-12 pt-2">
+                    <div class="row">
+                        <div class="col-sm-6 text-left">
+                            <a href="/Member/AcceptanceCriteria" type="button" class="btn btn-success ">Previous</a>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <a href="/Member/DocumentList" type="button" class="btn btn-success ">Next</a>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+
